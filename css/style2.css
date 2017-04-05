@@ -1,0 +1,195 @@
+body {
+    font: 14px/22px 'Quattrocento Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #666;
+    background: #eae6d1;
+    width:100%;
+}
+
+header {
+    padding: 25px 20px 40px 20px;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    background: #4276b6;
+    box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.75);
+    z-index: 99;
+    min-height: 76px;
+}
+
+#banner{
+    z-index: 100;
+    left: 5%;
+    right: 5%;
+    height: 50px;
+    margin-left: 20px;
+    margin-right: -20px;
+    position: fixed;
+    top: 115px;
+    background: rgb(240, 181, 0);
+    border: rgb(240, 195, 2);
+    border-radius: 5px;
+
+}
+
+#logo{
+    background-image: url(../images/octocat-logo.png);
+    margin: 7px;
+    height: 36px;
+    width: 36px;
+    float: right;
+}
+
+a.button{
+    border: 1px;
+    border-radius: 3px;
+    border-color: #dba500;
+    background-color: #ffe788;
+    margin: 6px;
+    color: #333333;
+    text-align: center;
+    height: 14px;
+    padding: 7px;
+    display: inline-table;
+    position: fixed;
+}
+
+
+.wrapper{
+    left: -12%;
+    margin-left: 113px;
+    right: 9%;
+    margin-right: -20px;
+    top: 85px;
+    margin-top: 136px;
+    position: fixed;
+    background: rgba(255, 237, 237, 1);
+    height: 67%;
+    overflow-y: scroll;
+}
+
+#principale.abbassa{
+    left: -12%;
+    margin-left: 113px;
+    right: 9%;
+    margin-right: -20px;
+    top: 220px;;
+    margin-top: 136px;
+    position: fixed;
+    background: rgba(255, 237, 237, 1);
+    height: 37%;
+    overflow-y: scroll;
+
+}
+
+.subsection{
+    border: 0px;
+    padding-bottom: 20px;
+    background-image: url("../images/hr.gif");
+    background-repeat: repeat-x;
+    background-position: bottom;
+
+}
+.subsection.none{
+    background-image: none;
+}
+
+
+#myverycoolbutton{
+    top: 30%;
+    position: fixed;
+    left: 11%;
+    height: 40px;
+    width: 86%;
+    background-image: url(../images/icon_list.png);
+    background-position-x: 5px;
+    background-position-y: 3px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-color: rgba(0,0,0,0);
+    border-color: rgb(0, 0, 0);
+}
+
+#myverycoolbutton.bottone{
+    height: 177px;
+}
+
+nav{
+    top: 29%;
+    left: 20%;
+    position: fixed;
+    text-align: justify;
+    display: none;
+}
+
+nav.menu{
+ display: block;
+}
+
+nav ul {
+    font-size: 14px;
+    line-height: 24px;
+    list-style-type: none;
+}
+
+nav ul li{
+    text-align: left;
+    padding-left: 9px;
+}
+
+nav ul a{
+    color: #666666;
+}
+
+nav ul a:hover{
+    color: #999999;
+}
+
+section{
+    padding-left: 50px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #393939;
+}
+
+h3, h4, h5, h6 {
+    color: #666666;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+
+th {
+    text-align: left;
+    padding: 5px 10px;
+    border-bottom: 1px solid #e5e5e5;
+    color: #444;
+}
+
+td {
+    text-align: left;
+    padding: 5px 10px;
+    border-bottom: 1px solid #e5e5e5;
+    border-right: 1px solid #ffcc00;
+}
+
+a
+{
+    text-decoration: none;
+    color: #3399cc;
+}
