@@ -5,10 +5,12 @@ body {
     width:100%;
 }
 
-.HeaderUniversi{
+
+.HeaderUniversi {
     position: absolute;
     top: 149px;
-    width: 54%;
+    width: 100%;
+    left: 5%;
 }
 
 
@@ -54,7 +56,56 @@ body {
     float: right;
 }
 
-.Espandi{}
+#infoUniverso{
+    color: white;
+    position: fixed;
+    top: 246px;
+    width: 100%;
+    font-size: xx-large;
+    margin: 0 auto;
+    left: 39.5%;
+}
+
+#Info{   float: left;
+    height: 28px;
+    background-color: #731c71;
+    padding-left: 14px;
+    padding-top: 14px;
+    padding-right: 14px;
+    padding-bottom: 7px;}
+#Storie{      float: left;
+    height: 28px;
+    background-color: #731c71;
+    padding-left: 14px;
+    padding-top: 14px;
+    padding-right: 14px;
+    padding-bottom: 7px;
+    margin: 0 2px;}
+#Mappa{  float: left;
+    height: 28px;
+    background-color: #731c71;
+    padding-left: 14px;
+    padding-top: 14px;
+    padding-right: 14px;
+    padding-bottom: 7px;}
+
+
+
+.Espandi{
+height: 50px;
+width: 100px;
+font-size: x-large;
+background-color: red;
+border-color: rgba(0, 0, 0, 0.41);
+transition-duration: 0.4s;
+margin-left: 409px;
+margin-right: 400px;
+}
+
+.Espandi:hover{
+    background-color: rgba(255, 0, 3, 0.56);
+    border-color: rgba(0, 0, 0, 0.41);
+}
 
 h2,p {
     font-size: 28px;
