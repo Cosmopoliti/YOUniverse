@@ -9,7 +9,7 @@ body {
 .HeaderUniversi {
     position: absolute;
     top: 149px;
-    width: 100%;
+    width: 95%;
     left: 5%;
 }
 
@@ -21,7 +21,7 @@ body {
     top: 298px;
     position: fixed;
     background: rgb(115, 28, 113);
-    height: 48%;
+    height: 50%;
     overflow-y: scroll;
 }
 
@@ -73,6 +73,9 @@ body {
     padding-top: 14px;
     padding-right: 14px;
     padding-bottom: 7px;}
+#Info:active{
+    background-color: #9726c8;;
+}
 #Storie{      float: left;
     height: 28px;
     background-color: #731c71;
@@ -81,6 +84,9 @@ body {
     padding-right: 14px;
     padding-bottom: 7px;
     margin: 0 2px;}
+#Storie:active{
+    background-color: #9726c8;;
+}
 #Mappa{  float: left;
     height: 28px;
     background-color: #731c71;
@@ -88,7 +94,9 @@ body {
     padding-top: 14px;
     padding-right: 14px;
     padding-bottom: 7px;}
-
+#Mappa:active{
+    background-color: #9726c8;;
+}
 
 
 .Espandi{
@@ -105,6 +113,10 @@ margin-right: 400px;
 .Espandi:hover{
     background-color: rgba(255, 0, 3, 0.56);
     border-color: rgba(0, 0, 0, 0.41);
+}
+
+.Espandi:active {
+    background-color: #ffcc00;
 }
 
 h2,p {
