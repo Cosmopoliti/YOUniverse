@@ -16,8 +16,8 @@ body {
     color: rgb(0, 0, 0);
     height: 34px;
     width: 96px;
+    background-color: rgb(151, 38, 200);
     border-radius: 6px;
-    background: #B23098;
     border: 2px solid rgba(131, 34, 135, 0.75);
     font-size: large;
     -webkit-transition-duration: 0.4s;
@@ -74,10 +74,10 @@ header {
     left: 0;
     right: 0;
     width: 100%;
-    background: #F2F2F2;
     height: 40px;
     position: fixed;
     top: 100px;
+    background: rgb(240, 181, 0);
     border: rgb(240, 195, 2);
 }
 
@@ -114,7 +114,7 @@ a.button{
     background: rgb(115, 28, 113);
     height: 56%;
     overflow-y: scroll;
-
+    overflow-x: hidden;
 }
 
 .subsection{
@@ -148,6 +148,7 @@ nav ul {
 
 nav ul li{
     text-align: right;
+
 }
 
 nav ul a{
@@ -205,3 +206,39 @@ a
     text-decoration: none;
     color: #3399cc;
 }
+
+
+
+.informazioni{
+    color: #000000;
+    font-size: -webkit-xxx-large;
+    margin-top: -30px;
+}
+
+.informazioni li{
+    margin-bottom: 36px;
+}
+
+.interessi{
+    color: #000000;
+    font-size: -webkit-xxx-large;
+    margin-top: -30px;
+}
+
+.interessi li{
+    margin-bottom: 68px;
+}
+
+
+.con img{
+    border-radius: 71px;
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin: 5px;
+}
+
+
+
+
+
