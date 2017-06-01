@@ -205,3 +205,21 @@ a
     text-decoration: none;
     color: #3399cc;
 }
+
+.informazioni li {
+    font-size: x-large;
+    margin-bottom: 5%;
+}
+
+.interessi li {
+    font-size: x-large;
+    margin-bottom: 9%;
+}
+
+.con img {
+    border-radius: 71px;
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin: 5px;
+}
