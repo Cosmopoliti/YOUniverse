@@ -16,8 +16,8 @@ body {
     color: rgb(0, 0, 0);
     height: 34px;
     width: 96px;
-    background-color: rgb(151, 38, 200);
     border-radius: 6px;
+    background: #B23098;
     border: 2px solid rgba(131, 34, 135, 0.75);
     font-size: large;
     -webkit-transition-duration: 0.4s;
@@ -74,10 +74,10 @@ header {
     left: 0;
     right: 0;
     width: 100%;
+    background: #F2F2F2;
     height: 40px;
     position: fixed;
     top: 100px;
-    background: rgb(240, 181, 0);
     border: rgb(240, 195, 2);
 }
 
