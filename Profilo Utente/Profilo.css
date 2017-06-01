@@ -3,6 +3,7 @@ body {
     color: #000000;
     background: #000000;
     width:100%;
+    overflow-x: hidden;
 }
 
 .pannelli{
@@ -35,7 +36,8 @@ body {
 .HeaderUtente{
     position: absolute;
     top: 149px;
-    width: 54%;
+    width: 100%;
+    display: inline-flex;
 }
 
 .foto, .nomeUtente{
@@ -44,9 +46,7 @@ body {
     border-radius: 71px;
     width: 130px;
     height: 130px;
-    margin-left: 30px;
-    margin-top: 11px;
-    float: left;
+    margin-left: 5%;
 }
 .Seguiti,.Seguitori{
     color: white;
@@ -114,7 +114,7 @@ a.button{
     background: rgb(115, 28, 113);
     height: 56%;
     overflow-y: scroll;
-
+    overflow-x: hidden;
 }
 
 .subsection{
@@ -213,7 +213,7 @@ a
 
 .interessi li {
     font-size: x-large;
-    margin-bottom: 9%;
+    margin-bottom: 5%;
 }
 
 .con img {
@@ -222,4 +222,36 @@ a
     height: 70px;
     float: left;
     margin: 5px;
+}
+
+.progress-bar {
+    background-color: #1a1a1a;
+    height: 15px;
+    padding: 5px;
+    width: 22%;
+    border-radius: 5px;
+    margin-left: 1%;
+    box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+}
+
+.progress-bar span {
+    display: inline-block;
+    height: 16px;
+    width: 25%;
+
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+
+    background: rgb(1,182,178);
+    background: linear-gradient(bottom, rgb(1,182,178) 39%, rgb(27,219,214) 70%, rgb(54,255,255) 85%);
+    background: -o-linear-gradient(bottom, rgb(1,182,178) 39%, rgb(27,219,214) 70%, rgb(54,255,255) 85%);
+    background: -moz-linear-gradient(bottom, rgb(1,182,178) 39%, rgb(27,219,214) 70%, rgb(54,255,255) 85%);
+    background: -webkit-linear-gradient(bottom, rgb(1,182,178) 39%, rgb(27,219,214) 70%, rgb(54,255,255) 85%);
+    background: -ms-linear-gradient(bottom, rgb(1,182,178) 39%, rgb(27,219,214) 70%, rgb(54,255,255) 85%);
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0.39, rgb(1,182,178)), color-stop(0.7, rgb(27,219,214)), color-stop(0.85, rgb(54,255,255)));
 }
