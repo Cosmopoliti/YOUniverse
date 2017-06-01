@@ -8,7 +8,7 @@ body {
 .pannelli{
     height: 45px;
     width: 70%;
-    background-color: #B23098;
+    background-color: rgb(151, 38, 200);
     border: 2px solid rgba(131, 34, 135, 0.75)
 }
 
@@ -16,19 +16,15 @@ body {
     color: rgb(0, 0, 0);
     height: 34px;
     width: 96px;
+    border-radius: 6px;
+    background: #B23098;
+    border: 2px solid rgba(131, 34, 135, 0.75);
     font-size: large;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     margin: 3%;
     margin-top: 3px;
     float: left;
-
-}
-
-.Bottone:hover{
-    border-radius: 6px;
-    background: #B23098;
-    border: 2px solid rgba(131, 34, 135, 0.75);
 }
 
 .Profilo{
@@ -67,7 +63,7 @@ header {
     right: 0;
     width: 100%;
     text-align: center;
-    background: #365FD1;
+    background: #731c71;
     box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.75);
     z-index: 99;
     min-height: 76px;
@@ -97,7 +93,7 @@ a.button{
     border: 1px;
     border-radius: 3px;
     border-color: #dba500;
-    background-color: #FFF377;
+    background-color: #ffe788;
     margin: 6px;
     color: #333333;
     text-align: center;
@@ -115,7 +111,7 @@ a.button{
     margin-right: -20px;
     top: 258px;
     position: fixed;
-    background: #f2f2f2;
+    background: rgb(115, 28, 113);
     height: 56%;
     overflow-y: scroll;
 
@@ -201,7 +197,7 @@ td {
     text-align: left;
     padding: 5px 10px;
     border-bottom: 1px solid #e5e5e5;
-    border-right: 1px solid #FFF377;
+    border-right: 1px solid #ffcc00;
 }
 
 a
