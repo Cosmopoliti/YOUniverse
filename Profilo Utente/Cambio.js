@@ -1,7 +1,7 @@
 /**
  * Created by Mattia on 31/05/2017.
  */
-var imgd=
+
 
 angular.module("myProfilo", ['ngRoute'])
 .config(['$routeProvider', function ($routeProvider) {
