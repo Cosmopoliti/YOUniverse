@@ -7,10 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Profilo Utente</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+
+
     <link rel="stylesheet" href="../Profilo%20Utente/Profilo.css"/>
 
+
+
+    <script src="../lib/angular/angular.js"></script>
+    <script src="../lib/angular/angular-route.js"></script>
+    <script src="Cambio.js"></script>
+
+
+
 </head>
-<body>
+<body ng-app="myProfilo">
 
 <header>
     <h1>YOUniverse</h1>
@@ -31,58 +42,63 @@
 
 
 <div class="HeaderUtente">
-    <div style="float: left;">
+    <div style="display: inline-flex;">
         <img class="foto" src="../stiven.png">
-        <p class="nomeUtente" style="width: 150px;margin-top: 46px;">Stiven Re</p>
+        <p class="nomeUtente" style="width: 100%;">Stiven Re</p>
     </div>
-    <div style="float: right;display: flex;margin-right: -80%;">
-        <p class="Seguiti" style="height: 31px;width: 150px;margin-top: 46px;display: inline;">Follow: 1</p>
-        <p class="Seguitori" style="height: 40px;width: 150px;margin-top: 46px;">Follower: 2000</p>
+    <div style="margin-left: 40%;display: inline-flex;">
+        <p class="Seguiti" style="width: 100%;margin-top: 46px;">Follow: 1</p>
+        <p class="Seguitori" style="width: 100%;margin-top: 46px;display: inline-table;">Follower: 2000</p>
     </div>
 </div>
 
 
+
 <div id="principale" class="wrapper" style="padding-top: 38px;">
-    <nav id="menu">
+    <nav>
 
         <ul>
             <li class="tag-h2 active">
                 <button class="pannelli">
-                <a href="#nome-del-progetto-e-repository-github">Informazioni</a>
+                <a href="indexProfilo.html#!/Informazioni">Informazioni</a>
                 </button>
             </li>
             <li class="tag-h2">
                 <button class="pannelli">
-                <a href="#membri-del-team">Interessi</a>
+                <a href="indexProfilo.html#!/Interessi">Interessi</a>
                 </button>
             </li>
             <li class="tag-h2">
                 <button class="pannelli">
-                <a href="#presentazione-concept">Diario</a>
+                <a href="indexProfilo.html#!/Diario">Diario</a>
                 </button>
             </li>
             <li class="tag-h2">
                 <button class="pannelli">
-                <a href="#funzionalita-e-architettura">Libreria Universi</a>
+                <a href="indexProfilo.html#!/Libreria">Libreria Universi</a>
                 </button>
             </li>
             <li class="tag-h2">
                 <button class="pannelli">
-                <a href="#mockup">Storie</a>
+                <a href="indexProfilo.html#!/Storie">Storie</a>
                 </button>
             </li>
             <li class="tag-h2">
                 <button class="pannelli">
-                <a href="#video">Palmares</a>
+                <a href="indexProfilo.html#!/Palmares">Palmares</a>
                 </button>
             </li>
 
         </ul>
 
     </nav>
-    <section style="height: auto;">
+    <section style="height: auto;" >
+        <div ng-view>
 
 
+
+
+        </div>
     </section>
 </div>
 
