@@ -1,7 +1,7 @@
 /**
  * Created by Mattia on 31/05/2017.
  */
-
+var imgd=
 
 angular.module("myProfilo", ['ngRoute'])
 .config(['$routeProvider', function ($routeProvider) {
@@ -22,7 +22,7 @@ angular.module("myProfilo", ['ngRoute'])
             templateUrl: 'sub-views/storie.html'
         })
         .when('/Palmares', {
-            templateUrl: 'palmares.html'
+            templateUrl: 'sub-views/palmares.html'
         })
-        .otherwise({redirectTo: '/Informazioni'});
+        .otherwise({redirectTo: 'sub-views/Informazioni'});
 }]);
