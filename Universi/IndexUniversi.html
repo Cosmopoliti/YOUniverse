@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+
+
+    <script src="../lib/angular/angular.js"></script>
+    <script src="../lib/angular/angular-route.js"></script>
+    <script src="CambioUniversi.js"></script>
+
+
 </head>
-<body>
+<body ng-app="myUniversi">
 
 <!doctype html>
 <html>
@@ -47,9 +55,9 @@
 <table id="infoUniverso">
 
     <tr>
-        <td id="Info">Info</td>
-        <td id="Storie" >Storie</td>
-        <td id="Mappa">Mappa</td>
+        <td id="Info"><a href="indexUniversi.html#!/Info"  style="color: black;text-decoration: none;">Info</a></td>
+        <td id="Storie"><a href="indexUniversi.html#!/Storie"  style="color: black;text-decoration: none;">Storie</a></td>
+        <td id="Mappa"><a href="indexUniversi.html#!/Mappa"  style="color: black;text-decoration: none;">Mappa</a></td>
     </tr>
 
 </table>
@@ -60,8 +68,9 @@
 
 
     <section style="height: auto;">
+     <div ng-view>
 
-
+     </div>
     </section>
 
 
