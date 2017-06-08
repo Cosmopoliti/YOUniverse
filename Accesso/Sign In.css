@@ -1,5 +1,5 @@
 html {
-    background: url(../YOUniverse_pen2.png) no-repeat center fixed;
+    background: url(../YOUniverse_pen2.jpg) no-repeat center fixed;
     background-size: cover;
 }
 
@@ -60,10 +60,17 @@ h1{
 
 
 input {
-    line-height: 3px;
     margin: 5px;
     color: black;
     font-style: oblique;
+}
+
+#male {
+    margin-left: 30px;
+}
+
+#female {
+    margin-left: 30px;
 }
 
 .Us{
