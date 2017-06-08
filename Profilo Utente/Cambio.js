@@ -24,5 +24,5 @@ angular.module("myProfilo", ['ngRoute'])
         .when('/Palmares', {
             templateUrl: 'sub-views/palmares.html'
         })
-        .otherwise({redirectTo: 'sub-views/Informazioni'});
+        .otherwise({redirectTo: '/Informazioni'});
 }]);
