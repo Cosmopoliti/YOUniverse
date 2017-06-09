@@ -1,6 +1,8 @@
 /**
  * Created by Mattia on 08/06/2017.
  */
+'use strict';
+
 var config = {
     apiKey: "AIzaSyBlnyRiiZc_qkLCBaisVzCRM_dy7IUSwI4",
     authDomain: "youniverse-41b12.firebaseapp.com",
@@ -9,11 +11,14 @@ var config = {
     storageBucket: "youniverse-41b12.appspot.com",
     messagingSenderId: "898353654323"
 };
-firebase.initializeApp(config);
 
-angular.module('myApp', [
-    "firebase",
+
+angular.module("myApp", [
     'ngRoute',
-    'myProfilo',
-    'myUniversi'
+    'myApp.appSignIn'
 ])
+    .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+    $locationProvider.hashPrefix('!');
+        $routeProvider.otherwise({redirectTo: '/SignIn'});
+}]);
+

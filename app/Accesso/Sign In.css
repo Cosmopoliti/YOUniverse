@@ -4,7 +4,7 @@ html {
 }
 
 p{
-    color: white;
+    color: black;
     margin: 0px;
 }
 h1{
@@ -15,8 +15,6 @@ h1{
 }
 .navbar-fixed-top {
     margin-right: 64px;
-    left: 85%;
-    top: 20px;
     position: fixed;
     z-index: 1;
 }
@@ -31,7 +29,7 @@ h1{
     font-size: large;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-    margin: 2%;
+    margin-bottom: 2%;
 }
 
 .Bottone:hover{
@@ -66,16 +64,16 @@ input {
     font-style: oblique;
 }
 
-.Us{
+#txtUserName{
     margin-left: 70px;
 }
-.Em{
+#txtEmail{
     margin-left: 100px;
 }
-.Ps{
+#txtPass{
     margin-left: 73px;
 }
-.Cf{
+#txtPass2{
     margin-left: 4px;
 }
 
