@@ -1,11 +1,8 @@
 html {
-    background: url(../YOUniverse_pen2.jpg) no-repeat center fixed;
+    background: url(../../YOUniverse_pen2.jpg) no-repeat center fixed;
     background-size: cover;
 }
 
-body{
-rgba(0, 0, 0, 0.15);
-}
 
 p{
     color: black;
