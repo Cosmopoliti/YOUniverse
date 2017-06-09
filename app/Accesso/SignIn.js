@@ -8,7 +8,6 @@ window.onload = function(e) {
 // Get the <span> element that closes the modal
     var btn2 = document.getElementById("close");
 
-    console.log("Sto cazzo");
 
 // When the user clicks on the button, open the modal
     btn.onclick = function () {

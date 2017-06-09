@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Accesso</title>
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="informazioni">
+            <p class="interno">Date of Birth:  <input class="DN" type="text" name="DataNascita" value=" gg/mm/aaaa"></p> <br>
+            <p class="interno">Gender:   <input type="radio" name="gender" value="male"> Male <input type="radio" name="gender" value="female"> Female<br>
+        </div>
+
+        <div class="bottoniModal">
+        <button class="Bottone">Sign In</button>
+        <button  id="close" class="Bottone">Annul</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<header class="navbar navbar-fixed-top" style="left: 85%;top: 2%;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="Bottone">Log In</button>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="contenitore">
+    <form id="frmRegister" role="form" ng-submit="signUp()">
+
+<div class="signIn">
+   <h1>Sign In</h1>
+
+    <div class="informazioni">
+        <p>Username:         <input id="txtUserName"  type="text" placeholder="Enter Username" name="Username"  value=" Insert a Username" required=""></p> <br>
+        <p>E-Mail:          <input id="txtEmail"  type="email" placeholder="Enter email"  name="Email" value=" Insert your E-Mail address" required="" autofocus=""></p> <br>
+        <p>Password:       <input id="txtPass"  type="password" placeholder="Password" name="Pass" value=" Create a password" required=""></p> <br>
+        <p>Confirm Password: <input id="txtPass2"  type="password"  placeholder="Confirm password" name="Confirm" value=" Insert the password" required=""></p> <br>
+    </div>
+
+    <button type="submit" id="myBtn" class="Bottone center-block">Sign In</button>
+    <p>Are you already inside? <a href="SignIn.html">Log In</a></p>
+</div>
+    </form>
+
+</div>
+
+</body>
+</html>
