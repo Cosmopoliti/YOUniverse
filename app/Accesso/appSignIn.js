@@ -12,6 +12,11 @@ angular.module("myApp.appSignIn", ['ngRoute', 'firebase'])
     }])
 
     // Home controller
-    .controller('SignCtrl', [function() {
+    .controller('SignCtrl', ['$scope', function($scope) {
+        $scope.SignIn = function() {
+            var username = $scope.user.email;
+            var password = $scope.user.password;
 
+            // Auth Logic will be here
+        }
     }]);
