@@ -10,7 +10,7 @@ body {
     height: 45px;
     width: 70%;
     background-color: #34A2F6;
-    border: 1px solid #0000000;
+    border: 1px solid #000000;
 }
 
 .Bottone{
@@ -58,7 +58,7 @@ body {
 }
 
 
-header {
+header.m {
     padding: 25px 20px 40px 20px;
     margin: 0;
     position: fixed;
@@ -86,7 +86,7 @@ header {
 }
 
 #logo{
-    background-image: url(../YOUniverse_pen2.png);
+    background-image: url(../../YOUniverse_pen2.jpg);
     margin: 7px;
     height: 36px;
     width: 36px;
@@ -116,21 +116,9 @@ a.button{
     top: 258px;
     position: fixed;
     background: #F4C430;
-    height: 56%;
+    height: 61%;
     overflow-y: scroll;
     overflow-x: hidden;
-}
-
-.subsection{
-    border: 0px;
-    padding-bottom: 20px;
-    background-image: url("../images/hr.gif");
-    background-repeat: repeat-x;
-    background-position: bottom;
-
-}
-.subsection.none{
-    background-image: none;
 }
 
 
