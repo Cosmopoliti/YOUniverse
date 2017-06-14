@@ -18,7 +18,6 @@ angular.module("myApp", [
     'myApp.appSignIn',
     'myApp.Profilo',
     'myApp.authentication',
-    'myApp.sottoviste',
     'myApp.userRegistrationView',
     'myApp.users'
 ])

@@ -38,4 +38,12 @@ angular.module("myApp.Profilo", ['ngRoute'])
             templateUrl: 'ProfiloUtente/sub-views/palmares.html'
         })
         .otherwise({redirectTo: '/Informazioni'});*/
-}]);
+}])
+    .controller("ProfiloCtrl", ['$scope', '$rootScope', '$firebaseAuth', function($scope, $rootScope, $firebaseAuth) {
+        $scope.currentPosition = 1;
+        $scope.changeView = function (id)
+        {
+
+            $scope.currentPosition = id;
+        }
+    }]);
