@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b2d3f09-6938-4182-8be0-9c929fa2dfc2" name="Default" comment="errori che non hanno motivo di esistere">
+    <list default="true" id="0b2d3f09-6938-4182-8be0-9c929fa2dfc2" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Accesso/userRegistration.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/users/user-chat-service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/users/users-list-service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/users/users-service.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/components/users/users.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Accesso/SignIn.html" afterPath="$PROJECT_DIR$/app/Accesso/SignIn.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Accesso/appSignIn.js" afterPath="$PROJECT_DIR$/app/Accesso/appSignIn.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/ProfiloUtente/Cambio.js" afterPath="$PROJECT_DIR$/app/ProfiloUtente/Cambio.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/ProfiloUtente/indexProfilo.html" afterPath="$PROJECT_DIR$/app/ProfiloUtente/indexProfilo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/ProfiloUtente/sub-views/subViews.js" afterPath="$PROJECT_DIR$/app/ProfiloUtente/sub-views/subViews.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.js" afterPath="$PROJECT_DIR$/app/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,45 +29,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Cambio.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/ProfiloUtente/Cambio.js">
+      <file leaf-file-name="userRegistration.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Accesso/userRegistration.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="indexProfilo.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/ProfiloUtente/indexProfilo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-799">
-              <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="subViews.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/ProfiloUtente/sub-views/subViews.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#43#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+            <state relative-caret-position="204">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="e#0#43#0" expanded="false" />
               </folding>
@@ -66,8 +44,8 @@
       <file leaf-file-name="SignIn.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Accesso/SignIn.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="75" column="40" lean-forward="false" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
+            <state relative-caret-position="187">
+              <caret line="74" column="138" lean-forward="false" selection-start-line="74" selection-start-column="138" selection-end-line="74" selection-end-column="138" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#p#0;n#div#0;n#form#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
@@ -77,12 +55,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignIn.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Accesso/SignIn.js">
+      <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/users/users.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="51" lean-forward="false" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+              <caret line="3" column="27" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="27" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users-list-service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/users/users-list-service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#43#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,8 +90,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="85">
+              <caret line="32" column="79" lean-forward="false" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -130,18 +130,20 @@
         <option value="$PROJECT_DIR$/app/LoginView/Login.html" />
         <option value="$PROJECT_DIR$/app/Profilo Utente/Cambio.js" />
         <option value="$PROJECT_DIR$/app/Profilo Utente/indexProfilo.html" />
-        <option value="$PROJECT_DIR$/app/Accesso/appSignIn.js" />
         <option value="$PROJECT_DIR$/app/ProfiloUtente/sottoviste.js" />
         <option value="$PROJECT_DIR$/app/ProfiloUtente/Profilo.css" />
         <option value="$PROJECT_DIR$/app/Accesso/Sign In.css" />
-        <option value="$PROJECT_DIR$/app/Accesso/SignIn.html" />
         <option value="$PROJECT_DIR$/app/ProfiloUtente/sub-views/diario.html" />
+        <option value="$PROJECT_DIR$/app/Accesso/SignIn.js" />
+        <option value="$PROJECT_DIR$/app/ProfiloUtente/indexProfilo.html" />
+        <option value="$PROJECT_DIR$/app/Accesso/appSignIn.js" />
+        <option value="$PROJECT_DIR$/app/ProfiloUtente/sub-views/subViews.js" />
+        <option value="$PROJECT_DIR$/app/ProfiloUtente/Cambio.js" />
+        <option value="$PROJECT_DIR$/app/components/users/users-service.js" />
+        <option value="$PROJECT_DIR$/app/Accesso/SignIn.html" />
         <option value="$PROJECT_DIR$/app/app.js" />
         <option value="$PROJECT_DIR$/app/index.html" />
-        <option value="$PROJECT_DIR$/app/ProfiloUtente/Cambio.js" />
-        <option value="$PROJECT_DIR$/app/ProfiloUtente/sub-views/subViews.js" />
-        <option value="$PROJECT_DIR$/app/ProfiloUtente/indexProfilo.html" />
-        <option value="$PROJECT_DIR$/app/Accesso/SignIn.js" />
+        <option value="$PROJECT_DIR$/app/Accesso/userRegistration.js" />
       </list>
     </option>
   </component>
@@ -232,6 +234,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Universi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YOUniverse-code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YOUniverse-code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="ProfiloUtente" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -255,6 +275,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sub-views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YOUniverse-code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YOUniverse-code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="users" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -412,7 +454,7 @@
       <workItem from="1496923048300" duration="12000" />
       <workItem from="1496923398129" duration="851000" />
       <workItem from="1497012779031" duration="262000" />
-      <workItem from="1497388225305" duration="6287000" />
+      <workItem from="1497388225305" duration="10993000" />
     </task>
     <task id="LOCAL-00001" summary="some change">
       <created>1496929928145</created>
@@ -470,11 +512,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497433301028</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="problema sottoviste">
+      <created>1497434943763</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1497434943763</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42522000" />
+    <option name="totallyTimeSpent" value="47228000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
@@ -507,9 +556,9 @@
     <MESSAGE value="some change" />
     <MESSAGE value="Funzione di Log In attivata" />
     <MESSAGE value="Piccole modifiche del Sign In" />
-    <MESSAGE value="problema sottoviste" />
     <MESSAGE value="errori che non hanno motivo di esistere" />
-    <option name="LAST_COMMIT_MESSAGE" value="errori che non hanno motivo di esistere" />
+    <MESSAGE value="problema sottoviste" />
+    <option name="LAST_COMMIT_MESSAGE" value="problema sottoviste" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -517,11 +566,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Profilo Utente/sub-views/diario.html" />
-    <entry file="file://$PROJECT_DIR$/Accesso/Sign In.css" />
-    <entry file="file://$PROJECT_DIR$/Accesso/SignIn.js" />
-    <entry file="file://$PROJECT_DIR$/Accesso/index.html" />
-    <entry file="file://$PROJECT_DIR$/Profilo Utente/sub-views/diario.html" />
     <entry file="file://$PROJECT_DIR$/Accesso/Sign In.css" />
     <entry file="file://$PROJECT_DIR$/Accesso/SignIn.js" />
     <entry file="file://$PROJECT_DIR$/Accesso/index.html" />
@@ -563,22 +607,6 @@
     <entry file="file://$PROJECT_DIR$/Accesso/index.html" />
     <entry file="file://$PROJECT_DIR$/app/Accesso/LogIn.html" />
     <entry file="file://$PROJECT_DIR$/app/LoginView/Login.html" />
-    <entry file="file://$PROJECT_DIR$/app/components/authentication/authentication-service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/authentication/authentication.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/ProfiloUtente/sottoviste.js" />
     <entry file="file://$PROJECT_DIR$/app/ProfiloUtente/Profilo.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -596,16 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Accesso/appSignIn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="14" column="132" lean-forward="true" selection-start-line="14" selection-start-column="132" selection-end-line="14" selection-end-column="132" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/ProfiloUtente/sub-views/informazioni.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -613,6 +631,14 @@
           <folding>
             <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Accesso/SignIn.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="51" lean-forward="false" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -626,20 +652,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.js">
+    <entry file="file://$PROJECT_DIR$/app/Universi/IndexUniversi.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        <state relative-caret-position="-561">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProfiloUtente/indexProfilo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="41" column="29" lean-forward="true" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
           <folding>
-            <element signature="e#0#43#0" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/authentication/authentication.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/authentication/authentication-service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/ProfiloUtente/sub-views/subViews.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        <state relative-caret-position="17">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
           </folding>
@@ -648,26 +698,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/ProfiloUtente/Cambio.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="40" />
+        <state relative-caret-position="51">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProfiloUtente/indexProfilo.html">
+    <entry file="file://$PROJECT_DIR$/app/Accesso/appSignIn.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-799">
-          <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+        <state relative-caret-position="136">
+          <caret line="10" column="47" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="10" selection-end-column="47" />
           <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="e#0#43#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/users/users-service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Accesso/SignIn.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="75" column="40" lean-forward="false" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
+        <state relative-caret-position="187">
+          <caret line="74" column="138" lean-forward="false" selection-start-line="74" selection-start-column="138" selection-end-line="74" selection-end-column="138" />
           <folding>
             <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#p#0;n#div#0;n#form#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
@@ -676,18 +734,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Accesso/SignIn.js">
+    <entry file="file://$PROJECT_DIR$/app/components/users/users-list-service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/users/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" column="51" lean-forward="false" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+          <caret line="3" column="27" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Accesso/userRegistration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="85">
+          <caret line="32" column="79" lean-forward="false" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>

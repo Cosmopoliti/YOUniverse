@@ -1,7 +1,7 @@
 /**
  * Created by Mattia on 31/05/2017.
  */
-
+'use strict';
 
 angular.module("myApp.Profilo", ['ngRoute'])
 .config(['$routeProvider', function ($routeProvider) {

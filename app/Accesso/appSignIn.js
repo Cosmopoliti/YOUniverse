@@ -1,6 +1,8 @@
 /**
  * Created by Mattia on 08/06/2017.
  */
+'use strict';
+
 angular.module("myApp.appSignIn", ['ngRoute', 'firebase'])
 
 // Declared route
