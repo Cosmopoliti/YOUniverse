@@ -1,85 +1,91 @@
 
-<body style="background-color: rgba(255, 255, 255, 0);" ng-controller="SignCtrl">
+<div ng-controller="SignCtrl">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
 
+        <!-- Modal content -->
+        <div class="modal-content">
 
+            <div class="informazioni">
+                <p class="interno">Date of Birth: <input class="DN" type="text" name="DataNascita" value=" gg/mm/aaaa">
+                </p> <br>
+                <p class="interno">Gender: <input type="radio" name="gender" value="male"> Male <input type="radio"
+                                                                                                       name="gender"
+                                                                                                       value="female">
+                    Female<br>
+            </div>
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
+            <div class="bottoniModal">
+                <button class="Bottone1">Sign In</button>
+                <button id="close" class="Bottone1">Cancel</button>
+            </div>
 
-    <!-- Modal content -->
-    <div class="modal-content">
-
-        <div class="informazioni">
-            <p class="interno">Date of Birth:  <input class="DN" type="text" name="DataNascita" value=" gg/mm/aaaa"></p> <br>
-            <p class="interno">Gender:   <input type="radio" name="gender" value="male"> Male <input type="radio" name="gender" value="female"> Female<br>
-        </div>
-
-        <div class="bottoniModal">
-        <button  class="Bottone1">Sign In</button>
-        <button  id="close" class="Bottone1">Cancel</button>
         </div>
 
     </div>
 
-</div>
+    <div id="modalLog" class="modal">
 
-<div id="modalLog" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Login failed! {{ error.message
+                }}
+            </div>
+            <form id="frmLogin" role="form" ng-submit="signIn()">
 
-    <!-- Modal content -->
-    <div class="modal-content">
-        <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Login failed! {{ error.message }}</div>
-        <form id="frmLogin" role="form" ng-submit="signIn()">
+                <div class="informazioni">
 
-        <div class="informazioni">
+                    <p class="interno">E-Mail: <input ng-model="user.email" id="txtEmail2" type="email"
+                                                      placeholder="Enter email" name="Email" required="" autofocus=""
+                                                      style="margin-left: 28px;"></p> <br>
+                    <p class="interno">Password: <input ng-model="user.password" id="txtPass3" type="password"
+                                                        placeholder="Password" name="Pass" required=""></p><br>
 
-            <p class="interno">E-Mail:  <input ng-model="user.email" id="txtEmail2" type="email" placeholder="Enter email" name="Email" required="" autofocus="" style="margin-left: 28px;"></p> <br>
-            <p class="interno">Password:   <input ng-model="user.password" id="txtPass3"  type="password" placeholder="Password" name="Pass" required=""></p><br>
+                </div>
 
+                <div class="bottoniModal">
+                    <button class="Bottone1">Log In</button>
+                    <button id="close2" class="Bottone1">Cancel</button>
+                </div>
+            </form>
         </div>
 
-        <div class="bottoniModal">
-            <button class="Bottone1">Log In</button>
-            <button  id="close2" class="Bottone1">Cancel</button>
+    </div>
+
+
+    <header class="navbar-fixed-top" style="left: 85%;top: 2%;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button id="Log" class="Bottone1">Log In</button>
+            </div>
         </div>
+    </header>
+
+
+    <div class="contenitore">
+
+        <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Login failed! {{ error.message }}
+        </div>
+
+        <form id="frmRegister" role="form" ng-submit="signUp()">
+            <div class="signIn">
+                <h1 id="signin">Sign In</h1>
+
+                <div class="informazioni">
+                    <p>Username: <input id="txtUserName" type="text" placeholder="Enter Username" name="Username"
+                                        ng-model="user.name"></p> <br>
+                    <p>E-Mail: <input id="txtEmail" type="email" placeholder="Enter email" name="Email"
+                                      ng-model="user.email"></p> <br>
+                    <p>Password: <input id="txtPass" type="password" placeholder="Password" name="Pass"
+                                        ng-model="user.password"></p> <br>
+                    <p>Confirm Password: <input id="txtPass2" type="password" placeholder="Confirm password"
+                                                name="Confirm" ng-model="user.password2"></p> <br>
+                </div>
+
+                <button type="submit" id="Iscrizione" class="Bottone1 center-block">Sign In</button>
+                <p>Are you already inside? <a href="">Log In</a></p>
+            </div>
         </form>
+
     </div>
-
 </div>
-
-
-
-
-
-<header class="navbar-fixed-top" style="left: 85%;top: 2%;">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button id="Log" class="Bottone1">Log In</button>
-        </div>
-    </div>
-</header>
-
-
-
-<div class="contenitore">
-
-    <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Login failed! {{ error.message }}</div>
-
-    <form id="frmRegister" role="form" ng-submit="signUp()">
-<div class="signIn">
-   <h1 id="signin">Sign In</h1>
-
-    <div class="informazioni">
-        <p>Username:         <input id="txtUserName"  type="text" placeholder="Enter Username" name="Username" ng-model="user.name"></p> <br>
-        <p>E-Mail:          <input  id="txtEmail"  type="email" placeholder="Enter email"  name="Email" ng-model="user.email"></p> <br>
-        <p>Password:       <input  id="txtPass"  type="password" placeholder="Password" name="Pass" ng-model="user.password"></p> <br>
-        <p>Confirm Password: <input id="txtPass2"  type="password"  placeholder="Confirm password" name="Confirm" ng-model="user.password2"></p> <br>
-    </div>
-
-    <button type="submit" id="Iscrizione" class="Bottone1 center-block">Sign In</button>
-    <p>Are you already inside? <a href="">Log In</a></p>
-</div>
-    </form>
-
-</div>
-
-</body>
