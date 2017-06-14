@@ -19,8 +19,8 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         }
     })
-        .when('#!/ProfiloUtente/Informazioni', {
-            templateUrl: 'sub-views/informazioni.html'
+        .when('/Informazioni', {
+            templateUrl: '/sub-views/informazioni.html'
         })
         .when('/Interessi', {
             templateUrl: 'sub-views/interessi.html'

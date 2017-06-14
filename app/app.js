@@ -17,11 +17,13 @@ angular.module("myApp", [
     'ngRoute',
     'myApp.appSignIn',
     'myApp.Profilo',
-    'myApp.authentication'
+    'myApp.authentication',
+
+
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
-        $routeProvider.otherwise({redirectTo: '/SignIn'});
+        $routeProvider.otherwise({redirectTo: '/ProfiloUtente'});
 }])
     .run(["$rootScope", "$location", function($rootScope, $location) {
         $rootScope.$on("$routeChangeError", function(event, next, previous, error) {

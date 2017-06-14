@@ -15,18 +15,18 @@ window.onload = function(e) {
 // When the user clicks on the button, open the modal
     btn.onclick = function () {
         modal.style.display = "block";
-    }
+    };
     btn3.onclick = function () {
         modal2.style.display = "block";
-    }
+    };
 
-// When the user clicks on <span> (x), close the modal
+// When the user clicks on cancel, close the modal
     btn2.onclick = function () {
         modal.style.display = "none";
-    }
+    };
     btn4.onclick = function () {
         modal2.style.display = "none";
-    }
+    };
 
 /*When the user clicks anywhere outside of the modal, close it*/
     window.onclick = function (event) {
@@ -34,4 +34,4 @@ window.onload = function(e) {
             modal.style.display = "none";
         }
     }
-}
+};
