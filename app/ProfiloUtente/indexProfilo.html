@@ -1,0 +1,84 @@
+
+<body>
+
+<header class="m">
+    <h1>YOUniverse</h1>
+    <div id="banner">
+        <button class="Bottone">Home</button>
+        <button class="Bottone">Trend</button>
+        <button class="Bottone">News</button>
+        <button class="Bottone">Universes</button>
+        <span id="logo"></span>
+        <button class="Bottone Profilo">Profilo</button>
+
+    </div>
+
+</header>
+<!-- end banner -->
+
+
+
+
+<div class="HeaderUtente">
+    <div style="display: inline-flex;">
+        <img class="foto" src="../stiven.png">
+        <p class="nomeUtente" style="margin-top: 20%;width: 100%;display: inline-table;">Stiven Re</p>
+    </div>
+    <div style="margin-left: 40%;display: inline-flex;">
+        <p class="Seguiti" style="width: 100%;margin-top: 46px;">Follow: 1</p>
+        <p class="Seguitori" style="width: 100%;margin-top: 46px;display: inline-table;">Follower: 2000</p>
+    </div>
+</div>
+
+
+
+<div id="principale" class="wrapper" style="padding-top: 38px;">
+    <nav>
+
+        <ul>
+            <li class="tag-h2 active">
+                <a href=#!/Informazioni><button class="pannelli">
+                Informazioni
+                </button></a>
+            </li>
+            <li class="tag-h2">
+                <a href=#!/Interessi><button class="pannelli">
+               Interessi
+                </button></a>
+            </li>
+            <li class="tag-h2">
+                <a href=#!/Diario><button class="pannelli">
+                Diario
+                </button></a>
+            </li>
+            <li class="tag-h2">
+                <a href="#!/Libreria"><button class="pannelli">
+                Libreria Universi
+                </button></a>
+            </li>
+            <li class="tag-h2">
+                <a href="#!/Storie"><button class="pannelli">
+                Storie
+                </button></a>
+            </li>
+            <li class="tag-h2">
+                <a href="#!/Palmares"><button class="pannelli">
+                Palmares
+                </button></a>
+            </li>
+
+        </ul>
+
+    </nav>
+    <section style="height: auto;" >
+        <div ng-view>
+
+
+
+
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
