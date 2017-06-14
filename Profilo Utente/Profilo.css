@@ -36,6 +36,9 @@ body {
     float: right;
 }
 
+.dropdown-menu{
+    float: right;
+}
 
 .HeaderUtente{
     position: absolute;
