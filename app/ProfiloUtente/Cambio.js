@@ -19,23 +19,23 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         }
     })
-        .when('/Informazioni', {
-            templateUrl: '/sub-views/informazioni.html'
+        /*.when('/Informazioni', {
+            templateUrl: 'ProfiloUtente/sub-views/informazioni.html'
         })
         .when('/Interessi', {
-            templateUrl: 'sub-views/interessi.html'
+            templateUrl: 'ProfiloUtente/sub-views/interessi.html'
         })
         .when('/Diario', {
-            templateUrl: 'sub-views/diario.html'
+            templateUrl: 'ProfiloUtente/sub-views/diario.html'
         })
         .when('/Libreria', {
-            templateUrl: 'sub-views/libreria.html'
+            templateUrl: 'ProfiloUtente/sub-views/libreria.html'
         })
         .when('/Storie', {
-            templateUrl: 'sub-views/storie.html'
+            templateUrl: 'ProfiloUtente/sub-views/storie.html'
         })
         .when('/Palmares', {
-            templateUrl: 'sub-views/palmares.html'
+            templateUrl: 'ProfiloUtente/sub-views/palmares.html'
         })
-        .otherwise({redirectTo: '/Informazioni'});
+        .otherwise({redirectTo: '/Informazioni'});*/
 }]);

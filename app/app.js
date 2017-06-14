@@ -18,8 +18,7 @@ angular.module("myApp", [
     'myApp.appSignIn',
     'myApp.Profilo',
     'myApp.authentication',
-
-
+    'myApp.sottoviste'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');

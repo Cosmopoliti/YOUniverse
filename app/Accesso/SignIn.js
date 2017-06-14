@@ -1,7 +1,7 @@
 window.onload = function(e) {
 // Get the modal
-    var modal = document.getElementById('myModal');
-    var modal2 = document.getElementById('modalLog');
+    var modal = document.getElementById("myModal");
+    var modal2 = document.getElementById("modalLog");
 
 // Get the button that opens the modal
     var btn = document.getElementById("Iscrizione");
@@ -28,10 +28,5 @@ window.onload = function(e) {
         modal2.style.display = "none";
     };
 
-/*When the user clicks anywhere outside of the modal, close it*/
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+
 };
