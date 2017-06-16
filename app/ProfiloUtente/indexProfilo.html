@@ -9,17 +9,19 @@
         <button class="Bottone">News</button>
         <button class="Bottone">Universes</button>
         <span id="logo"></span>
-        <button class="Bottone Profilo" id="hormenu">
-            <ul> <!-- lista principale: definisce il menu nella sua interezza -->
-                <li>
-                    <a href="#">Profilo</a>
-                    <ul> <!-- Lista annidata: voci del sotto-menu -->
-                        <li><a href="#">Profilo</a></li>
-                        <li><a href="#" ng-click="logout();">Log Out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </button>
+        <button class="Bottone Profilo" type="button" data-toggle="dropdown"> Profilo
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu" style="position: relative;float: right;margin-right: -145px;">
+            <li class="dropdown-header">Funzionalità</li>
+            <li><a href="" on-click="event.preventDefault();" ng-click="changeView(1)">Informazioni</a></li>
+            <li><a href="" on-click="event.preventDefault();" ng-click="changeView(2);">Interessi</a></li>
+            <li><a href="" on-click="event.preventDefault();" ng-click="changeView(3);">Diario</a></li>
+            <li><a href="" on-click="event.preventDefault();" ng-click="changeView(4);">Libreria Universi</a></li>
+            <li><a href="" on-click="event.preventDefault();" ng-click="changeView(5);">Storie</a></li>
+            <li><a href="" on-click="event.preventDefault();" ng-click="changeView(6);">Palmares</a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click="logout();">Log Out</a></li>
+        </ul>
 
     </div>
 

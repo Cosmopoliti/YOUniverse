@@ -43,6 +43,12 @@ p{
     float: right;
 }
 
+.dropdown-header{
+}
+
+.divider{
+}
+
 .HeaderUtente{
     position: absolute;
     top: 149px;
