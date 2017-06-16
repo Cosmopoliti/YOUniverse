@@ -26,7 +26,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
         // $rootScope.dati.currentView = "ProfiloUtente";
-        //$scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+        $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
 
         $scope.currentPosition = 1;
         $scope.changeView = function (id)
