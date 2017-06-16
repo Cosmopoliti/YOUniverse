@@ -14,7 +14,7 @@ angular.module("myApp.appSignIn", ['ngRoute', 'firebase'])
     }])
 
     // Home controller
-    .controller('SignCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log', function($scope, $rootScope, Auth, $location, $log) {
+    .controller('SignCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log', 'Users', function($scope, $rootScope, Auth, $location, $log, Users) {
         $scope.user={};
         $scope.auth = Auth; //acquires authentication from app.js (if it was done)
 
@@ -23,7 +23,8 @@ angular.module("myApp.appSignIn", ['ngRoute', 'firebase'])
             $scope.firebaseUser = null;
             $scope.error = null;
             $scope.auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
-                // login successful: redirect to the pizza list
+                var userId = firebaseUser.uid;
+                Users.registerLogin(userId, $scope.user.email);
                 $location.path("/ProfiloUtente");
             }).catch(function(error) {
                 $scope.error = error;

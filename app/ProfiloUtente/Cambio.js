@@ -21,7 +21,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
     })
 
 }])
-    .controller("ProfiloCtrl", ['$scope', '$rootScope', '$firebaseAuth', 'currentAuth', '$location','Users', 'UsersChatService', function($scope, $rootScope, UsersChatService, $firebaseAuth, currentAuth, $location, Users) {
+    .controller("ProfiloCtrl", ['$scope', 'Users', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService', function($scope, Users, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService) {
 
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
