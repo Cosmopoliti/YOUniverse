@@ -205,9 +205,16 @@ a
     color: #3399cc;
 }
 
+.form-control{
+    display:initial;
+    width: 50%;
+    font-size: 20px;
+}
+
 .informazioni li {
     font-size: x-large;
     margin-bottom: 5%;
+    display: block;
 }
 
 .interessi li {

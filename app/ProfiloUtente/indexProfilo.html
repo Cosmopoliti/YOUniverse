@@ -34,7 +34,7 @@
 <div class="HeaderUtente">
     <div style="display: inline-flex;">
         <img class="foto" src="../stiven.png">
-        <p class="nomeUtente" style="margin-top: 20%;width: 100%;display: inline-table;">{{dati.user.name}}</p>
+        <p class="nomeUtente" style="margin-top: 45px;width: 100%;display: inline-table;">{{dati.user.name}}</p>
     </div>
     <div style="margin-left: 40%;display: inline-flex;">
         <p class="Seguiti" style="width: 100%;margin-top: 46px;">Follow: 1</p>
@@ -234,12 +234,21 @@
 
         <div id="div7"ng-if="currentPosition==7">
             <ul class="informazioni" style="margin-top: -8px; margin-bottom: 0px; ">
-                <li>Username: </li>
-                <li>Gender:</li>
-                <li>Date of Birth:</li>
-                <li>City:</li>
-                <li>E-Mail: </li>
-                <li>About Me:</li>
+                <li>Username: <input type="text" class="form-control"  placeholder="Enter Username" name="name" ng-model="dati.user.name" /> </li>
+                <li>Gender: <input type="radio" name="gender" value="male" ng-model="dati.user.gender" /> Male <input type="radio" name="gender" value="female" ng-model="dati.user.gender" /> Female </li>
+                <li>Date of Birth: <input type="date" ng-model="dati.user.date"></li>
+                <li>City: <input type="text" class="form-control"  placeholder="Enter City" name="city" ng-model="dati.user.city" /> </li>
+                <li>E-Mail: <input type="text" class="form-control" placeholder="Enter e-mail" name="name" ng-model="dati.user.email" /></li>
+                <li>About Me:<input type="text" class="form-control"  placeholder="Write about yourself" name="about" ng-model="dati.user.about" /></li>
+            </ul>
+        </div>
+
+        <div id="div8"ng-if="currentPosition==8">
+            <ul class="interessi" style="margin-top: -8px; margin-bottom: 0px;">
+                <li>FILM:</li>
+                <li>LIBRI:</li>
+                <li>FUMETTI:</li>
+                <li>VIDEOGIOCHI:</li>
             </ul>
         </div>
 
