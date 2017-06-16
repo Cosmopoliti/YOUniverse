@@ -257,6 +257,15 @@ a
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0.39, rgb(1,182,178)), color-stop(0.7, rgb(27,219,214)), color-stop(0.85, rgb(54,255,255)));
 }
 
+.edit{
+    float: right;
+    margin-top: -40px;
+    background: rgba(6, 6, 6, 0);
+    border-color: rgb(52, 162, 246);
+    border-width: thin;
+    font-size: small;
+}
+
 .medaglia{
     filter:grayscale(100%) brightness(1%);
 }

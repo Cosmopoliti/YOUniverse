@@ -32,35 +32,51 @@ angular.module("myApp.appSignIn", ['ngRoute', 'firebase'])
             });
         };
 
+        $scope.signUp = function() {
+            //check if the second password is equal to the first one
+            if ($scope.user.password!= '' && $scope.user.password === $scope.user.password2) {
+                //create a new user with specified email and password
+                Auth.$createUserWithEmailAndPassword($scope.user.email, $scope.user.password)
+                    .then(function (firebaseUser) {
+                        //after creating the user, we will perform a login and then the new information will be saved in the database
+                        //(the reason is that we cannot write in the database if we are not logged in ... it is not the best way of doing it but it is ok for our prototype)
+                        Auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(internalFirebaseUser) {
+                            var userId = internalFirebaseUser.uid;
+                            Users.registerNewUserInfo(userId, $scope.user.name, $scope.user.email);
+                            Users.registerLogin(userId, $scope.user.email);
+                            // login successful: redirect to the pizza list
+                            $location.path("/ProfiloUtente");
+                        }).catch(function(error) {
+                            $scope.error = error;
+                            console.log(error.message);
+                        });
+                    }).catch(function (error) {
+                    $scope.error = error;
+                    console.log(error.message);
+                });
+            }
+        };
+
 
 
 
 
         // Get the modal
-        var modal = document.getElementById("myModal");
         var modal2 = document.getElementById("modalLog");
 
 // Get the button that opens the modal
-        var btn = document.getElementById("Iscrizione");
         var btn3 = document.getElementById("Log");
 
 // Get the <span> element that closes the modal
-        var btn2 = document.getElementById("close");
         var btn4 = document.getElementById("close2");
 
 
 // When the user clicks on the button, open the modal
-        btn.onclick = function () {
-            modal.style.display = "block";
-        };
         btn3.onclick = function () {
             modal2.style.display = "block";
         };
 
 // When the user clicks on cancel, close the modal
-        btn2.onclick = function () {
-            modal.style.display = "none";
-        };
         btn4.onclick = function () {
             modal2.style.display = "none";
         };
