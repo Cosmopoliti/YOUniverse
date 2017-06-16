@@ -41,7 +41,7 @@ angular.module("myApp", [
 
     //set the variable that is used in the main template to show the active button
     $rootScope.dati = {};
-    $rootScope.dati.currentView = 'home';
+
     $scope.isLogged = function()
     {
         if ($firebaseAuth().$getAuth())

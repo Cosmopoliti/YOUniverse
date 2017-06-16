@@ -6,6 +6,9 @@ body {
     overflow-x: hidden;
 }
 
+p{
+    color: black;}
+
 .pannelli{
     height: 45px;
     width: 70%;
@@ -220,18 +223,20 @@ a
 
 .progress-bar {
     background-color: #1a1a1a;
-    height: 15px;
-    padding: 5px;
-    width: 22%;
+    height: 18px;
+    width: 33%;
     border-radius: 5px;
     margin-left: 1%;
-    box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
+    box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444
 }
 
 .progress-bar span {
+    float: left;
     display: inline-block;
     height: 16px;
-    width: 25%;
+    margin: 1px;
+    padding: 1px;
+    width: 40%;
 
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -254,3 +259,47 @@ a
     filter:grayscale(100%) brightness(1%);
 }
 
+#hormenu {
+    padding: 0;
+    border-top: 1px solid black;
+}
+
+#hormenu ul
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+#hormenu li
+{
+    width: 100px;
+    margin: 0;
+    padding: 0;
+}
+#hormenu a
+{
+    display: block;
+    padding: 5px;
+    color: #000;
+}
+
+#hormenu a:hover
+{
+    text-decoration: none;
+}
+
+#hormenu li ul
+{
+    display: none
+}
+#hormenu li:hover ul
+{
+    display: block;
+    z-index: 1;
+    width: 96px;
+    margin: 0 0 0 -1px;
+    border: 1px solid black;
+    background: white;
+}
+#hormenu li li   {  width:100%; }
+#hormenu li li a { padding: 10px 2px 5px 6px; }

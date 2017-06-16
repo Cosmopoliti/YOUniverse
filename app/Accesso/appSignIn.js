@@ -31,6 +31,10 @@ angular.module("myApp.appSignIn", ['ngRoute', 'firebase'])
             });
         };
 
+
+
+
+
         // Get the modal
         var modal = document.getElementById("myModal");
         var modal2 = document.getElementById("modalLog");

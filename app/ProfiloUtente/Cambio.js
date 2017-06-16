@@ -19,31 +19,36 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         }
     })
-        /*.when('/Informazioni', {
-            templateUrl: 'ProfiloUtente/sub-views/informazioni.html'
-        })
-        .when('/Interessi', {
-            templateUrl: 'ProfiloUtente/sub-views/interessi.html'
-        })
-        .when('/Diario', {
-            templateUrl: 'ProfiloUtente/sub-views/diario.html'
-        })
-        .when('/Libreria', {
-            templateUrl: 'ProfiloUtente/sub-views/libreria.html'
-        })
-        .when('/Storie', {
-            templateUrl: 'ProfiloUtente/sub-views/storie.html'
-        })
-        .when('/Palmares', {
-            templateUrl: 'ProfiloUtente/sub-views/palmares.html'
-        })
-        .otherwise({redirectTo: '/Informazioni'});*/
+
 }])
-    .controller("ProfiloCtrl", ['$scope', '$rootScope', '$firebaseAuth', function($scope, $rootScope, $firebaseAuth) {
+    .controller("ProfiloCtrl", ['$scope', '$rootScope', '$firebaseAuth', 'currentAuth', '$location','Users', 'UsersChatService', function($scope, $rootScope, UsersChatService, $firebaseAuth, currentAuth, $location, Users) {
+
+        $scope.dati={};
+        //set the variable that is used in the main template to show the active button
+        // $rootScope.dati.currentView = "ProfiloUtente";
+        //$scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+
         $scope.currentPosition = 1;
         $scope.changeView = function (id)
         {
 
             $scope.currentPosition = id;
-        }
+        };
+
+        $scope.logout = function () {
+            //save the new status in the database (we do it before the actual logout because we can write in the database only if the user is logged in)
+            Users.registerLogout(currentAuth.uid);
+            //sign out
+            $firebaseAuth().$signOut();
+            $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
+                if (firebaseUser) {
+                    console.log("User is yet signed in as:", firebaseUser.uid);
+                } else {
+                    $location.path("/SignIn");
+                }
+            });
+
+
+        };
+
     }]);
