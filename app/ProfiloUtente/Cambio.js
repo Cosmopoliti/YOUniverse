@@ -52,10 +52,5 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
 
-        var editore=document.getElementsByClassName("edit");
-
-        editore.onclick = function () {
-
-        };
 
     }]);
