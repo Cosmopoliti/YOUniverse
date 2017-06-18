@@ -4,19 +4,24 @@ body {
     background: #ffffff;
     width:100%;
     overflow-x: hidden;
+    padding-top: 0px;
 }
 
 p{
     color: black;}
 
-.pannelli{
+#myNavbar{
+
+}
+
+ .pannelli{
     height: 45px;
     width: 70%;
     background-color: #34A2F6;
     border: 1px solid #000000;
 }
 
-.Bottone{
+/*.Bottone{
     color: rgb(0, 0, 0);
     height: 34px;
     width: 96px;
@@ -29,21 +34,30 @@ p{
     margin: 3%;
     margin-top: 3px;
     float: left;
-}
+} */
 
-.Bottone:hover {
+ /* .Bottone:hover {
     background: #F4C430;
-}
+} */
 
-.Profilo{
+/* .Profilo{
     float: right;
+} */
+
+
+.dropdown-menu{
+    right: 0;
+    left: auto;
 }
 
-/*
-.dropdown-menu{
-float: right;
+.navbar {
+    margin-bottom: 0;
+    opacity: 0.9;
+    margin-right: -15px;
+    margin-left: -15px;
+    z-index: 1000;
 }
- */
+
 
 .HeaderUtente{
     position: absolute;
@@ -66,7 +80,7 @@ float: right;
 }
 
 
-header.m {
+/* header.m {
     padding: 25px 20px 40px 20px;
     margin: 0;
     position: fixed;
@@ -79,8 +93,8 @@ header.m {
     box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.75);
     z-index: 99;
     min-height: 76px;
-}
-
+} */
+/*
 #banner{
     z-index: 100;
     left: 0;
@@ -91,9 +105,9 @@ header.m {
     position: fixed;
     top: 100px;
     border: rgb(240, 195, 2);
-}
+} */
 
-#logo{
+ #logo{
     background-image: url(../../YOUniverse_pen2.jpg);
     margin: 7px;
     height: 36px;
@@ -101,7 +115,7 @@ header.m {
 
 }
 
-a.button{
+/* a.button{
     border: 1px;
     border-radius: 3px;
     border-color: #dba500;
@@ -113,7 +127,7 @@ a.button{
     padding: 7px;
     display: inline-table;
     position: fixed;
-}
+} */
 
 
 .wrapper{
@@ -130,7 +144,7 @@ a.button{
 }
 
 
-nav{
+.dati{
     display: block;
     left: -4%;
 
@@ -261,47 +275,3 @@ a
     filter:grayscale(100%) brightness(1%);
 }
 
-#hormenu {
-    padding: 0;
-    border-top: 1px solid black;
-}
-
-#hormenu ul
-{
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-#hormenu li
-{
-    width: 100px;
-    margin: 0;
-    padding: 0;
-}
-#hormenu a
-{
-    display: block;
-    padding: 5px;
-    color: #000;
-}
-
-#hormenu a:hover
-{
-    text-decoration: none;
-}
-
-#hormenu li ul
-{
-    display: none
-}
-#hormenu li:hover ul
-{
-    display: block;
-    z-index: 1;
-    width: 96px;
-    margin: 0 0 0 -1px;
-    border: 1px solid black;
-    background: white;
-}
-#hormenu li li   {  width:100%; }
-#hormenu li li a { padding: 10px 2px 5px 6px; }
