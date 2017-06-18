@@ -253,6 +253,7 @@
         </div>
 
         <div id="div7"ng-if="currentPosition==7">
+            <a href="" on-click="event.preventDefault();" ng-click="changeView(1);"><button class="edit">Save</button></a>
             <ul class="informazioni" style="margin-top: -8px; margin-bottom: 0px; ">
                 <li>Username: <input type="text" class="form-control"  placeholder="Enter Username" name="name" ng-model="dati.user.name" ng-change="updateInfo('name', dati.user.name)"/> </li>
                 <li>Gender: <input type="radio" name="gender" value="male" ng-model="dati.user.gender" ng-change="updateInfo('gender', 'M')"/> Male <input type="radio" name="gender" value="female" ng-model="dati.user.gender" ng-change="updateInfo('gender', 'F')"/> Female </li>
@@ -261,6 +262,8 @@
                 <li>E-Mail: <input type="text" class="form-control" placeholder="Enter e-mail" name="name" ng-model="dati.user.email" /></li>
                 <li>About Me:<input type="text" class="form-control"  placeholder="Write about yourself" name="about" ng-model="dati.user.about" /></li>
             </ul>
+
+
         </div>
 
         <div id="div8"ng-if="currentPosition==8">
