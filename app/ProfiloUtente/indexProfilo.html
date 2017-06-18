@@ -88,11 +88,11 @@
             <a href="" on-click="event.preventDefault();" ng-click="changeView(7);"><button class="edit">Edit</button></a>
             <ul class="informazioni" style="margin-top: -8px; margin-bottom: 0px; ">
                 <li>Username: {{dati.user.name}}</li>
-                <li>Gender:</li>
-                <li>Date of Birth:</li>
-                <li>City:</li>
+                <li>Gender: {{dati.user.gender}}</li>
+                <li>Date of Birth: {{dati.user.date}}</li>
+                <li>City: {{dati.user.city}}</li>
                 <li>E-Mail: {{dati.user.email}}</li>
-                <li>About Me:</li>
+                <li>About Me: {{dati.user.about}}</li>
             </ul>
         </div>
         <div id="div2"ng-if="currentPosition==2">
@@ -245,7 +245,7 @@
 
         <div id="div8"ng-if="currentPosition==8">
             <ul class="interessi" style="margin-top: -8px; margin-bottom: 0px;">
-                <li>FILM: bello</li>
+                <li>FILM:</li>
                 <li>LIBRI:</li>
                 <li>FUMETTI:</li>
                 <li>VIDEOGIOCHI:</li>
