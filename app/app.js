@@ -18,7 +18,6 @@ angular.module("myApp", [
     'myApp.appSignIn',
     'myApp.Profilo',
     'myApp.authentication',
-    'myApp.userRegistrationView',
     'myApp.users'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

@@ -51,12 +51,10 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         };
 
-        /*var dropcopertine = document.getElementById("dropcopertine");
-var buttonCopertine = document.getElementById("copertine");
+<<<<<<< HEAD
 
-buttonCopertine.onclick=function () {
-    dropcopertine.style.display="block";
-}
-*/
+=======
+
+>>>>>>> origin/master
 
     }]);

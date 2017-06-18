@@ -219,9 +219,16 @@ a
     color: #3399cc;
 }
 
+.form-control{
+    display:initial;
+    width: 50%;
+    font-size: 20px;
+}
+
 .informazioni li {
     font-size: x-large;
     margin-bottom: 5%;
+    display: block;
 }
 
 .interessi li {
@@ -269,6 +276,15 @@ a
     background: -webkit-linear-gradient(bottom, rgb(1,182,178) 39%, rgb(27,219,214) 70%, rgb(54,255,255) 85%);
     background: -ms-linear-gradient(bottom, rgb(1,182,178) 39%, rgb(27,219,214) 70%, rgb(54,255,255) 85%);
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0.39, rgb(1,182,178)), color-stop(0.7, rgb(27,219,214)), color-stop(0.85, rgb(54,255,255)));
+}
+
+.edit{
+    float: right;
+    margin-top: -40px;
+    background: rgba(6, 6, 6, 0);
+    border-color: rgb(52, 162, 246);
+    border-width: thin;
+    font-size: small;
 }
 
 .medaglia{

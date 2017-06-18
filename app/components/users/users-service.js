@@ -25,10 +25,18 @@ angular.module('myApp.users.usersService', [])
             registerNewUserInfo: function (userId, name, email) {
                 //add the user to list of users and set the logged value to true
                 var ref = firebase.database().ref().child("users").child(userId);
+                var genere= "M";
+                var città= "city";
+                var data= new Date().getDate();
+                var aboutme= "su di me";
                 // create a synchronized array
                 ref.set({
                     name: name,
-                    email: email
+                    email: email,
+                    gender: genere,
+                    date: data,
+                    city: città,
+                    about: aboutme
                 });
             }
         };

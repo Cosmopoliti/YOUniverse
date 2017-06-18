@@ -40,7 +40,7 @@
     </header>
 
 
-    <div class="contenitore" ng-controller="UserRegistrationCtrl">
+    <div class="contenitore">
 
         <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Login failed! {{ error.message }}
         </div>
@@ -65,29 +65,6 @@
 
             </div>
 
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-
-                <!-- Modal content -->
-                <div class="modal-content">
-
-                    <div class="informazioni">
-                        <p class="interno">Date of Birth: <input class="DN" type="text" name="DataNascita" value=" gg/mm/aaaa">
-                        </p> <br>
-                        <p class="interno">Gender: <input type="radio" name="gender" value="male"> Male <input type="radio"
-                                                                                                               name="gender"
-                                                                                                               value="female">
-                            Female<br>
-                    </div>
-
-                    <div class="bottoniModal">
-                        <button type="submit" class="Bottone1">Sign In</button>
-                        <button id="close" class="Bottone1">Cancel</button>
-                    </div>
-
-                </div>
-
-            </div>
         </form>
 
     </div>
