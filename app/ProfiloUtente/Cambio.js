@@ -51,10 +51,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         };
 
-<<<<<<< HEAD
 
-=======
-
->>>>>>> origin/master
 
     }]);
