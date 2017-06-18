@@ -4,8 +4,7 @@
 angular.module('myApp.users', [
     'myApp.users.usersService',
     'myApp.users.usersListService',
-    'myApp.users.usersChatService'/*,
-    'myApp.users.usersInfoService'*/
+    'myApp.users.usersChatService'
 ])
 
 .value('version', '0.1');
