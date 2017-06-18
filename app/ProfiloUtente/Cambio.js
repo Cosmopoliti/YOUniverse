@@ -52,9 +52,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
         $scope.updateInfo = function(infoName, infoValue) {
-            console.log(currentAuth.uid);
-            console.log(infoName);
-            console.log(infoValue);
         Users.updateUserInfo(currentAuth.uid, infoName, infoValue);
         }
 
