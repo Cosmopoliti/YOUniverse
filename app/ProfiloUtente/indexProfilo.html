@@ -1,31 +1,51 @@
-
 <body ng-controller="ProfiloCtrl">
 
-<header class="m">
-    <h1>YOUniverse</h1>
-    <div id="banner">
-        <button class="Bottone">Home</button>
-        <button class="Bottone">Trend</button>
-        <button class="Bottone">News</button>
-        <button class="Bottone">Universes</button>
-        <span id="logo"></span>
-        <button class="Bottone Profilo" type="button" data-toggle="dropdown"> Profilo
-            <span class="caret"></span></button>
-        <ul class="dropdown-menu" style="position: relative;float: right;margin-right: -145px;">
-            <li class="dropdown-header">Funzionalità</li>
-            <li><a href="" on-click="event.preventDefault();" ng-click="changeView(1)">Informazioni</a></li>
-            <li><a href="" on-click="event.preventDefault();" ng-click="changeView(2);">Interessi</a></li>
-            <li><a href="" on-click="event.preventDefault();" ng-click="changeView(3);">Diario</a></li>
-            <li><a href="" on-click="event.preventDefault();" ng-click="changeView(4);">Libreria Universi</a></li>
-            <li><a href="" on-click="event.preventDefault();" ng-click="changeView(5);">Storie</a></li>
-            <li><a href="" on-click="event.preventDefault();" ng-click="changeView(6);">Palmares</a></li>
-            <li class="divider"></li>
-            <li><a href="#" ng-click="logout();">Log Out</a></li>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">YOUniverse</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Copertine<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Trend</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
         </ul>
+        <form class="navbar-form navbar-left">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
 
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-user"></span><span class="caret"></span>Profilo</a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-header">Funzionalità</li>
+                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(1)">Informazioni</a></li>
+                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(2);">Interessi</a></li>
+                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(3);">Diario</a></li>
+                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(4);">Libreria Universi</a></li>
+                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(5);">Storie</a></li>
+                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(6);">Palmares</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" ng-click="logout();">Log Out</a></li>
+                </ul>
+        </ul>
     </div>
+</nav>
 
-</header>
+
+
 <!-- end banner -->
 
 
@@ -45,37 +65,37 @@
 
 
 <div id="principale" class="wrapper" style="padding-top: 38px;">
-    <nav>
+    <nav class="dati">
 
         <ul>
             <li class="tag-h2 active">
                 <a href="" on-click="event.preventDefault();" ng-click="changeView(1)"><button class="pannelli">
-                Informazioni
+                    Informazioni
                 </button></a>
             </li>
             <li class="tag-h2">
                 <a href="" on-click="event.preventDefault();" ng-click="changeView(2);"><button class="pannelli">
-               Interessi
+                    Interessi
                 </button></a>
             </li>
             <li class="tag-h2">
                 <a href="" on-click="event.preventDefault();" ng-click="changeView(3);"><button class="pannelli">
-                Diario
+                    Diario
                 </button></a>
             </li>
             <li class="tag-h2">
                 <a href="" on-click="event.preventDefault();" ng-click="changeView(4);"><button class="pannelli">
-                Libreria Universi
+                    Libreria Universi
                 </button></a>
             </li>
             <li class="tag-h2">
                 <a href="" on-click="event.preventDefault();" ng-click="changeView(5);"><button class="pannelli">
-                Storie
+                    Storie
                 </button></a>
             </li>
             <li class="tag-h2">
                 <a href="" on-click="event.preventDefault();" ng-click="changeView(6);"><button class="pannelli">
-                Palmares
+                    Palmares
                 </button></a>
             </li>
 
@@ -235,10 +255,10 @@
         <div id="div7"ng-if="currentPosition==7">
             <a href="" on-click="event.preventDefault();" ng-click="changeView(1);"><button class="edit">Save</button></a>
             <ul class="informazioni" style="margin-top: -8px; margin-bottom: 0px; ">
-                <li>Username: <input type="text" class="form-control"  placeholder="Enter Username" name="name" ng-model="dati.user.name" /> </li>
-                <li>Gender: <input type="radio" name="gender" value="male" ng-model="dati.user.gender" /> Male <input type="radio" name="gender" value="female" ng-model="dati.user.gender" /> Female </li>
-                <li>Date of Birth: <input type="date" ng-model="dati.user.date"></li>
-                <li>City: <input type="text" class="form-control"  placeholder="Enter City" name="city" ng-model="dati.user.city" /> </li>
+                <li>Username: <input type="text" class="form-control"  placeholder="Enter Username" name="name" ng-model="dati.user.name" ng-change="updateInfo('name', dati.user.name)"/> </li>
+                <li>Gender: <input type="radio" name="gender" value="male" ng-model="dati.user.gender" ng-change="updateInfo('gender', 'M')"/> Male <input type="radio" name="gender" value="female" ng-model="dati.user.gender" ng-change="updateInfo('gender', 'F')"/> Female </li>
+                <li>Date of Birth: <input type="date" ng-model="dati.user.date" ng-change="updateInfo('date', dati.user.date.toDateString())"></li>
+                <li>City: <input type="text" class="form-control"  placeholder="Enter City" name="city" ng-model="dati.user.city" ng-change="updateInfo('city', dati.user.city)"/> </li>
                 <li>E-Mail: <input type="text" class="form-control" placeholder="Enter e-mail" name="name" ng-model="dati.user.email" /></li>
                 <li>About Me:<input type="text" class="form-control"  placeholder="Write about yourself" name="about" ng-model="dati.user.about" /></li>
             </ul>
