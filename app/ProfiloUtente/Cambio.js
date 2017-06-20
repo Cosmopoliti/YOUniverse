@@ -56,9 +56,9 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
         $scope.listOf = function(infoName, infoValue) {
-            if(infoValue.endsWith(".")) {
-                var str = infoValue.substr(0,infoValue.length-1);
-                var res = str.split(",");
+            //if(infoValue.endsWith(".")) {
+              //  var str = infoValue.substr(0,infoValue.length-1);
+                var res = infoValue.split(",");
 
                     for (var i = 0; i < res.length; i++) {
 
@@ -66,7 +66,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
                         Users.updatelistOf(currentAuth.uid, infoName, i, res[i]);
 
                 }
-            }
+            //}
         };
 
 
