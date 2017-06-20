@@ -286,6 +286,13 @@ a
     border-width: thin;
     font-size: small;
 }
+.invio{
+    margin-top: -40px;
+    background: rgba(6, 6, 6, 0);
+    border-color: rgb(52, 162, 246);
+    border-width: thin;
+    font-size: small;
+}
 
 .medaglia{
     filter:grayscale(100%) brightness(1%);
