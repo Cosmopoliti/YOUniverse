@@ -33,6 +33,12 @@ angular.module('myApp.users.usersService', [])
             },
             updateUserInfo: function (userId, infoName, infoValue) {
                 firebase.database().ref().child("users").child(userId).child(infoName).set(infoValue);
+            },
+
+            updatelistOf: function(userId, infoName, index, valore){
+
+            var ref = firebase.database().ref().child("users").child(userId).child(infoName).child(index).set(valore);
+
             }
         };
     });
