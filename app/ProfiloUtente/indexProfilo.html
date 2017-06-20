@@ -270,12 +270,17 @@
         </div>
 
         <div id="div8"ng-if="currentPosition==8">
-            <a href="" on-click="event.preventDefault();" ng-click="changeView(2);"><button class="edit">Save</button></a>
+            <a href="" on-click="event.preventDefault();" ng-click="changeView(2);">
+                <button class="edit"></button></a>
             <ul class="interessi" style="margin-top: -8px; margin-bottom: 0px;">
-                <li><form ng-submit="listOf('film', dati.user.film)">FILM: <input type="text" class="form-control"  placeholder="Use , to separate movies" name="Film" ng-model="dati.user.film" /><button type="submit" class="invio">Submit</button></form> </li>
-                <li><form ng-submit="listOf('libri', dati.user.libri)">LIBRI:<input type="text" class="form-control"  placeholder="Use , to separate books" name="Libri" ng-model="dati.user.libri"/><button type="submit" class="invio">Submit</button></form></li>
-                <li><form ng-submit="listOf('comic', dati.user.comic)">FUMETTI:<input type="text" class="form-control"  placeholder="Use , to separate comics" name="Fumetti" ng-model="dati.user.comic"/><button type="submit" class="invio">Submit</button></form></li>
-                <li><form ng-submit="listOf('videogame', dati.user.videogame)">VIDEOGIOCHI:<input type="text" class="form-control"  placeholder="Use , to separate videogames" name="Videogiochi" ng-model="dati.user.videogame"/><button type="submit" class="invio">Submit</button></form></li>
+                <li><form ng-submit="listOf('film', dati.user.film)">FILM: <input type="text" class="form-control"  placeholder="Use , to separate movies" name="Film" ng-model="dati.user.film" />
+                    <button type="submit" class="invio">Submit</button></form> </li>
+                <li><form ng-submit="listOf('libri', dati.user.libri)">LIBRI:<input type="text" class="form-control"  placeholder="Use , to separate books" name="Libri" ng-model="dati.user.libri"/>
+                    <button type="submit" class="invio">Submit</button></form></li>
+                <li><form ng-submit="listOf('comic', dati.user.comic)">FUMETTI:<input type="text" class="form-control"  placeholder="Use , to separate comics" name="Fumetti" ng-model="dati.user.comic"/>
+                    <button type="submit" class="invio">Submit</button></form></li>
+                <li><form ng-submit="listOf('videogame', dati.user.videogame)">VIDEOGIOCHI:<input type="text" class="form-control"  placeholder="Use , to separate videogames" name="Videogiochi" ng-model="dati.user.videogame"/>
+                    <button type="submit" class="invio">Submit</button></form></li>
             </ul>
         </div>
 
