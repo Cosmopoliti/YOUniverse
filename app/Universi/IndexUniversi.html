@@ -1,20 +1,48 @@
 <body>
 
 
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">YOUniverse</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Copertine<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Trend</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+        </ul>
+        <form class="navbar-form navbar-left ng-pristine ng-valid">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" style="margin-bottom: 5px; height: 34px;">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
 
-<header>
-    <h1>YOUniverse</h1>
-    <div id="banner">
-        <button class="Bottone">Home</button>
-        <button class="Bottone">Trend</button>
-        <button class="Bottone">News</button>
-        <button class="Bottone">Universes</button>
-        <span id="logo"></span>
-        <button class="Bottone Profilo">Profilo</button>
-
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-user"></span><span class="caret"></span>Profilo</a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-header">Funzionalità</li>
+                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(1)">Informazioni</a></li>
+                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(2);">Interessi</a></li>
+                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(3);">Diario</a></li>
+                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(4);">Libreria Universi</a></li>
+                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(5);">Storie</a></li>
+                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(6);">Palmares</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" ng-click="logout();">Log Out</a></li>
+                </ul>
+        </ul>
     </div>
-
-</header>
+</nav>
 
 <div class="HeaderUniversi">
     <table>
