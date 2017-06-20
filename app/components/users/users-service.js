@@ -39,6 +39,10 @@ angular.module('myApp.users.usersService', [])
 
             var ref = firebase.database().ref().child("users").child(userId).child(infoName).child(index).set(valore);
 
+            },
+
+            changeImage: function(userId, image){
+               var ref = firebase.database().ref().child("users").child(userId).child("profilo").set(image);
             }
         };
     });
