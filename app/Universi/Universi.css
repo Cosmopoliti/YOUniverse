@@ -73,10 +73,13 @@ body {
     padding-left: 14px;
     padding-top: 14px;
     padding-right: 14px;
-    padding-bottom: 7px;}
+    padding-bottom: 7px;
+}
+
 #Info:active{
     background-color: #9726c8;
 }
+
 #Storie{      float: left;
     height: 28px;
     background-color: #B23098;
@@ -84,17 +87,22 @@ body {
     padding-top: 14px;
     padding-right: 14px;
     padding-bottom: 7px;
-    margin: 0 2px;}
+    margin: 0 2px;
+}
+
 #Storie:active{
     background-color: #9726c8;
 }
+
 #Mappa{  float: left;
     height: 28px;
     background-color: #B23098;
     padding-left: 14px;
     padding-top: 14px;
     padding-right: 14px;
-    padding-bottom: 7px;}
+    padding-bottom: 7px;
+}
+
 #Mappa:active{
     background-color: #9726c8;
 }
