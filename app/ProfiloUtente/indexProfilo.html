@@ -53,7 +53,10 @@
 
 <div class="HeaderUtente">
     <div style="display: inline-flex;">
-        <img class="foto" src="../stiven.png">
+        <div id="profile-container">
+          <img id="profileImage" ng-src="{{dati.user.profilo}}">
+        </div>
+        <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture on-change="ProfiloCtrl.onChange">
         <p class="nomeUtente" style="margin-top: 45px;width: 100%;display: inline-table;">{{dati.user.name}}</p>
     </div>
     <div style="margin-left: 40%;display: inline-flex;">
