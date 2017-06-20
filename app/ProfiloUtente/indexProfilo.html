@@ -265,8 +265,8 @@
                 <li>Gender: <input type="radio" name="gender" value="male" ng-model="dati.user.gender" ng-change="updateInfo('gender', 'M')"/> Male <input type="radio" name="gender" value="female" ng-model="dati.user.gender" ng-change="updateInfo('gender', 'F')"/> Female </li>
                 <li>Date of Birth: <input type="date" ng-model="dati.user.date" ng-change="updateInfo('date', dati.user.date.toDateString())"></li>
                 <li>City: <input type="text" class="form-control"  placeholder="Enter City" name="city" ng-model="dati.user.city" ng-change="updateInfo('city', dati.user.city)"/> </li>
-                <li>E-Mail: <input type="text" class="form-control" placeholder="Enter e-mail" name="name" ng-model="dati.user.email" /></li>
-                <li>About Me:<input type="text" class="form-control"  placeholder="Write about yourself" name="about" ng-model="dati.user.about" /></li>
+                <li>E-Mail: <input type="text" class="form-control" placeholder="Enter e-mail" name="name" ng-model="dati.user.email" ng-change="updateInfo('email', dati.user.email)"/></li>
+                <li>About Me:<input type="text" class="form-control"  placeholder="Write about yourself" name="about" ng-model="dati.user.about" ng-change="updateInfo('about', dati.user.about)"/></li>
             </ul>
 
 
@@ -289,5 +289,7 @@
 
     </section>
 </div>
+
+<a href="texteditor/editor.html"><button class="pannelli">Crea</button></a>
 
 </body>
