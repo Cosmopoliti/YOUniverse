@@ -20,6 +20,7 @@ angular.module("myApp", [
     'myApp.authentication',
     'myApp.users',
     'myApp.fileUpload'
+
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
