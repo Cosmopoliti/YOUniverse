@@ -26,4 +26,15 @@ angular.module("myApp.Universi", ['ngRoute'])
                 templateUrl: 'sub-views/Mappa.html'
             })
             .otherwise({redirectTo: '/Info'});*/
-    }]);
+    }])
+
+
+.controller("UniversiCtrl", ['$scope', function($scope) {
+
+$scope.currentPosition = 9;
+$scope.changeView = function (id)
+{
+    $scope.currentPosition = id;
+};
+
+}]);

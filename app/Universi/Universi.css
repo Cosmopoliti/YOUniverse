@@ -47,6 +47,7 @@ body {
     float: right;
 }
 
+/*
 #infoUniverso{
     color: white;
     position: fixed;
@@ -98,6 +99,8 @@ body {
 }
 
 
+
+
 .Espandi{
     height: 50px;
     width: 100px;
@@ -117,6 +120,8 @@ body {
 .Espandi:active {
     background-color: #FFF377;
 }
+
+*/
 
 h2,p {
     font-size: 28px;
