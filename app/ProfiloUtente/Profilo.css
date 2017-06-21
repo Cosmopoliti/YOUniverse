@@ -21,7 +21,7 @@ p{
     border: 1px solid #000000;
 }
 
-/*.Bottone{
+.Bottone{
     color: rgb(0, 0, 0);
     height: 34px;
     width: 96px;
@@ -34,11 +34,11 @@ p{
     margin: 3%;
     margin-top: 3px;
     float: left;
-} */
+}
 
- /* .Bottone:hover {
+ .Bottone:hover {
     background: #F4C430;
-} */
+}
 
 /* .Profilo{
     float: right;
@@ -79,7 +79,7 @@ p{
 
 #profileImage {
     cursor: pointer;
-    width: 150px;
+    width: 160px;
     height: 150px;
 }
 

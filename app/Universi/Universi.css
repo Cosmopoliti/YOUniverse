@@ -9,22 +9,12 @@ body {
 
 .HeaderUniversi {
     position: absolute;
-    top: 149px;
     width: 95%;
     left: 5%;
 }
 
 
 
-.wrapper{
-    left: 5%;
-    right: 5%;
-    top: 298px;
-    position: fixed;
-    background: #B23098;
-    height: 50%;
-    overflow-y: scroll;
-}
 
 #banner{
     z-index: 100;
@@ -60,7 +50,7 @@ body {
 #infoUniverso{
     color: white;
     position: fixed;
-    top: 246px;
+    top: 194px;
     width: 100%;
     font-size: xx-large;
     margin: 0 auto;
@@ -109,14 +99,14 @@ body {
 
 
 .Espandi{
-height: 50px;
-width: 100px;
-font-size: x-large;
-background-color: #FFF377;
-border-color: rgba(0, 0, 0, 0.41);
-transition-duration: 0.4s;
-margin-left: 409px;
-margin-right: 400px;
+    height: 50px;
+    width: 100px;
+    font-size: x-large;
+    background-color: #FFF377;
+    border-color: rgba(0, 0, 0, 0.41);
+    transition-duration: 0.4s;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .Espandi:hover{
@@ -133,17 +123,3 @@ h2,p {
     color: black;
 }
 
-header {
-    padding: 25px 20px 40px 20px;
-    margin: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    text-align: center;
-    background: #B23098;
-    box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.75);
-    z-index: 99;
-    min-height: 76px;
-}
