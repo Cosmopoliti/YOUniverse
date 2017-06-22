@@ -948,6 +948,12 @@ You should have received a copy of the GNU General Public License along with thi
 											"tooltip": "Source",
 											"commandname":null,
 											"custom":function(button, params){ methods.getSource.apply(this, [button, params]) } },
+
+							'save'		: { "text": "Save",   //BOTTONE CUSTOMIZZATO
+                                			"icon":"fa fa-floppy-o",
+                                			"tooltip": "Save",
+                                			"commandname":null,
+                                			"custom":function(button, params){ methods.Save.apply(this, [button, params]) } },
 											"params": {"obj":null},
 										   };
 
@@ -1002,7 +1008,8 @@ You should have received a copy of the GNU General Public License along with thi
 				'splchars':specialchars,
 				'insert_table':true,
 				'select_all':true,
-				'togglescreen':true
+				'togglescreen':true,
+				'save': true
 			},options);
 
 	       	var containerDiv = $("<div/>",{ class : "row-fluid Editor-container" });
@@ -1476,6 +1483,7 @@ You should have received a copy of the GNU General Public License along with thi
 			var content;
 			if(flag==0){ //Convert text to HTML
 				content = document.createTextNode(editor.html());
+                //console.log(document.createTextNode($(this).data('editor').html()));
 				editor.empty();
 				editor.attr('contenteditable', false);
 				preElement = $("<pre/>",{
@@ -1488,6 +1496,7 @@ You should have received a copy of the GNU General Public License along with thi
 			}
 			else{
 				var html = editor.children().first().text();
+                //console.log($(this).data('editor').children().first().text());
 				editor.html(html);
 				editor.attr('contenteditable', true);
 				button.parent().siblings().show();
@@ -1597,6 +1606,14 @@ You should have received a copy of the GNU General Public License along with thi
 				document.execCommand("styleWithCSS", null, true);
 			}
 		},
+
+		Save: function () {
+            var story = document.createTextNode($(this).data('editor').text());
+            var database = firebase.database();
+            database.ref('stories/').set({
+				storia1: story.wholeText
+			});
+        }
 
 	}
 

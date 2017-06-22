@@ -24,7 +24,7 @@ angular.module("myApp", [
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
         $routeProvider.otherwise({redirectTo: '/ProfiloUtente'});
-}])
+    }])
     .run(["$rootScope", "$location", function($rootScope, $location) {
         $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
             // We can catch the error thrown when the $requireSignIn promise is rejected
@@ -49,5 +49,5 @@ angular.module("myApp", [
         else
             return false;
     }
-}])
+    }]);
 
