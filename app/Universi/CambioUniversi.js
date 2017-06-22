@@ -3,17 +3,38 @@
  */
 
 
-angular.module("myUniversi", ['ngRoute'])
+angular.module("myApp.Universi", ['ngRoute'])
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider
-            .when('/Info', {
-                templateUrl: 'sub-views/Info.html'
-            })
-            .when('/Storie', {
+        $routeProvider.when('/universi', {
+            templateUrl: 'Universi/IndexUniversi.html',
+            controller: 'UniversiCtrl',
+            resolve: {
+                // controller will not be loaded until $requireSignIn resolves
+                // Auth refers to our $firebaseAuth wrapper in the factory below
+                "currentAuth": ["Auth", function(Auth) {
+                    // $requireSignIn returns a promise so the resolve waits for it to complete
+                    // If the promise is rejected, it will throw a $routeChangeError (see above)
+                    return Auth.$requireSignIn();
+                }]
+
+            }
+        })
+            /*.when('/Storie', {
                 templateUrl: 'sub-views/Storie.html'
             })
             .when('/Mappa', {
                 templateUrl: 'sub-views/Mappa.html'
             })
-            .otherwise({redirectTo: '/Info'});
-    }]);
+            .otherwise({redirectTo: '/Info'});*/
+    }])
+
+
+.controller("UniversiCtrl", ['$scope', function($scope) {
+
+$scope.currentPosition = 9;
+$scope.changeView = function (id)
+{
+    $scope.currentPosition = id;
+};
+
+}]);
