@@ -21,6 +21,7 @@ angular.module("myApp", [
     'myApp.users',
     'myApp.fileUpload',
     'myApp.Universi',
+    'myApp.Editor',
     'myApp.research',
     'myApp.risultatiRicerca'
 ])
@@ -45,8 +46,6 @@ angular.module("myApp", [
 
     //set the variable that is used in the main template to show the active button
     $rootScope.dati = {};
-
-
 
     $scope.isLogged = function()
     {

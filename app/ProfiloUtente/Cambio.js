@@ -24,7 +24,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
     .controller("ProfiloCtrl", ['$scope', 'Users', 'FollowerList', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService', function($scope, Users, FollowerList, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,$firebaseStorage) {
 
         $scope.dati={};
-
         //set the variable that is used in the main template to show the active button
         // $rootScope.dati.currentView = "ProfiloUtente";
               if($rootScope.ricercaEffettuata!==false){
@@ -101,37 +100,32 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.imgPath= "";
 
 
+        $scope.clickImg = function () {
+            document.getElementById("imageUpload").click();
+        }
 
+        function uploadImage(uploader) {
+            $scope.fileToUpload = uploader.files[0];
+            console.log( $scope.fileToUpload.name);
+            var fileName = $scope.fileToUpload.name;
+            var storageRef = firebase.storage().ref("Img/" + fileName);
+            $scope.storage = $firebaseStorage(storageRef);
+            var uploadTask = $scope.storage.$put($scope.fileToUpload);
+            uploadTask.$complete(function (snapshot) {
+                $scope.imgPath = snapshot.downloadURL;
 
-            $("#profileImage").click(function (e) {
-                $("#imageUpload").click();
+                Users.changeImage(currentAuth.uid, $scope.imgPath);
             });
+        }
 
-           function uploadImage(uploader) {
-               $scope.fileToUpload = uploader.files[0];
-
-               var fileName = $scope.fileToUpload.name;
-               var storageRef = firebase.storage().ref("Img/" + fileName);
-               $scope.storage = $firebaseStorage(storageRef);
-               var uploadTask = $scope.storage.$put($scope.fileToUpload);
-               uploadTask.$complete(function (snapshot) {
-                   $scope.imgPath = snapshot.downloadURL;
-
-                   Users.changeImage(currentAuth.uid, $scope.imgPath);
-               });
-           }
-
-
-            $("#imageUpload").change(function () {
-                uploadImage(this);
-            });
-
+        $scope.changeImg = function () {
+            uploadImage(this);
+        }
 
          //sotto viste
         $scope.currentPosition = 1;
         $scope.changeView = function (id)
         {
-
             $scope.currentPosition = id;
         };
 
@@ -165,7 +159,8 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
         $scope.listOf = function(infoName, infoValue) {
-
+            //if(infoValue.endsWith(".")) {
+              //  var str = infoValue.substr(0,infoValue.length-1);
                 var res = infoValue.split(",");
 
                     for (var i = 0; i < res.length; i++) {
@@ -173,8 +168,9 @@ angular.module("myApp.Profilo", ['ngRoute'])
                         Users.updatelistOf(currentAuth.uid, infoName, i, res[i]);
 
                 }
-
+            //}
         };
+
 
 
     }]);

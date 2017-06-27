@@ -55,9 +55,9 @@
 <div class="HeaderUtente">
     <div style="display: inline-flex;">
         <div id="profile-container">
-          <img id="profileImage" ng-src="{{dati.user.profilo}}">
+          <img id="profileImage" ng-src="{{dati.user.profilo}}" ng-click="clickImg()">
         </div>
-        <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture on-change="ProfiloCtrl.onChange">
+        <input id="imageUpload" ng-model="dati.user.profilo" type="file" name="profile_photo" placeholder="Photo" ng-change="changeImg()">
         <p class="nomeUtente" style="margin-top: 45px;width: 100%;display: inline-table;">{{dati.user.name}}</p>
     </div>
     <div style="width: 100%;margin-left: 40%;display: inline-flex;">
@@ -171,7 +171,7 @@
             </div>
         </div>
         <div id="div5"ng-if="currentPosition==5">
-            <a href="texteditor/editor.html"><button class="Bottone">Crea</button></a>
+            <a href="#!/Editor"><button class="Bottone">Crea</button></a>
 
             <div name="contenitore" class="con ng-scope" style="display: inline-grid;width: 100%;background: white;">
                 <div name="contenuti" style="display: inline-block;border-bottom: 1px solid #731c71;">
@@ -180,7 +180,7 @@
                         <h2 style="margin-left: 10%;margin-top: 35px;">Brutta Storia</h2>
                     </div>
                     <div name="storia" style="margin-left: 10%;margin-right: 10%;height: 50px;">
-                        <p style="margin-top: 0px; margin-bottom: 0px;">La situazione è questa: mille progetti in testa. Poi arriva l'estate e non si fa nulla. La vita è una puttana e spesso non ho il preservativo per fottermela.</p>
+                        <p style="margin-top: 0px; margin-bottom: 0px;">La situazione è questa.</p>
                     </div>
                     <div name="opzioni" style="margin-right: 3%;margin-bottom: 1%;float: right;">...</div>
                 </div>
@@ -191,7 +191,7 @@
                         <h2 style="margin-left: 10%;margin-top: 35px;">Brutta Storia</h2>
                     </div>
                     <div name="storia" style="margin-left: 10%;margin-right: 10%;height: 50px;">
-                        <p style="margin-top: 0px; margin-bottom: 0px;">La situazione è questa: mille progetti in testa. Poi arriva l'estate e non si fa nulla. La vita è una puttana e spesso non ho il preservativo per fottermela.</p>
+                        <p style="margin-top: 0px; margin-bottom: 0px;">La situazione è questa.</p>
                     </div>
                     <div name="opzioni" style="margin-right: 3%;margin-bottom: 1%;float: right;">...</div>
                 </div>
@@ -202,7 +202,7 @@
                         <h2 style="margin-left: 10%;margin-top: 35px;">Brutta Storia</h2>
                     </div>
                     <div name="storia" style="margin-left: 10%;margin-right: 10%;height: 50px;">
-                        <p style="margin-top: 0px; margin-bottom: 0px;">La situazione è questa: mille progetti in testa. Poi arriva l'estate e non si fa nulla. La vita è una puttana e spesso non ho il preservativo per fottermela.</p>
+                        <p style="margin-top: 0px; margin-bottom: 0px;">La situazione è questa.</p>
                     </div>
                     <div name="opzioni" style="margin-right: 3%;margin-bottom: 1%;float: right;">...</div>
                 </div>
