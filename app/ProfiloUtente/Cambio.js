@@ -128,13 +128,15 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         //Cambio immagine profilo
         var ctrl = this;
+        var isUploading = false;
         $scope.fileToUpload = null;
         $scope.imgPath= "";
 
 
         $scope.clickImg = function () {
             document.getElementById("imageUpload").click();
-        };
+            isUploading = true;
+        }
 
         function uploadImage(uploader) {
             $scope.fileToUpload = uploader.files[0];
@@ -151,8 +153,13 @@ angular.module("myApp.Profilo", ['ngRoute'])
         }
 
         $scope.changeImg = function () {
-            uploadImage(this);
-        };
+            uploadImage(document.getElementById("imageUpload"));
+            isUploading = false;
+        }
+
+        $scope.toUpload = function () {
+            return isUploading;
+        }
 
          //sotto viste
 
@@ -188,6 +195,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
                     for (var i = 0; i < res.length; i++) {
 
+                        console.log(res[i]);
                         Users.updatelistOf(currentAuth.uid, infoName, i, res[i]);
 
                 }

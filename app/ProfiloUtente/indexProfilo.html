@@ -57,8 +57,11 @@
         <div id="profile-container">
           <img id="profileImage" ng-src="{{dati.user.profilo}}" ng-click="clickImg()">
         </div>
-        <input id="imageUpload" ng-model="dati.user.profilo" type="file" name="profile_photo" placeholder="Photo" ng-change="changeImg()">
+        <input id="imageUpload" ng-model="dati.user.profilo" type="file" name="profile_photo" placeholder="Photo">
         <p class="nomeUtente" style="margin-top: 45px;width: 100%;display: inline-table;">{{dati.user.name}}</p>
+        <form ng-if="toUpload()" ng-submit="changeImg()">
+            <input type="submit">
+        </form>
     </div>
     <div style="width: 100%;margin-left: 40%;display: inline-flex;">
 
