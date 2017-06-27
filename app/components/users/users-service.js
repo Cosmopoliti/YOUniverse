@@ -50,8 +50,17 @@ angular.module('myApp.users.usersService', [])
                 var ref = firebase.database().ref().child("users").child(userId).child("seguitori").child(name).set(name);
             },
 
+            addFollowing: function (userId,name) {
+                var ref = firebase.database().ref().child("users").child(userId).child("seguiti").child(name).set(name);
+            },
+
             removeFollower: function (userId,name) {
                 var ref = firebase.database().ref().child("users").child(userId).child("seguitori").child(name).remove();
+            },
+
+            removeFollowing: function (userId,name) {
+                var ref = firebase.database().ref().child("users").child(userId).child("seguiti").child(name).remove();
             }
+
         };
     });

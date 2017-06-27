@@ -21,7 +21,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
         })
 
     }])
-    .controller("ProfiloCtrl", ['$scope', 'Users', 'FollowerList', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService', function($scope, Users, FollowerList, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,$firebaseStorage) {
+    .controller("ProfiloCtrl", ['$scope', 'Users', 'FollowerList', 'FollowingList', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService','$firebaseStorage', function($scope, Users, FollowerList, FollowingList, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,$firebaseStorage) {
 
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
@@ -29,14 +29,20 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
 
         //cambio Sottoviste
-        $scope.currentPosition = 1;
+        if($rootScope.currentPosition===undefined)
+        {$rootScope.currentPosition = 1;}
+        console.log($rootScope.currentPosition);
 
-        $scope.dropDownChangeView =function(id){
+        $rootScope.dropDownChangeView =function(id){
+            console.log($rootScope.currentPosition);
             $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
             $rootScope.ricercaEffettuata=false;
-            $scope.currentPosition = id;
+            $rootScope.currentPosition = id;
+            console.log($rootScope.currentPosition);
             bott.style = "margin-top: 37px; display:none";
             bott2.style = "height: 50px; margin-top: 37px; display:none";
+            find=false;
+            lollo();
         };
 
         $scope.changeView = function (id)
@@ -54,9 +60,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
                   $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
                }
 
-             console.log(currentAuth.uid);
-             console.log($scope.dati.user.$id);
-             console.log($rootScope.ricercaEffettuata);
 
         $rootScope.ricerca= function(value){
             $rootScope.valoreRicerca=value;
@@ -79,6 +82,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
                  else {
                 bott.style = "margin-top: 37px; display:none";
                 bott2.style = "height: 50px; margin-top: 37px; display:none";
+                lollo();
                 }
 
 
@@ -95,7 +99,10 @@ angular.module("myApp.Profilo", ['ngRoute'])
                  console.log($scope.dati.followers[key].Cosmopoliti);
                  }
                  */
-                $scope.dati.user.number=$scope.dati.followers.length;
+                if($scope.dati.followers.length>=1){
+                    $scope.dati.user.number=$scope.dati.followers.length;}
+                else {$scope.dati.user.number=0;}
+
                 for (var i=0; i<$scope.dati.followers.length; i++)
                 {
 
@@ -107,17 +114,36 @@ angular.module("myApp.Profilo", ['ngRoute'])
                         bott2.style = "height: 50px; margin-top: 37px; display";
                     }
                 }
+            });
+
+            $scope.dati.followings=FollowingList.getFollowings($scope.dati.user.$id);
+            $scope.dati.followings.$loaded().then(function()
+            {
+                //per stampare qualcosa ottenuto con $firebaseObject
+                /*
+                 for (var key in $scope.dati.followers)
+                 {
+                 console.log(JSON.stringify($scope.dati.followers[key]));
+                 console.log($scope.dati.followers[key].Cosmopoliti);
+                 }
+                 */
+                if($scope.dati.followings.length>=1){
+                    $scope.dati.user.number2=$scope.dati.followings.length;}
+                else {$scope.dati.user.number2=0;}
+
             })
         }
 
         $scope.follower = function (){
             Users.addFollower($scope.dati.user.$id, currentAuth.uid);
+            Users.addFollowing(currentAuth.uid,$scope.dati.user.$id);
             bott.style = "margin-top: 37px; display:none";
             bott2.style = "height: 50px; margin-top: 37px; display";
             lollo();
         };
          $scope.sfollower = function (){
              Users.removeFollower($scope.dati.user.$id, currentAuth.uid);
+             Users.removeFollowing(currentAuth.uid,$scope.dati.user.$id);
          bott.style = "margin-top: 37px; display";
          bott2.style = "height: 50px; margin-top: 37px; display:none";
          find=false;
@@ -133,10 +159,14 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.imgPath= "";
 
 
-        $scope.clickImg = function () {
-            document.getElementById("imageUpload").click();
-            isUploading = true;
-        }
+
+            $scope.clickImg = function () {
+                if($scope.dati.user.$id===currentAuth.uid){
+                    document.getElementById("imageUpload").click();
+                    isUploading = true;
+                }
+            }
+
 
         function uploadImage(uploader) {
             $scope.fileToUpload = uploader.files[0];
@@ -155,11 +185,11 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.changeImg = function () {
             uploadImage(document.getElementById("imageUpload"));
             isUploading = false;
-        }
+        };
 
         $scope.toUpload = function () {
             return isUploading;
-        }
+        };
 
          //sotto viste
 
@@ -201,7 +231,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
                 }
             //}
         };
-
 
 
     }]);
