@@ -43,6 +43,15 @@ angular.module('myApp.users.usersService', [])
 
             changeImage: function(userId, image){
                var ref = firebase.database().ref().child("users").child(userId).child("profilo").set(image);
+            },
+
+
+            addFollower: function(userId,name){
+                var ref = firebase.database().ref().child("users").child(userId).child("seguitori").child(name).set(name);
+            },
+
+            removeFollower: function (userId,name) {
+                var ref = firebase.database().ref().child("users").child(userId).child("seguitori").child(name).remove();
             }
         };
     });

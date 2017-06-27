@@ -21,13 +21,69 @@ angular.module("myApp.Profilo", ['ngRoute'])
         })
 
     }])
-    .controller("ProfiloCtrl", ['$scope', 'Users', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService','$firebaseStorage', function($scope, Users, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,$firebaseStorage ) {
+    .controller("ProfiloCtrl", ['$scope', 'Users', 'FollowerList', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService', function($scope, Users, FollowerList, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,$firebaseStorage) {
 
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
         // $rootScope.dati.currentView = "ProfiloUtente";
+
         $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
 
+
+        $rootScope.ricerca= function(value){
+            $rootScope.valoreRicerca=value;
+            console.log($rootScope.valoreRicerca);
+            location.href = '#!/risultati';
+        };
+
+
+        var bott = document.getElementById("mene");
+        var bott2 = document.getElementById("tene");
+        var find=false;
+
+        window.onload = function(e) {
+                lollo();
+        };
+
+        function lollo(){
+            $scope.dati.followers=FollowerList.getFollowers(currentAuth.uid);
+            $scope.dati.followers.$loaded().then(function()
+            {
+                //per stampare qualcosa ottenuto con $firebaseObject
+                /*
+                 for (var key in $scope.dati.followers)
+                 {
+                 console.log(JSON.stringify($scope.dati.followers[key]));
+                 console.log($scope.dati.followers[key].Cosmopoliti);
+                 }
+                 */
+                $scope.dati.user.number=$scope.dati.followers.length;
+                for (var i=0; i<$scope.dati.followers.length; i++)
+                {
+                    console.log($scope.dati.followers[i].$id);
+                    if($scope.dati.followers[i].$id===$scope.dati.user.name){
+                        find=true;
+                    }
+                    if(find===true){
+                        bott.style = "margin-top: 37px; display:none";
+                        bott2.style = "height: 50px; margin-top: 37px; display";
+                    }
+                }
+            })
+        }
+
+        $scope.follower = function (){
+            Users.addFollower(currentAuth.uid ,$scope.dati.user.name);
+            bott.style = "margin-top: 37px; display:none";
+            bott2.style = "height: 50px; margin-top: 37px; display";
+            lollo();
+        };
+         $scope.sfollower = function (){
+             Users.removeFollower(currentAuth.uid ,$scope.dati.user.name);
+         bott.style = "margin-top: 37px; display";
+         bott2.style = "height: 50px; margin-top: 37px; display:none";
+         find=false;
+         };
 
 
         //Cambio immagine profilo
@@ -92,8 +148,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
         $scope.listOf = function(infoName, infoValue) {
-            //if(infoValue.endsWith(".")) {
-              //  var str = infoValue.substr(0,infoValue.length-1);
+
                 var res = infoValue.split(",");
 
                     for (var i = 0; i < res.length; i++) {
@@ -102,9 +157,8 @@ angular.module("myApp.Profilo", ['ngRoute'])
                         Users.updatelistOf(currentAuth.uid, infoName, i, res[i]);
 
                 }
-            //}
-        };
 
+        };
 
 
     }]);
