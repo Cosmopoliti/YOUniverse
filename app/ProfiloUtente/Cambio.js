@@ -26,16 +26,37 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
         // $rootScope.dati.currentView = "ProfiloUtente";
-              if($rootScope.ricercaEffettuata!==false){
+
+
+        //cambio Sottoviste
+        $scope.currentPosition = 1;
+
+        $scope.dropDownChangeView =function(id){
+            $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+            $rootScope.ricercaEffettuata=false;
+            $scope.currentPosition = id;
+            bott.style = "margin-top: 37px; display:none";
+            bott2.style = "height: 50px; margin-top: 37px; display:none";
+        };
+
+        $scope.changeView = function (id)
+        {
+            $scope.currentPosition = id;
+        };
+
+
+
+        //Per far vedere le info dell'utente cercato
+        if($rootScope.ricercaEffettuata!==false){
                   var questo=$rootScope.other;
                  $scope.dati.user = UsersChatService.getUserInfo(questo);
-              }
-              else{
+        } else{
                   $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
-              }
+               }
 
              console.log(currentAuth.uid);
              console.log($scope.dati.user.$id);
+             console.log($rootScope.ricercaEffettuata);
 
         $rootScope.ricerca= function(value){
             $rootScope.valoreRicerca=value;
@@ -45,16 +66,25 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
 
+
+        // Visulizzazione tasto segui
         var bott = document.getElementById("mene");
         var bott2 = document.getElementById("tene");
         var find=false;
 
-        window.onload = function(e) {
+
+            if(currentAuth.uid!==$scope.dati.user.$id){
                 lollo();
-        };
+                 }
+                 else {
+                bott.style = "margin-top: 37px; display:none";
+                bott2.style = "height: 50px; margin-top: 37px; display:none";
+                }
+
 
         function lollo(){
-            $scope.dati.followers=FollowerList.getFollowers(currentAuth.uid);
+
+            $scope.dati.followers=FollowerList.getFollowers($scope.dati.user.$id);
             $scope.dati.followers.$loaded().then(function()
             {
                 //per stampare qualcosa ottenuto con $firebaseObject
@@ -69,7 +99,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
                 for (var i=0; i<$scope.dati.followers.length; i++)
                 {
 
-                    if($scope.dati.followers[i].$id===$scope.dati.user.name){
+                    if($scope.dati.followers[i].$id===currentAuth.uid){
                         find=true;
                     }
                     if(find===true){
@@ -81,17 +111,19 @@ angular.module("myApp.Profilo", ['ngRoute'])
         }
 
         $scope.follower = function (){
-            Users.addFollower(currentAuth.uid ,$scope.dati.user.name);
+            Users.addFollower($scope.dati.user.$id, currentAuth.uid);
             bott.style = "margin-top: 37px; display:none";
             bott2.style = "height: 50px; margin-top: 37px; display";
             lollo();
         };
          $scope.sfollower = function (){
-             Users.removeFollower(currentAuth.uid ,$scope.dati.user.name);
+             Users.removeFollower($scope.dati.user.$id, currentAuth.uid);
          bott.style = "margin-top: 37px; display";
          bott2.style = "height: 50px; margin-top: 37px; display:none";
          find=false;
          };
+
+
 
 
         //Cambio immagine profilo
@@ -102,7 +134,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         $scope.clickImg = function () {
             document.getElementById("imageUpload").click();
-        }
+        };
 
         function uploadImage(uploader) {
             $scope.fileToUpload = uploader.files[0];
@@ -120,19 +152,10 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         $scope.changeImg = function () {
             uploadImage(this);
-        }
+        };
 
          //sotto viste
-        $scope.currentPosition = 1;
-        $scope.changeView = function (id)
-        {
-            $scope.currentPosition = id;
-        };
 
-        $scope.dropDawnChangeView =function(id){
-            $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
-            changeView(id);
-        };
 
 
         //Funzione log out
