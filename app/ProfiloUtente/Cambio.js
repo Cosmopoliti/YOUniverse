@@ -24,16 +24,25 @@ angular.module("myApp.Profilo", ['ngRoute'])
     .controller("ProfiloCtrl", ['$scope', 'Users', 'FollowerList', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService', function($scope, Users, FollowerList, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,$firebaseStorage) {
 
         $scope.dati={};
+
         //set the variable that is used in the main template to show the active button
         // $rootScope.dati.currentView = "ProfiloUtente";
+              if($rootScope.ricercaEffettuata!==false){
+                  var questo=$rootScope.other;
+                 $scope.dati.user = UsersChatService.getUserInfo(questo);
+              }
+              else{
+                  $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+              }
 
-        $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
-
+             console.log(currentAuth.uid);
+             console.log($scope.dati.user.$id);
 
         $rootScope.ricerca= function(value){
             $rootScope.valoreRicerca=value;
-            console.log($rootScope.valoreRicerca);
+
             location.href = '#!/risultati';
+
         };
 
 
@@ -60,7 +69,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
                 $scope.dati.user.number=$scope.dati.followers.length;
                 for (var i=0; i<$scope.dati.followers.length; i++)
                 {
-                    console.log($scope.dati.followers[i].$id);
+
                     if($scope.dati.followers[i].$id===$scope.dati.user.name){
                         find=true;
                     }
@@ -92,27 +101,30 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.imgPath= "";
 
 
-        $("#profileImage").click(function(e) {
-            $("#imageUpload").click();
-        });
 
-        function uploadImage(uploader) {
-            $scope.fileToUpload = uploader.files[0];
-            console.log( $scope.fileToUpload.name);
-            var fileName = $scope.fileToUpload.name;
-            var storageRef = firebase.storage().ref("Img/" + fileName);
-            $scope.storage = $firebaseStorage(storageRef);
-            var uploadTask = $scope.storage.$put($scope.fileToUpload);
-            uploadTask.$complete(function (snapshot) {
-                $scope.imgPath = snapshot.downloadURL;
 
-                Users.changeImage(currentAuth.uid, $scope.imgPath);
+            $("#profileImage").click(function (e) {
+                $("#imageUpload").click();
             });
-        }
 
-        $("#imageUpload").change(function(){
-            uploadImage(this);
-        });
+           function uploadImage(uploader) {
+               $scope.fileToUpload = uploader.files[0];
+
+               var fileName = $scope.fileToUpload.name;
+               var storageRef = firebase.storage().ref("Img/" + fileName);
+               $scope.storage = $firebaseStorage(storageRef);
+               var uploadTask = $scope.storage.$put($scope.fileToUpload);
+               uploadTask.$complete(function (snapshot) {
+                   $scope.imgPath = snapshot.downloadURL;
+
+                   Users.changeImage(currentAuth.uid, $scope.imgPath);
+               });
+           }
+
+
+            $("#imageUpload").change(function () {
+                uploadImage(this);
+            });
 
 
          //sotto viste
@@ -121,6 +133,11 @@ angular.module("myApp.Profilo", ['ngRoute'])
         {
 
             $scope.currentPosition = id;
+        };
+
+        $scope.dropDawnChangeView =function(id){
+            $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+            changeView(id);
         };
 
 
@@ -153,7 +170,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
                     for (var i = 0; i < res.length; i++) {
 
-                        console.log(res[i]);
                         Users.updatelistOf(currentAuth.uid, infoName, i, res[i]);
 
                 }

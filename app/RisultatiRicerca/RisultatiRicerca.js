@@ -23,7 +23,13 @@ angular.module('myApp.risultatiRicerca', ['ngRoute'])
     }])
     .controller('risultatiRicercaCtrl', ['$scope', '$rootScope', 'Research','UserList',
         function($scope, $rootScope, Research, UserList) {
-            $rootScope.valoreRicerca;
             $scope.dati = {};
             $scope.dati.availableUsers = UserList.getListOfUsers();
+
+
+            $scope.altri= function(value){
+                $rootScope.other=value;
+                $rootScope.ricercaEffettuata=true;
+            }
+
         }]);

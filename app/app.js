@@ -36,6 +36,7 @@ angular.module("myApp", [
                 $location.path("/SignIn");
             }
         });
+        $rootScope.ricercaEffettuata = false;
     }])
 
     .controller('MainCtrl', ['$scope', '$rootScope', '$firebaseAuth', function($scope, $rootScope, $firebaseAuth) {
@@ -44,6 +45,8 @@ angular.module("myApp", [
 
     //set the variable that is used in the main template to show the active button
     $rootScope.dati = {};
+
+
 
     $scope.isLogged = function()
     {
