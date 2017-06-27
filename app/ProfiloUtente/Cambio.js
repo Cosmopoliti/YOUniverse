@@ -29,16 +29,15 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
 
 
-
         //Cambio immagine profilo
         var ctrl = this;
         $scope.fileToUpload = null;
         $scope.imgPath= "";
 
 
-        $("#profileImage").click(function(e) {
-            $("#imageUpload").click();
-        });
+        $scope.clickImg = function () {
+            document.getElementById("imageUpload").click();
+        }
 
         function uploadImage(uploader) {
             $scope.fileToUpload = uploader.files[0];
@@ -54,16 +53,14 @@ angular.module("myApp.Profilo", ['ngRoute'])
             });
         }
 
-        $("#imageUpload").change(function(){
+        $scope.changeImg = function () {
             uploadImage(this);
-        });
-
+        }
 
          //sotto viste
         $scope.currentPosition = 1;
         $scope.changeView = function (id)
         {
-
             $scope.currentPosition = id;
         };
 
