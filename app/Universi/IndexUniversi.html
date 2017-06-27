@@ -1,4 +1,4 @@
-<body>
+<body ng-controller="UniversiCtrl">
 
 
 <nav class="navbar navbar-inverse">
@@ -44,40 +44,120 @@
     </div>
 </nav>
 
-<div class="HeaderUniversi">
-    <table>
-        <tr>
-    <td><h2>Universo X</h2></td>
-   <td><button class="Espandi">Espandi</button></td>
-            <td>  <p>Livello: ???</p> </td>
-        </tr>
-    </table>
-</div>
-
 
 <table id="infoUniverso">
 
-    <tr>
-        <td id="Info"><a href="indexUniversi.html#!/Info"  style="color: black;text-decoration: none;">Info</a></td>
-        <td id="Storie"><a href="indexUniversi.html#!/Storie"  style="color: black;text-decoration: none;">Storie</a></td>
-        <td id="Mappa"><a href="indexUniversi.html#!/Mappa"  style="color: black;text-decoration: none;">Mappa</a></td>
-    </tr>
+    <ul class="nav nav-pills" style="margin-top: 130px;
+    margin-left: 220px;">
+        <li class="active"><a href="" on-click="event.preventDefault();" ng-click="changeView(9)">Universo X</a></li>
+        <li><a href="" on-click="event.preventDefault();" ng-click="changeView(10)">Info</a></li>
+        <li><a href="" on-click="event.preventDefault();" ng-click="changeView(11)">Storie</a></li>
+        <li><a href="" on-click="event.preventDefault();" ng-click="changeView(12)">Mappa</a></li>
+    </ul>
+    <ul class="nav nav-pills navbar-right" style="margin-top: -41px; margin-right: 40px;">
+        <li class="active">
+            <a href="" on-click="event.preventDefault();" ng-click="changeView(13)">ESPANDI</a>
+        </li>
+    </ul>
 
+    <div id="principale" class="wrapper" style="padding-top: 38px;">
+        <section style="height: auto;">
+            <div id="divUniverso"ng-if="currentPosition==9">
+                <ul class="informazioni" style="margin-top: -8px; margin-bottom: 0px; ">
+                        <p name="espansioniTot">Espansioni Totali: 5</p>
+                    <br>
+                        <p name="espansioniPers">Espansioni Personali: 2</p>
+                    <br>
+                        <p name="livello" style="margin-top: 40px; margin-bottom: 0px;">Livello raggiunto:</p>
+                    <br>
+                    <br>
+                        <div class="progress-bar" style="margin-top: -60px; margin-left: 320px">
+                            <span></span>
+                        </div>
+                    <p name="livelloraggiunto" style="margin-top: -60px; margin-left: 800px">Liv. 3</p>
+
+                </ul>
+            </div>
+            <div id="divInfoUni"ng-if="currentPosition==10">
+                <ul class="info" style="margin-top: -8px; margin-bottom: 0px; ">
+                <div name="contenitore"  style="width: 90%;margin-left: 4%;argin-top: -3%;">
+
+                    <h2>Ambientazione</h2>
+                    <p>..............................................................................................</p>
+
+
+                    <h2>Personaggi Chiave</h2>
+                    <p>..............................................................................................</p>
+
+
+                    <h2>Regolamento</h2>
+                    <p>..............................................................................................</p>
+
+
+                </div>
+                </ul>
+            </div>
+            <div id="divStorie"ng-if="currentPosition==11">
+                <ul class="storie" style="margin-top: -8px; margin-bottom: 0px; ">
+
+                    <h2 style="font-size:36px;"> Le Tue Storie</h2>
+                    <br>
+                    <p>Storia 1</p>
+                    <br>
+                    <p>Voti:</p>
+                    <img src="../logo-voto-stelle-4-su-5.jpg" height="353" width="1829" style="height:30px; width: 150px; margin-left: 400px; margin-top: -50px;"/>
+                    <br>
+                    <p>Storia 2</p>
+                    <br>
+                    <p>Voti:</p>
+                    <img src="../logo-voto-stelle-3-su-5.jpg" height="353" width="1829" style="height:30px; width: 150px; margin-left: 400px; margin-top: -50px;"/>
+                    <br>
+                    <br>
+
+                    <h2 style="font-size:36px;">Le Storie Degli Altri</h2>
+                    <br>
+                    <p>Storia 1</p>
+                    <br>
+                    <p>Voti:</p>
+                    <img src="../logo-voto-stelle-2-su-5.jpg" height="353" width="1829" style="height:30px; width: 150px; margin-left: 400px; margin-top: -50px;"/>
+                    <br>
+                    <p>Storia 2</p>
+                    <br>
+                    <p>Voti:</p>
+                    <img src="../logo-voto-stelle-5-su-5.jpg" height="353" width="1829" style="height:30px; width: 150px; margin-left: 400px; margin-top: -50px;"/>
+                </ul>
+            </div>
+            <div id="divMappa"ng-if="currentPosition==12">
+                <ul class="mappa" style="margin-top: -8px; margin-bottom: 0px; ">
+                    <div name="contenitore" class="ng-scope" style="width: 100%;margin-top: -36px;">
+                        <img src="../mappa.jpg" style="width: 100%;">
+                    </div>
+
+                </ul>
+            </div>
+            <div id="divEspandi"ng-if="currentPosition==13">
+                <ul class="espandi" style="margin-top: -8px; margin-bottom: 0px; ">
+                </ul>
+            </div>
+
+
+
+            <!--
+            <div id="infoUni" class="tab-pane fade">
+            </div>
+            <div id="storieUNI" class="tab-pane fade">
+            </div>
+        <div id="mappaUNI" class="tab-pane fade">
+            </div>
+        <div id="ESPANDI" class="tab-pane fade">
+            </div> -->
+
+
+        </section>
+    </div>
 </table>
 
 
-<div id="principale" class="wrapper" style="padding-top: 38px;">
-
-
-
-    <section style="height: auto;">
-     <div ng-view>
-
-     </div>
-    </section>
-
-
-</div>
 
 
 
