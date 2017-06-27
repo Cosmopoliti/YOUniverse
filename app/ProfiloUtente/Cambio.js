@@ -31,12 +31,14 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         //Cambio immagine profilo
         var ctrl = this;
+        var isUploading = false;
         $scope.fileToUpload = null;
         $scope.imgPath= "";
 
 
         $scope.clickImg = function () {
             document.getElementById("imageUpload").click();
+            isUploading = true;
         }
 
         function uploadImage(uploader) {
@@ -54,7 +56,12 @@ angular.module("myApp.Profilo", ['ngRoute'])
         }
 
         $scope.changeImg = function () {
-            uploadImage(this);
+            uploadImage(document.getElementById("imageUpload"));
+            isUploading = false;
+        }
+
+        $scope.toUpload = function () {
+            return isUploading;
         }
 
          //sotto viste
