@@ -30,6 +30,7 @@ angular.module('myApp.risultatiRicerca', ['ngRoute'])
             $scope.altri= function(value){
                 $rootScope.other=value;
                 $rootScope.ricercaEffettuata=true;
+                $rootScope.currentPosition= 1;
             }
 
         }]);

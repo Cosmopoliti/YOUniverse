@@ -19,6 +19,7 @@ angular.module("myApp", [
     'myApp.Profilo',
     'myApp.authentication',
     'myApp.users',
+    'myApp.universes',
     'myApp.fileUpload',
     'myApp.Universi',
     'myApp.Editor',

@@ -60,7 +60,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
                   console.log(currentAuth.uid);
                }
 
-
           //funzione che passa il valore i ricerca
         $rootScope.ricerca= function(value){
             $rootScope.valoreRicerca=value;
@@ -172,6 +171,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
                 $scope.imgPath = snapshot.downloadURL;
 
                 Users.changeImage(currentAuth.uid, $scope.imgPath);
+                lollo();
             });
         }
 
