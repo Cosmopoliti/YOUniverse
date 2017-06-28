@@ -129,7 +129,7 @@
         </div>
 
         <div id="div2" ng-if="currentPosition==2">
-            <a href="" on-click="event.preventDefault();" ng-click="changeView(8);"><button class="edit">Edit</button></a>
+            <a href="" on-click="event.preventDefault();" ng-click="changeView(8);"><button class="edit" ng-if="IDcontrol()">Edit</button></a>
             <ul class="interessi" style="margin-top: -8px; margin-bottom: 0px;">
                 <li>FILM:{{dati.user.film}}</li>
                 <li>LIBRI:{{dati.user.libri}}</li>
@@ -174,7 +174,7 @@
             </div>
         </div>
         <div id="div5"ng-if="currentPosition==5">
-            <a href="#!/Editor"><button class="Bottone">Crea</button></a>
+            <a href="#!/Editor"><button class="Bottone" ng-if="IDcontrol()">Crea</button></a>
 
             <div name="contenitore" class="con ng-scope" style="display: inline-grid;width: 100%;background: white;">
                 <div name="contenuti" style="display: inline-block;border-bottom: 1px solid #731c71;">
