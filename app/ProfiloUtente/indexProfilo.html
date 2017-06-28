@@ -117,7 +117,7 @@
     <section style="height: auto;" >
 
         <div id="div1" ng-if="currentPosition==1">
-            <a href="" on-click="event.preventDefault();" ng-click="changeView(7);"><button class="edit">Edit</button></a>
+            <a href="" on-click="event.preventDefault();" ng-click="changeView(7);"><button class="edit" ng-if="IDcontrol()">Edit</button></a>
             <ul class="informazioni" style="margin-top: -8px; margin-bottom: 0px; ">
                 <li>Username: {{dati.user.name}}</li>
                 <li>Gender: {{dati.user.gender}}</li>
