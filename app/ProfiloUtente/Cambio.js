@@ -56,6 +56,8 @@ angular.module("myApp.Profilo", ['ngRoute'])
                  $scope.dati.user = UsersChatService.getUserInfo(questo);
         } else{
                   $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+                  console.log($scope.dati.user.$id);
+                  console.log(currentAuth.uid);
                }
 
 
@@ -220,5 +222,8 @@ angular.module("myApp.Profilo", ['ngRoute'])
                 }
         };
 
+        $scope.IDcontrol = function () {
+            return $scope.dati.user.$id === currentAuth.uid;
+        };
 
     }]);

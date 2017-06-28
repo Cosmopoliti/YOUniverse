@@ -1632,14 +1632,8 @@ function( $scope, currentAuth ){
 		Save: function () {
             var story = document.createTextNode(jq(this).data('editor').text());
             var database = firebase.database();
-            database.ref('stories/').set({
-				storia1: story.wholeText
-			});
-            $scope.dati.story = story.wholeText;
-            console.log($scope.dati.story);
-            database.ref('users/' + currentAuth.uid + '/stories/').set({
-                storia1: story.wholeText
-			})
+            database.ref('users/' + currentAuth.uid + '/universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
+            database.ref('universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
         }
 
 	}
