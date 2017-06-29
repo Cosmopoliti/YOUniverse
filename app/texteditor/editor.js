@@ -26,9 +26,9 @@ angular.module("myApp.Editor", ['ngRoute'])
 		})
     }])
 
-	.controller("EditorCtrl", ['$scope', 'currentAuth',
+	.controller("EditorCtrl", ['$scope', 'currentAuth', '$firebaseArray',
 
-function( $scope, currentAuth ){
+function( $scope, currentAuth, $firebaseArray ){
 		$scope.dati = {};
     var jq = $.noConflict();
 	var editorObj;
@@ -1631,9 +1631,19 @@ function( $scope, currentAuth ){
 
 		Save: function () {
             var story = document.createTextNode(jq(this).data('editor').text());
-            var database = firebase.database();
-            database.ref('users/' + currentAuth.uid + '/universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
-            database.ref('universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
+            //var database = firebase.database();
+            //database.ref('users/' + currentAuth.uid + '/universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
+            //database.ref('universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
+			var refUniv = firebase.database().ref().child("universes").child(document.getElementById("universeID").value);
+            $firebaseArray(refUniv).$add({
+				title: document.getElementById("storyID").value,
+				story: story.wholeText
+			});
+            var refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value);
+            $firebaseArray(refUser).$add({
+                title: document.getElementById("storyID").value,
+                story: story.wholeText
+            });
         }
 
 	}
