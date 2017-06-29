@@ -2,7 +2,8 @@
 
 //declare the module that will act as parent of all the services dedicated to retrieve/save information about the users
 angular.module('myApp.universes', [
-    'myApp.universes.universeService'
+    'myApp.universes.universeService',
+    'myApp.universes.universesListService'
 ])
 
     .value('version', '0.1');

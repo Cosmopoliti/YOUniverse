@@ -17,6 +17,7 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Trend</a></li>
                     <li><a href="#">News</a></li>
+                    <li><a href="#!/ListaUniversi">Universi</a></li>
                 </ul>
         </ul>
         <form ng-submit="ricerca(dati.user.ricerca)" class="navbar-form navbar-left ng-pristine ng-valid">
@@ -58,10 +59,11 @@
           <img id="profileImage" ng-src="{{dati.user.profilo}}" ng-click="clickImg()">
         </div>
         <input id="imageUpload" ng-model="dati.user.profilo" type="file" name="profile_photo" placeholder="Photo">
-        <p class="nomeUtente" style="margin-top: 45px;width: 100%;display: inline-table;">{{dati.user.name}}</p>
         <form ng-if="toUpload()" ng-submit="changeImg()">
             <input type="submit">
         </form>
+        <p class="nomeUtente" style="margin-top: 45px;width: 100%;display: inline-table;">{{dati.user.name}}</p>
+
     </div>
     <div style="width: 100%;margin-left: 40%;display: inline-flex;">
 
@@ -155,8 +157,6 @@
         </div>
         <div id="div4"ng-if="currentPosition==4">
             <div name="contenitore" style="width: 100%;" class="ng-scope">
-               <!-- <ul class="media-list">
-                    <li class="media" ng-repeat="universes in dati.listUnivers">-->
                 <a href="#!/universi"> <div name="contenuti" style=" width: 100%; display: inline-flex;">
                     <div name="ImmagineUniverso" style="height: 80px;border-radius: 71px;width: 90px;background-color: darkred;">
                         <div class="universo"></div>
@@ -236,7 +236,7 @@
                         <td>
                             <div name="elemento" style="width: 30%;height: 30%;display: table-cell;">
                                 <center><img class="medaglia" src="../premio.png" style="width: 80%;"></center>
-                                <center><p sstyle="margin-top: 7px;margin-bottom: -17px;font-size: large;">obbiettivo per sbloccare</p></center>
+                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">obbiettivo per sbloccare</p></center>
                                 <center><h2>UNLOCKED</h2></center>
                             </div>
                         </td>
