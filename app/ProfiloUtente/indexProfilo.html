@@ -154,28 +154,26 @@
             </div>
         </div>
         <div id="div4"ng-if="currentPosition==4">
-            <ul>
-                <li ng-repeat="universe in dati.user.universes">
-                    <div name="contenitore" style="width: 100%;" class="ng-scope">
-                        <a href="#!/universi"> <div name="contenuti" style=" width: 100%; display: inline-flex;">
-                            <div name="ImmagineUniverso" style="height: 80px;border-radius: 71px;width: 90px;background-color: darkred;">
-                                <div class="universo"></div>
-                            </div>
-                            <div name="info" style="margin-top: 1.5%;width: 100%;">
-                                <h1 style=" margin-bottom: 0px; margin-top: 0px; margin-left: 30%;">Universo x</h1>
-                                <div name="subInfo&quot;" style="display: inline-flex; width: 80%; margin-left: 17%; margin-top: 2%;">
-                                    <p name="espansioni" style="margin-right: 29%; margin-bottom: 0px; margin-top: 0px;">Espansioni: 5</p>
-                                    <p name="livello" style="margin-top: 0px; margin-bottom: 0px;">Livello:</p>
-                                    <div class="progress-bar">
-                                        <span></span>
-                                    </div>
-                                </div>
+            <div name="contenitore" style="width: 100%;" class="ng-scope">
+               <!-- <ul class="media-list">
+                    <li class="media" ng-repeat="universes in dati.listUnivers">-->
+                <a href="#!/universi"> <div name="contenuti" style=" width: 100%; display: inline-flex;">
+                    <div name="ImmagineUniverso" style="height: 80px;border-radius: 71px;width: 90px;background-color: darkred;">
+                        <div class="universo"></div>
+                    </div>
+                    <div name="info" style="margin-top: 1.5%;width: 100%;">
+                        <h1 style=" margin-bottom: 0px; margin-top: 0px; margin-left: 30%;">Universo x</h1>
+                        <div name="subInfo&quot;" style="display: inline-flex; width: 80%; margin-left: 17%; margin-top: 2%;">
+                            <p name="espansioni" style="margin-right: 29%; margin-bottom: 0px; margin-top: 0px;">Espansioni: 5</p>
+                            <p name="livello" style="margin-top: 0px; margin-bottom: 0px;">Livello:</p>
+                            <div class="progress-bar">
+                                <span></span>
                             </div>
                         </div>
-                        </a>
                     </div>
-                </li>
-            </ul>
+                </div>
+                </a>
+            </div>
         </div>
         <div id="div5"ng-if="currentPosition==5">
             <a href="#!/Editor"><button class="Bottone" ng-if="IDcontrol()">Crea</button></a>
@@ -238,7 +236,7 @@
                         <td>
                             <div name="elemento" style="width: 30%;height: 30%;display: table-cell;">
                                 <center><img class="medaglia" src="../premio.png" style="width: 80%;"></center>
-                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">obbiettivo per sbloccare</p></center>
+                                <center><p sstyle="margin-top: 7px;margin-bottom: -17px;font-size: large;">obbiettivo per sbloccare</p></center>
                                 <center><h2>UNLOCKED</h2></center>
                             </div>
                         </td>

@@ -23,10 +23,15 @@ angular.module("myApp.Universi", ['ngRoute'])
     }])
 
 
-.controller("UniversiCtrl", ['$scope', '$rootScope','Users', 'currentAuth','$firebaseAuth', '$location', function($scope, $rootScope, Users, currentAuth, $firebaseAuth, $location ) {
+.controller("UniversiCtrl", ['$scope', '$rootScope','Users', 'Universes', 'currentAuth','$firebaseAuth', '$location', function($scope, $rootScope, Users, Universes, currentAuth, $firebaseAuth, $location ) {
 
 
-    $scope.dati={};
+    $rootScope.dati={};
+
+
+    $rootScope.dati.universe=Universes.getUniverseInfo("Prova");
+    console.log($rootScope.dati.universe);
+
 
     //Funzione log out
     $scope.logout = function () {
@@ -44,6 +49,8 @@ angular.module("myApp.Universi", ['ngRoute'])
     };
 
 
+
+    //gestione sottoviste
     $rootScope.currentPosition = 9;
     $scope.changeView = function (id)
    {

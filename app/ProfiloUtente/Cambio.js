@@ -25,20 +25,18 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
-        // $rootScope.dati.currentView = "ProfiloUtente";
+
 
 
         //cambio Sottoviste
         if($rootScope.currentPosition===undefined)
         {$rootScope.currentPosition = 1;}
-        console.log($rootScope.currentPosition);
+
 
         $rootScope.dropDownChangeView =function(id){
-            console.log($rootScope.currentPosition);
             $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
             $rootScope.ricercaEffettuata=false;
             $rootScope.currentPosition = id;
-            console.log($rootScope.currentPosition);
             bott.style = "margin-top: 37px; display:none";
             bott2.style = "height: 50px; margin-top: 37px; display:none";
             find=false;
@@ -62,7 +60,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
                   console.log(currentAuth.uid);
                }
 
-
+          //funzione che passa il valore i ricerca
         $rootScope.ricerca= function(value){
             $rootScope.valoreRicerca=value;
 
@@ -121,14 +119,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
             $scope.dati.followings=FollowingList.getFollowings($scope.dati.user.$id);
             $scope.dati.followings.$loaded().then(function()
             {
-                //per stampare qualcosa ottenuto con $firebaseObject
-                /*
-                 for (var key in $scope.dati.followers)
-                 {
-                 console.log(JSON.stringify($scope.dati.followers[key]));
-                 console.log($scope.dati.followers[key].Cosmopoliti);
-                 }
-                 */
+
                 if($scope.dati.followings.length>=1){
                     $scope.dati.user.number2=$scope.dati.followings.length;}
                 else {$scope.dati.user.number2=0;}
@@ -167,12 +158,11 @@ angular.module("myApp.Profilo", ['ngRoute'])
                     document.getElementById("imageUpload").click();
                     isUploading = true;
                 }
-            }
+            };
 
 
         function uploadImage(uploader) {
             $scope.fileToUpload = uploader.files[0];
-            console.log( $scope.fileToUpload.name);
             var fileName = $scope.fileToUpload.name;
             var storageRef = firebase.storage().ref("Img/" + fileName);
             $scope.storage = $firebaseStorage(storageRef);
@@ -181,6 +171,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
                 $scope.imgPath = snapshot.downloadURL;
 
                 Users.changeImage(currentAuth.uid, $scope.imgPath);
+                lollo();
             });
         }
 
@@ -221,8 +212,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
         $scope.listOf = function(infoName, infoValue) {
-            //if(infoValue.endsWith(".")) {
-              //  var str = infoValue.substr(0,infoValue.length-1);
                 var res = infoValue.split(",");
 
                     for (var i = 0; i < res.length; i++) {
@@ -231,7 +220,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
                         Users.updatelistOf(currentAuth.uid, infoName, i, res[i]);
 
                 }
-            //}
         };
 
         $scope.IDcontrol = function () {
