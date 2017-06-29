@@ -30,7 +30,6 @@ angular.module("myApp.Universi", ['ngRoute'])
 
 
     $rootScope.dati.universe=Universes.getUniverseInfo($rootScope.otherUniverse);
-    console.log($rootScope.dati.universe);
 
 
     //Funzione log out
@@ -47,7 +46,6 @@ angular.module("myApp.Universi", ['ngRoute'])
             }
         });
     };
-
 
 
     //gestione sottoviste

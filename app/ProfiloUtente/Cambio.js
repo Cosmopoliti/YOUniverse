@@ -21,7 +21,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
         })
 
     }])
-    .controller("ProfiloCtrl", ['$scope', 'Users', 'FollowerList', 'FollowingList', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService','$firebaseStorage', function($scope, Users, FollowerList, FollowingList, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,$firebaseStorage) {
+    .controller("ProfiloCtrl", ['$scope', 'Users', 'FollowerList', 'FollowingList', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService','UniversesUserList','$firebaseStorage', function($scope, Users, FollowerList, FollowingList, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,UniversesUserList,$firebaseStorage) {
 
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
@@ -56,9 +56,21 @@ angular.module("myApp.Profilo", ['ngRoute'])
                  $scope.dati.user = UsersChatService.getUserInfo(questo);
         } else{
                   $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
-                  console.log($scope.dati.user.$id);
-                  console.log(currentAuth.uid);
                }
+
+
+         //visualizzazione universi del singolo utente
+        $rootScope.ListUniversesOfUser=UniversesUserList.getUniversesOfUser($scope.dati.user.$id);
+        console.log($rootScope.ListUniversesOfUser);
+
+        /*$scope.getStories = function (universo) {
+            var ref = firebase.database().ref("users/" + currentAuth.uid + "/universes/" + universo);
+            ref.orderByValue().on("value", function (snapshot) {
+                snapshot.forEach(function (data) {
+                    console.log(data.key + ":" + data.val());
+                })
+            });
+        }*/
 
           //funzione che passa il valore i ricerca
         $rootScope.ricerca= function(value){

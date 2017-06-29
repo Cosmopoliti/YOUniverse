@@ -18,7 +18,7 @@ angular.module('myApp.universes.universeService', [])
             getUniverseInfo: function(universeName) {
                 var universeRef = firebase.database().ref().child("universes").child(universeName);
                 return $firebaseObject(universeRef);
-            },
+            }
 
 
 
