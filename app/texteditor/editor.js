@@ -1634,7 +1634,7 @@ function( $scope, currentAuth, $firebaseArray ){
             //var database = firebase.database();
             //database.ref('users/' + currentAuth.uid + '/universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
             //database.ref('universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
-			var refUniv = firebase.database().ref().child("universes").child(document.getElementById("universeID").value);
+			var refUniv = firebase.database().ref().child("universes").child(document.getElementById("universeID").value).child("stories");
             $firebaseArray(refUniv).$add({
 				title: document.getElementById("storyID").value,
 				story: story.wholeText

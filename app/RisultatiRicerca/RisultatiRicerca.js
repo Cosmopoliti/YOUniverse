@@ -21,10 +21,44 @@ angular.module('myApp.risultatiRicerca', ['ngRoute'])
             }
         })
     }])
-    .controller('risultatiRicercaCtrl', ['$scope', '$rootScope', 'Research','UserList',
-        function($scope, $rootScope, Research, UserList) {
+    .controller('risultatiRicercaCtrl', ['$scope', '$rootScope', 'Research','UserList', 'UniversesList',
+        function($scope, $rootScope, Research, UserList, UniversesList) {
             $scope.dati = {};
             $scope.dati.availableUsers = UserList.getListOfUsers();
+            $scope.dati.availableStories={};
+            $scope.Universes = UniversesList.getListOfUniverses();
+
+
+            $scope.Universes.$loaded().then(function()
+            {
+
+                for (var i=0; i<$scope.Universes.length; i++)
+                {
+                    $scope.storie=UniversesList.getStories($scope.Universes[i].$id);
+
+                    aggiungi($scope.storie);
+
+                }
+
+            });
+
+
+            function aggiungi(lista)
+            {
+                   lista.$loaded().then(function()
+               {   console.log(lista);
+
+                   for (var i=0; i<lista.length; i++)
+                   {
+                       $scope.dati.availableStories.concat(lista);
+                       console.log($scope.dati.availableStories);
+                   }
+
+               });
+            }
+
+
+
 
 
             $scope.altri= function(value){

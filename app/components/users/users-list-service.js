@@ -10,6 +10,16 @@ angular.module('myApp.users.usersListService', [])
                 var ref = firebase.database().ref().child("users");
                 // download the data into a local object
                 return $firebaseArray(ref);
+            },
+            getFollowings: function (userId) {
+                var ref = firebase.database().ref().child("users").child(userId).child("seguiti");
+                // download the data into a local object
+                return $firebaseArray(ref);
+            },
+            getFollowers: function (userId) {
+                var ref = firebase.database().ref().child("users").child(userId).child("seguitori");
+                // download the data into a local object
+                return $firebaseArray(ref);
             }
         };
         return userListService;

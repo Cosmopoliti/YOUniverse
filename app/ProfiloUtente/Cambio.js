@@ -21,7 +21,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
         })
 
     }])
-    .controller("ProfiloCtrl", ['$scope', 'Users', 'FollowerList', 'FollowingList', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService','UniversesUserList','$firebaseStorage', function($scope, Users, FollowerList, FollowingList, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,UniversesUserList,$firebaseStorage) {
+    .controller("ProfiloCtrl", ['$scope', 'Users','UserList', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService','UniversesUserList','$firebaseStorage', function($scope, Users,UserList, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,UniversesUserList,$firebaseStorage) {
 
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
@@ -61,7 +61,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
          //visualizzazione universi del singolo utente
         $rootScope.ListUniversesOfUser=UniversesUserList.getUniversesOfUser($scope.dati.user.$id);
-        console.log($rootScope.ListUniversesOfUser);
 
         /*$scope.getStories = function (universo) {
             var ref = firebase.database().ref("users/" + currentAuth.uid + "/universes/" + universo);
@@ -80,6 +79,9 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         };
 
+        $scope.sceltaUniverso= function(value){
+            $rootScope.otherUniverse=value;
+        };
 
 
         // Visulizzazione tasto segui
@@ -100,7 +102,8 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         function lollo(){
 
-            $scope.dati.followers=FollowerList.getFollowers($scope.dati.user.$id);
+            $scope.dati.followers=UserList.getFollowers($scope.dati.user.$id);
+            console.log($scope.dati.followers);
             $scope.dati.followers.$loaded().then(function()
             {
                 //per stampare qualcosa ottenuto con $firebaseObject
@@ -128,7 +131,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
                 }
             });
 
-            $scope.dati.followings=FollowingList.getFollowings($scope.dati.user.$id);
+            $scope.dati.followings=UserList.getFollowings($scope.dati.user.$id);
             $scope.dati.followings.$loaded().then(function()
             {
 

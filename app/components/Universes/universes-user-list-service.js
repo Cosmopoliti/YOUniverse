@@ -16,7 +16,4 @@ angular.module('myApp.universes.universesUserListService', [])
         };
         return universesUserList;
 
-
-
-
     });
