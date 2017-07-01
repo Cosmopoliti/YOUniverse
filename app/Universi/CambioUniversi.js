@@ -29,12 +29,13 @@ angular.module("myApp.Universi", ['ngRoute'])
     }])
 
 
-.controller("UniversiCtrl", ['$scope', function($scope) {
+.controller("UniversiCtrl", ['$scope', '$rootScope', "$location", function($scope, $rootScope, $location) {
 
-$scope.currentPosition = 9;
-$scope.changeView = function (id)
+$rootScope.currentPosition = 9;
+$rootScope.changeView = function (id)
 {
-    $scope.currentPosition = id;
+    $rootScope.currentPosition = id;
+    $location.path("/ProfiloUtente");
 };
 
 }]);

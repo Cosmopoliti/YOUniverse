@@ -60,11 +60,11 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
 
          //sotto viste
-        $scope.currentPosition = 1;
-        $scope.changeView = function (id)
+        $rootScope.currentPosition = 1;
+        $rootScope.changeView = function (id)
         {
 
-            $scope.currentPosition = id;
+            $rootScope.currentPosition = id;
         };
 
 
