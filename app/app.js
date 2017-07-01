@@ -19,8 +19,13 @@ angular.module("myApp", [
     'myApp.Profilo',
     'myApp.authentication',
     'myApp.users',
+    'myApp.universes',
     'myApp.fileUpload',
-    'myApp.Universi'
+    'myApp.Universi',
+    'myApp.Editor',
+    'myApp.research',
+    'myApp.risultatiRicerca',
+    'myApp.ListaUniversi'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
@@ -34,6 +39,7 @@ angular.module("myApp", [
                 $location.path("/SignIn");
             }
         });
+        $rootScope.ricercaEffettuata = false;
     }])
 
     .controller('MainCtrl', ['$scope', '$rootScope', '$firebaseAuth', function($scope, $rootScope, $firebaseAuth) {

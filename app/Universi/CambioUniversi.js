@@ -19,23 +19,46 @@ angular.module("myApp.Universi", ['ngRoute'])
 
             }
         })
-            /*.when('/Storie', {
-                templateUrl: 'sub-views/Storie.html'
-            })
-            .when('/Mappa', {
-                templateUrl: 'sub-views/Mappa.html'
-            })
-            .otherwise({redirectTo: '/Info'});*/
+
     }])
 
 
-.controller("UniversiCtrl", ['$scope', '$rootScope', "$location", function($scope, $rootScope, $location) {
+.controller("UniversiCtrl", ['$scope', '$rootScope','Users', 'Universes', 'currentAuth','$firebaseAuth', '$location', function($scope, $rootScope, Users, Universes, currentAuth, $firebaseAuth, $location ) {
 
-$rootScope.currentPosition = 9;
-$rootScope.changeView = function (id)
-{
+
+    $rootScope.dati={};
+
+
+    $rootScope.dati.universe=Universes.getUniverseInfo($rootScope.otherUniverse);
+    console.log($rootScope.dati.universe);
+
+
+    //Funzione log out
+    $scope.logout = function () {
+        //save the new status in the database (we do it before the actual logout because we can write in the database only if the user is logged in)
+        Users.registerLogout(currentAuth.uid);
+        //sign out
+        $firebaseAuth().$signOut();
+        $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
+            if (firebaseUser) {
+                console.log("User is yet signed in as:", firebaseUser.uid);
+            } else {
+                $location.path("/SignIn");
+            }
+        });
+    };
+
+
+
+    //gestione sottoviste
+    $rootScope.currentPosition = 9;
+    $scope.changeView = function (id)
+   {
     $rootScope.currentPosition = id;
-    $location.path("/ProfiloUtente");
-};
+    };
+
+    $scope.setView = function(id){
+        $rootScope.currentPosition = id;
+    };
 
 }]);

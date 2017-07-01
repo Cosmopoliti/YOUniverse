@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">YOUniverse</a>
+            <a class="navbar-brand" href="#!/ProfiloUtente" ng-click="setView(1);">YOUniverse</a>
         </div>
         <ul class="nav navbar-nav">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Copertine<span class="caret"></span></a>
@@ -17,11 +17,12 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Trend</a></li>
                     <li><a href="#">News</a></li>
+                    <li><a href="#!/ListaUniversi">Universi</a></li>
                 </ul>
         </ul>
-        <form class="navbar-form navbar-left ng-pristine ng-valid">
+        <form ng-submit="ricerca(dati.user.ricerca)" class="navbar-form navbar-left ng-pristine ng-valid">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" style="margin-bottom: 5px; height: 34px;">
+                <input  type="text" class="form-control" placeholder="Search" style="margin-bottom: 5px; height: 34px;" ng-model="dati.user.ricerca">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
@@ -31,14 +32,14 @@
                 <span class="glyphicon glyphicon-user"></span><span class="caret"></span>Profilo</a>
                 <ul class="dropdown-menu">
                     <li class="dropdown-header">Funzionalità</li>
-                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(1)">Informazioni</a></li>
-                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(2);">Interessi</a></li>
-                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(3);">Diario</a></li>
-                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(4);">Libreria Universi</a></li>
-                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(5);">Storie</a></li>
-                    <li><a href="" on-click="event.preventDefault();" ng-click="changeView(6);">Palmares</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="setView(1);">Informazioni</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="setView(2);">Interessi</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="setView(3);">Diario</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="setView(4);">Libreria Universi</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="setView(5);">Storie</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="setView(6);">Palmares</a></li>
                     <li class="divider"></li>
-                    <li><a href="#" ng-click="logout();">Log Out</a></li>
+                    <li><a ng-click="logout();">Log Out</a></li>
                 </ul>
         </ul>
     </div>
@@ -49,7 +50,7 @@
 
     <ul class="nav nav-pills" style="margin-top: 130px;
     margin-left: 220px;">
-        <li class="active"><a href="" on-click="event.preventDefault();" ng-click="changeView(9)">Universo X</a></li>
+        <li class="active"><a href="" on-click="event.preventDefault();" ng-click="changeView(9)">{{dati.universe.$id}}</a></li>
         <li><a href="" on-click="event.preventDefault();" ng-click="changeView(10)">Info</a></li>
         <li><a href="" on-click="event.preventDefault();" ng-click="changeView(11)">Storie</a></li>
         <li><a href="" on-click="event.preventDefault();" ng-click="changeView(12)">Mappa</a></li>
@@ -60,7 +61,7 @@
         </li>
     </ul>
 
-    <div id="principale" class="wrapper" style="padding-top: 38px;">
+    <div id="principale" class="wrapper" style="left: 0%; padding-top: 38px;">
         <section style="height: auto;">
             <div id="divUniverso"ng-if="currentPosition==9">
                 <ul class="informazioni" style="margin-top: -8px; margin-bottom: 0px; ">
@@ -83,15 +84,15 @@
                 <div name="contenitore"  style="width: 90%;margin-left: 4%;argin-top: -3%;">
 
                     <h2>Ambientazione</h2>
-                    <p>..............................................................................................</p>
+                    <p>{{dati.universe.info.Ambientazione}}</p>
 
 
                     <h2>Personaggi Chiave</h2>
-                    <p>..............................................................................................</p>
+                    <p>{{dati.universe.info.Personaggi}}</p>
 
 
                     <h2>Regolamento</h2>
-                    <p>..............................................................................................</p>
+                    <p>{{dati.universe.info.Regolamento}}</p>
 
 
                 </div>

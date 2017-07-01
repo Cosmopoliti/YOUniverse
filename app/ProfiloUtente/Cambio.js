@@ -21,28 +21,146 @@ angular.module("myApp.Profilo", ['ngRoute'])
         })
 
     }])
-    .controller("ProfiloCtrl", ['$scope', 'Users', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService','$firebaseStorage', function($scope, Users, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,$firebaseStorage ) {
+    .controller("ProfiloCtrl", ['$scope', 'Users', 'FollowerList', 'FollowingList', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService','$firebaseStorage', function($scope, Users, FollowerList, FollowingList, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,$firebaseStorage) {
 
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
-        // $rootScope.dati.currentView = "ProfiloUtente";
-        $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+
+
+
+        //cambio Sottoviste
+        if($rootScope.currentPosition===undefined)
+        {$rootScope.currentPosition = 1;}
+
+
+        $rootScope.dropDownChangeView =function(id){
+            $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+            $rootScope.ricercaEffettuata=false;
+            $rootScope.currentPosition = id;
+            bott.style = "margin-top: 37px; display:none";
+            bott2.style = "height: 50px; margin-top: 37px; display:none";
+            find=false;
+            lollo();
+        };
+
+        $scope.changeView = function (id)
+        {
+            $scope.currentPosition = id;
+        };
+
+
+
+        //Per far vedere le info dell'utente cercato
+        if($rootScope.ricercaEffettuata!==false){
+                  var questo=$rootScope.other;
+                 $scope.dati.user = UsersChatService.getUserInfo(questo);
+        } else{
+                  $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+               }
+
+          //funzione che passa il valore i ricerca
+        $rootScope.ricerca= function(value){
+            $rootScope.valoreRicerca=value;
+
+            location.href = '#!/risultati';
+
+        };
+
+
+
+        // Visulizzazione tasto segui
+        var bott = document.getElementById("mene");
+        var bott2 = document.getElementById("tene");
+        var find=false;
+
+
+            if(currentAuth.uid!==$scope.dati.user.$id){
+                lollo();
+                 }
+                 else {
+                bott.style = "margin-top: 37px; display:none";
+                bott2.style = "height: 50px; margin-top: 37px; display:none";
+                lollo();
+                }
+
+
+        function lollo(){
+
+            $scope.dati.followers=FollowerList.getFollowers($scope.dati.user.$id);
+            $scope.dati.followers.$loaded().then(function()
+            {
+                //per stampare qualcosa ottenuto con $firebaseObject
+                /*
+                 for (var key in $scope.dati.followers)
+                 {
+                 console.log(JSON.stringify($scope.dati.followers[key]));
+                 console.log($scope.dati.followers[key].Cosmopoliti);
+                 }
+                 */
+                if($scope.dati.followers.length>=1){
+                    $scope.dati.user.number=$scope.dati.followers.length;}
+                else {$scope.dati.user.number=0;}
+
+                for (var i=0; i<$scope.dati.followers.length; i++)
+                {
+
+                    if($scope.dati.followers[i].$id===currentAuth.uid){
+                        find=true;
+                    }
+                    if(find===true){
+                        bott.style = "margin-top: 37px; display:none";
+                        bott2.style = "height: 50px; margin-top: 37px; display";
+                    }
+                }
+            });
+
+            $scope.dati.followings=FollowingList.getFollowings($scope.dati.user.$id);
+            $scope.dati.followings.$loaded().then(function()
+            {
+
+                if($scope.dati.followings.length>=1){
+                    $scope.dati.user.number2=$scope.dati.followings.length;}
+                else {$scope.dati.user.number2=0;}
+
+            })
+        }
+
+        $scope.follower = function (){
+            Users.addFollower($scope.dati.user.$id, currentAuth.uid);
+            Users.addFollowing(currentAuth.uid,$scope.dati.user.$id);
+            bott.style = "margin-top: 37px; display:none";
+            bott2.style = "height: 50px; margin-top: 37px; display";
+            lollo();
+        };
+         $scope.sfollower = function (){
+             Users.removeFollower($scope.dati.user.$id, currentAuth.uid);
+             Users.removeFollowing(currentAuth.uid,$scope.dati.user.$id);
+         bott.style = "margin-top: 37px; display";
+         bott2.style = "height: 50px; margin-top: 37px; display:none";
+         find=false;
+         };
+
 
 
 
         //Cambio immagine profilo
         var ctrl = this;
+        var isUploading = false;
         $scope.fileToUpload = null;
         $scope.imgPath= "";
 
 
-        $("#profileImage").click(function(e) {
-            $("#imageUpload").click();
-        });
+
+            $scope.clickImg = function () {
+                if($scope.dati.user.$id===currentAuth.uid){
+                    document.getElementById("imageUpload").click();
+                    isUploading = true;
+                }
+            };
+
 
         function uploadImage(uploader) {
             $scope.fileToUpload = uploader.files[0];
-            console.log( $scope.fileToUpload.name);
             var fileName = $scope.fileToUpload.name;
             var storageRef = firebase.storage().ref("Img/" + fileName);
             $scope.storage = $firebaseStorage(storageRef);
@@ -51,21 +169,21 @@ angular.module("myApp.Profilo", ['ngRoute'])
                 $scope.imgPath = snapshot.downloadURL;
 
                 Users.changeImage(currentAuth.uid, $scope.imgPath);
+                lollo();
             });
         }
 
-        $("#imageUpload").change(function(){
-            uploadImage(this);
-        });
+        $scope.changeImg = function () {
+            uploadImage(document.getElementById("imageUpload"));
+            isUploading = false;
+        };
 
+        $scope.toUpload = function () {
+            return isUploading;
+        };
 
          //sotto viste
-        $rootScope.currentPosition = 1;
-        $rootScope.changeView = function (id)
-        {
 
-            $rootScope.currentPosition = id;
-        };
 
 
         //Funzione log out
@@ -92,8 +210,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
         $scope.listOf = function(infoName, infoValue) {
-            //if(infoValue.endsWith(".")) {
-              //  var str = infoValue.substr(0,infoValue.length-1);
                 var res = infoValue.split(",");
 
                     for (var i = 0; i < res.length; i++) {
@@ -102,9 +218,10 @@ angular.module("myApp.Profilo", ['ngRoute'])
                         Users.updatelistOf(currentAuth.uid, infoName, i, res[i]);
 
                 }
-            //}
         };
 
-
+        $scope.IDcontrol = function () {
+            return $scope.dati.user.$id === currentAuth.uid;
+        };
 
     }]);

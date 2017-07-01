@@ -1,0 +1,8 @@
+
+<div style="background: white">
+<h4>Result of the research: </h4>
+<p ng-repeat="user in testValue=(dati.availableUsers | filter:{name: valoreRicerca})">
+    <a href="#!/ProfiloUtente" ng-click="altri(user.$id)">{{user.name}}</a>
+</p>
+<p ng-show="!testValue.length">No available users</p>
+</div>

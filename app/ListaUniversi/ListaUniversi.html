@@ -1,0 +1,25 @@
+
+<div class="contenitoreUniversi">
+    <ul class="media-list">
+        <li class="media" ng-repeat="universes in dati.listUniverses">
+    <div class="universoContenuto">
+    <a href="#!/universi" ng-click="sceltaUniverso(universes.$id)"> <div name="contenuti" style=" width: 100%; display: inline-flex;">
+        <div name="ImmagineUniverso" style="height: 80px;border-radius: 71px;width: 90px;background-color: darkred;">
+            <div class="universo"></div>
+        </div>
+        <div name="info" style="margin-top: 1.5%;width: 100%;">
+            <h1 style=" margin-bottom: 0px; margin-top: 0px; margin-left: 30%;">{{universes.$id}}</h1>
+            <div name="subInfo&quot;" style="display: inline-flex; width: 80%; margin-left: 17%; margin-top: 2%;">
+                <p name="espansioni" style="margin-right: 29%; margin-bottom: 0px; margin-top: 0px;">Espansioni: 5</p>
+                <p name="livello" style="margin-top: 0px; margin-bottom: 0px;">Livello:</p>
+                <div class="progress-bar">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </a>
+    </div>
+        </li>
+        </ul>
+</div>
