@@ -103,7 +103,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
         function lollo(){
 
             $scope.dati.followers=UserList.getFollowers($scope.dati.user.$id);
-            console.log($scope.dati.followers);
             $scope.dati.followers.$loaded().then(function()
             {
                 //per stampare qualcosa ottenuto con $firebaseObject

@@ -25,8 +25,9 @@ angular.module('myApp.risultatiRicerca', ['ngRoute'])
         function($scope, $rootScope, Research, UserList, UniversesList) {
             $scope.dati = {};
             $scope.dati.availableUsers = UserList.getListOfUsers();
-            $scope.dati.availableStories={};
+           // $rootScope.availableStories={};
             $scope.Universes = UniversesList.getListOfUniverses();
+
 
 
             $scope.Universes.$loaded().then(function()
@@ -36,28 +37,24 @@ angular.module('myApp.risultatiRicerca', ['ngRoute'])
                 {
                     $scope.storie=UniversesList.getStories($scope.Universes[i].$id);
 
-                    aggiungi($scope.storie);
+                    richiamo($scope.storie);
 
                 }
 
             });
 
 
-            function aggiungi(lista)
+            function richiamo(lista)
             {
                    lista.$loaded().then(function()
-               {   console.log(lista);
-
+               {
                    for (var i=0; i<lista.length; i++)
                    {
-                       $scope.dati.availableStories.concat(lista);
-                       console.log($scope.dati.availableStories);
+                       $rootScope.availableStories = [].concat($rootScope.availableStories ,lista[i]);
                    }
-
+                   console.log( $rootScope.availableStories );
                });
             }
-
-
 
 
 
