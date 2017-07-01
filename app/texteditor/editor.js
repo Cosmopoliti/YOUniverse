@@ -26,12 +26,16 @@ angular.module("myApp.Editor", ['ngRoute'])
 		})
     }])
 
-	.controller("EditorCtrl", ['$scope', 'currentAuth', '$firebaseArray',
+	.controller("EditorCtrl", ['$scope', 'currentAuth', '$firebaseArray','UniversesList',
 
-function( $scope, currentAuth, $firebaseArray ){
+function( $scope, currentAuth, $firebaseArray, UniversesList ){
 		$scope.dati = {};
     var jq = $.noConflict();
 	var editorObj;
+
+	$scope.listaUniversi=UniversesList.getListOfUniverses();
+
+
 	var methods = {
 		saveSelection: function() {
 			//Function to save the text selection range from the editor

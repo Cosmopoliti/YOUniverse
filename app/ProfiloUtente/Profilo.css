@@ -119,6 +119,11 @@ p{
     height: 17%;
 }
 
+#universeID{
+    width: 150px;
+    height: 26px;
+    font-size: large;
+}
 
 /* header.m {
     padding: 25px 20px 40px 20px;
