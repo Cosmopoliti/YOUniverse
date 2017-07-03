@@ -188,16 +188,17 @@
                         <p style="margin-bottom: 9px;margin-top: 10px;margin-left: 42%;">{{universes.$id}}</p>
                         <ul class="media-list">
                             <li class="media" ng-repeat="storie in universes">
-                                <div name="contenuti" style="width: 100%;display: inline-block;border-bottom: 4px solid #f4c430;">
+                                <a href="#!/lettura" ng-click="storiaDaLeggere(storie.story,storie.title)"><div name="contenuti" style="width: 100%;display: inline-block;border-bottom: 4px solid #f4c430;">
                                     <div name="Foto e titolo" style="margin-left: 35px;display: inline-flex;width: 100%;">
                                         <img ng-src="{{dati.user.profilo}}">
-                                        <h2 style="margin-left: 10%;margin-top: 35px;">{{storie.title}}</h2>
+                                       <h2 style="margin-left: 10%;margin-top: 35px;">{{storie.title}}</h2>
                                     </div>
                                     <div name="storia" style="margin-right: 10%;height: 50px;margin-left: 35px;;margin-top: 10px;">
                                         <p style="margin-top: 0px; margin-bottom: 0px;">{{storie.story}}</p>
                                     </div>
                                     <div name="opzioni" style="margin-right: 3%;margin-bottom: 1%;float: right;">...</div>
                                 </div>
+                                </a>
                             </li>
                         </ul>
                     </li>

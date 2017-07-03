@@ -25,7 +25,7 @@ angular.module('myApp.risultatiRicerca', ['ngRoute'])
         function($scope, $rootScope, Research, UserList, UniversesList) {
             $scope.dati = {};
             $scope.dati.availableUsers = UserList.getListOfUsers();
-           // $rootScope.availableStories={};
+            $rootScope.availableStories={};
             $scope.Universes = UniversesList.getListOfUniverses();
 
 
@@ -62,6 +62,11 @@ angular.module('myApp.risultatiRicerca', ['ngRoute'])
                 $rootScope.other=value;
                 $rootScope.ricercaEffettuata=true;
                 $rootScope.currentPosition= 1;
-            }
+            };
+
+            $scope.storiaDaLeggere = function(c,b) {
+                $rootScope.S=c;
+                $rootScope.T=b
+            };
 
         }]);

@@ -18,9 +18,12 @@ angular.module('myApp.universes.universeService', [])
             getUniverseInfo: function(universeName) {
                 var universeRef = firebase.database().ref().child("universes").child(universeName);
                 return $firebaseObject(universeRef);
+            },
+
+            getStoriaOfUser: function(userId,Universo,storia){
+                var storiaRef = firebase.database().ref().child("users").child(userId).child("universes").child(Universo).child(storia);
+                return $firebaseObject(storiaRef);
             }
-
-
 
         }
     });

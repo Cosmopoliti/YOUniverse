@@ -25,6 +25,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
+        $rootScope.utenteFisso=UsersChatService.getUserInfo(currentAuth.uid).$id;
 
 
 
@@ -32,16 +33,19 @@ angular.module("myApp.Profilo", ['ngRoute'])
         if($rootScope.currentPosition===undefined)
         {$rootScope.currentPosition = 1;}
 
-
         $rootScope.dropDownChangeView =function(id){
             $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+            $rootScope.ListUniversesOfUser=UniversesUserList.getUniversesOfUser(currentAuth.uid);
             $rootScope.ricercaEffettuata=false;
             $rootScope.currentPosition = id;
             bott.style = "margin-top: 37px; display:none";
             bott2.style = "height: 50px; margin-top: 37px; display:none";
             find=false;
+            console.log($rootScope.currentPosition);
             lollo();
+            console.log($rootScope.currentPosition);
         };
+
 
         $scope.changeView = function (id)
         {
@@ -82,6 +86,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.sceltaUniverso= function(value){
             $rootScope.otherUniverse=value;
         };
+
 
 
         // Visulizzazione tasto segui
@@ -238,6 +243,12 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         $scope.IDcontrol = function () {
             return $scope.dati.user.$id === currentAuth.uid;
+        };
+
+
+        $scope.storiaDaLeggere = function(c,b) {
+          $rootScope.S=c;
+          $rootScope.T=b
         };
 
     }]);
