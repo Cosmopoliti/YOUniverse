@@ -1642,7 +1642,8 @@ function( $scope, currentAuth, $firebaseArray, UniversesList ){
 			var refUniv = firebase.database().ref().child("universes").child(document.getElementById("universeID").value).child("stories");
             $firebaseArray(refUniv).$add({
 				title: document.getElementById("storyID").value,
-				story: story.wholeText
+				story: story.wholeText,
+				universeID: document.getElementById("universeID").value
 			}).then(function (refUniv) {
                 id = refUniv.key;
                 refUniv.update({
@@ -1655,6 +1656,7 @@ function( $scope, currentAuth, $firebaseArray, UniversesList ){
                 refUser.update({
                     title: document.getElementById("storyID").value,
                     story: story.wholeText,
+                    universeID: document.getElementById("universeID").value,
                     id: id
                 })
             });
