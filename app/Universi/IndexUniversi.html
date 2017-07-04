@@ -104,14 +104,14 @@
                     <h2 style="font-size:36px;"> Le Tue Storie</h2>
                     <div  style="display: inline-flex;width: 100%;">
                     <p ng-repeat="stories in listaStorieUtente" style="margin-right: 10px;">
-                        <a href="#!/lettura" ng-click="storiaDaLeggere(stories.story,stories.title)">{{stories.title}}</a>
+                        <a href="#!/lettura" ng-click="storiaDaLeggere(dati.universe.$id,stories.id)">{{stories.title}}</a>
                     </p>
                     </div>
 
                     <h2 style="font-size:36px;">Le Storie Degli Altri</h2>
                     <div  style="display: inline-flex;width: 100%;">
                         <p ng-repeat="stories in listaStorieUniverso" style="margin-right: 10px;">
-                            <a href="#!/lettura" ng-click="storiaDaLeggere(stories.story,stories.title)">{{stories.title}}</a>
+                            <a href="#!/lettura" ng-click="storiaDaLeggere(dati.universe.$id,stories.id)">{{stories.title}}</a>
                         </p>
                     </div>
                 </ul>

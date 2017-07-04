@@ -19,22 +19,13 @@ angular.module("myApp.Lettura", ['ngRoute'])
         })
 
     }])
-    .controller("LetturaCtrl", ['$scope', '$rootScope','Universes',function($scope, $rootScope,UsersChatService,UniversesUserList,currentAuth ) {
+    .controller("LetturaCtrl", ['$scope', '$rootScope','Universes',function($scope, $rootScope,Universes,UsersChatService,UniversesUserList,currentAuth ) {
 
      $scope.StoriaUtente=$rootScope.S;
-     $scope.Titolo=$rootScope.T;
+     $scope.UniversoRef=$rootScope.T;
 
-        /* $rootScope.dropDownChangeView =function(id){
-             $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
-             $rootScope.ListUniversesOfUser=UniversesUserList.getUniversesOfUser(currentAuth.uid);
-             $rootScope.ricercaEffettuata=false;
-             $rootScope.currentPosition = id;
-             bott.style = "margin-top: 37px; display:none";
-             bott2.style = "height: 50px; margin-top: 37px; display:none";
-             find=false;
-             console.log($rootScope.currentPosition);
-             lollo();
-             console.log($rootScope.currentPosition);
-         };*/
+     $scope.StoriaDaLeggere=Universes.getStoriaOfUser($scope.UniversoRef,$scope.StoriaUtente);
+
+
 
     }]);

@@ -28,7 +28,7 @@ angular.module("myApp.Editor", ['ngRoute'])
 
 	.controller("EditorCtrl", ['$scope','$rootScope' , 'currentAuth', '$firebaseArray','UniversesList', function( $scope, $rootScope, currentAuth, $firebaseArray, UniversesList ){
 
-function( $scope, currentAuth, $firebaseArray, UniversesList ){
+
 		$scope.dati = {};
     var jq = $.noConflict();
 	var editorObj;
@@ -1672,7 +1672,13 @@ function( $scope, currentAuth, $firebaseArray, UniversesList ){
                 console.log("added record with id " + id);
             }).then(function (ID) {
             	ID = id;
-                var refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value).child(ID);
+
+                if($rootScope.selezionabile===true){
+                    refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value).child(ID);}
+                else{
+                    refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child($rootScope.selezionato).child(ID);
+                }
+                //var refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value).child(ID);
                 refUser.update({
                     title: document.getElementById("storyID").value,
                     story: story.wholeText,
@@ -1684,15 +1690,14 @@ function( $scope, currentAuth, $firebaseArray, UniversesList ){
                 title: document.getElementById("storyID").value,
                 story: story.wholeText,
 				id: id
-			});
+			});*/
 
-            if($rootScope.selezionabile===true){
+            /*if($rootScope.selezionabile===true){
             refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value);}
             else{
             	refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child($rootScope.selezionato);
 			}
             $firebaseArray(refUser).$add({
-            /*$firebaseArray(refUser).$add({
                 title: document.getElementById("storyID").value,
                 story: story.wholeText
             });*/

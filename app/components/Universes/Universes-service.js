@@ -20,8 +20,8 @@ angular.module('myApp.universes.universeService', [])
                 return $firebaseObject(universeRef);
             },
 
-            getStoriaOfUser: function(userId,Universo,storia){
-                var storiaRef = firebase.database().ref().child("users").child(userId).child("universes").child(Universo).child(storia);
+            getStoriaOfUser: function(Universo,storia){
+                var storiaRef = firebase.database().ref().child("universes").child(Universo).child("stories").child(storia);
                 return $firebaseObject(storiaRef);
             }
 
