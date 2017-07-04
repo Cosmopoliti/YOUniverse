@@ -1663,7 +1663,8 @@ angular.module("myApp.Editor", ['ngRoute'])
 				refUniv=firebase.database().ref().child("universes").child($rootScope.selezionato).child("stories");}
             $firebaseArray(refUniv).$add({
 				title: document.getElementById("storyID").value,
-				story: story.wholeText
+				story: story.wholeText,
+				universeID: document.getElementById("universeID").value
 			}).then(function (refUniv) {
                 id = refUniv.key;
                 refUniv.update({
@@ -1682,6 +1683,7 @@ angular.module("myApp.Editor", ['ngRoute'])
                 refUser.update({
                     title: document.getElementById("storyID").value,
                     story: story.wholeText,
+                    universeID: document.getElementById("universeID").value,
                     id: id
                 })
             });
