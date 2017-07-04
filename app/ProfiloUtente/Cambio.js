@@ -246,10 +246,9 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
 
-        $scope.storiaDaLeggere = function(c,b, a) {
+        $scope.storiaDaLeggere = function(c,b) {
           $rootScope.S=c;
-          $rootScope.T=b;
-          console.log(a);
+          $rootScope.T=b
         };
 
         $rootScope.selezionabile={};
