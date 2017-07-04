@@ -1635,6 +1635,7 @@ function( $scope, currentAuth, $firebaseArray, UniversesList ){
 
 		Save: function () {
             var story = document.createTextNode(jq(this).data('editor').text());
+            var id;
             //var database = firebase.database();
             //database.ref('users/' + currentAuth.uid + '/universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
             //database.ref('universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
@@ -1642,12 +1643,31 @@ function( $scope, currentAuth, $firebaseArray, UniversesList ){
             $firebaseArray(refUniv).$add({
 				title: document.getElementById("storyID").value,
 				story: story.wholeText
+			}).then(function (refUniv) {
+                id = refUniv.key;
+                refUniv.update({
+					id: id
+				});
+                console.log("added record with id " + id);
+            }).then(function (ID) {
+            	ID = id;
+                var refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value).child(ID);
+                refUser.update({
+                    title: document.getElementById("storyID").value,
+                    story: story.wholeText,
+                    id: id
+                })
+            });
+            /*var refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value).child(ID);
+            refUser.update({
+                title: document.getElementById("storyID").value,
+                story: story.wholeText,
+				id: id
 			});
-            var refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value);
-            $firebaseArray(refUser).$add({
+            /*$firebaseArray(refUser).$add({
                 title: document.getElementById("storyID").value,
                 story: story.wholeText
-            });
+            });*/
         }
 
 	}
