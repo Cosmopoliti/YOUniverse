@@ -37,6 +37,7 @@
   </head>
   <body ng-app="myApp.Editor" ng-controller="EditorCtrl">
   <div style="margin-top: 20px">
+      <label id="universeID2" style="background: white;border: darkgrey;height: 25px;padding-top: 3px;padding: 3px;">{{selezionato}}</label>
       <select id="universeID" name="siti">
           <option  ng-repeat="universes in listaUniversi">{{universes.$id}}</option>
       </select>

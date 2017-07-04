@@ -26,14 +26,29 @@ angular.module("myApp.Editor", ['ngRoute'])
 		})
     }])
 
-	.controller("EditorCtrl", ['$scope', 'currentAuth', '$firebaseArray','UniversesList',
+	.controller("EditorCtrl", ['$scope','$rootScope' , 'currentAuth', '$firebaseArray','UniversesList', function( $scope, $rootScope, currentAuth, $firebaseArray, UniversesList ){
 
-function( $scope, currentAuth, $firebaseArray, UniversesList ){
 		$scope.dati = {};
     var jq = $.noConflict();
 	var editorObj;
 
 	$scope.listaUniversi=UniversesList.getListOfUniverses();
+
+
+	var prima=document.getElementById("universeID");
+	var seconda=document.getElementById("universeID2");
+	if($rootScope.selezionabile===undefined){
+        $rootScope.selezionabile=true;
+	}
+
+
+	if($rootScope.selezionabile===true){
+		seconda.style="display:none";
+	}
+	else{
+        prima.style="display:none";
+	}
+
 
 
 	var methods = {
@@ -1635,15 +1650,25 @@ function( $scope, currentAuth, $firebaseArray, UniversesList ){
 
 		Save: function () {
             var story = document.createTextNode(jq(this).data('editor').text());
+            var refUniv;
+            var refUser;
             //var database = firebase.database();
             //database.ref('users/' + currentAuth.uid + '/universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
             //database.ref('universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
-			var refUniv = firebase.database().ref().child("universes").child(document.getElementById("universeID").value).child("stories");
+			if($rootScope.selezionabile===true){
+			  refUniv = firebase.database().ref().child("universes").child(document.getElementById("universeID").value).child("stories");}
+			else {
+				refUniv=firebase.database().ref().child("universes").child($rootScope.selezionato).child("stories");}
             $firebaseArray(refUniv).$add({
 				title: document.getElementById("storyID").value,
 				story: story.wholeText
 			});
-            var refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value);
+
+            if($rootScope.selezionabile===true){
+            refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value);}
+            else{
+            	refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child($rootScope.selezionato);
+			}
             $firebaseArray(refUser).$add({
                 title: document.getElementById("storyID").value,
                 story: story.wholeText

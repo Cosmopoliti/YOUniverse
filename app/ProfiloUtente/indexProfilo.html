@@ -180,7 +180,7 @@
             </div>
         </div>
         <div id="div5"ng-if="currentPosition==5">
-            <a href="#!/Editor"><button class="Bottone" ng-if="IDcontrol()">Crea</button></a>
+            <a href="#!/Editor"><button class="Bottone" ng-click="setta()" ng-if="IDcontrol()">Crea</button></a>
 
             <div name="contenitore" class="con ng-scope" style="display: inline-grid;width: 100%;background: white;">
                 <ul class="media-list">
@@ -188,7 +188,7 @@
                         <p style="margin-bottom: 9px;margin-top: 10px;margin-left: 42%;">{{universes.$id}}</p>
                         <ul class="media-list">
                             <li class="media" ng-repeat="storie in universes">
-                                <a href="#!/lettura" ng-click="storiaDaLeggere(storie.story,storie.title)"><div name="contenuti" style="width: 100%;display: inline-block;border-bottom: 4px solid #f4c430;">
+                                <a href="#!/lettura" ng-click="storiaDaLeggere(storie.story,storie.title,storie.$id)"><div name="contenuti" style="width: 100%;display: inline-block;border-bottom: 4px solid #f4c430;">
                                     <div name="Foto e titolo" style="margin-left: 35px;display: inline-flex;width: 100%;">
                                         <img ng-src="{{dati.user.profilo}}">
                                        <h2 style="margin-left: 10%;margin-top: 35px;">{{storie.title}}</h2>

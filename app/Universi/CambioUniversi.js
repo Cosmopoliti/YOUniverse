@@ -105,4 +105,9 @@ angular.module("myApp.Universi", ['ngRoute'])
         $rootScope.T=b
     };
 
+    $scope.setta= function(a) {
+        $rootScope.selezionabile=false;
+        $rootScope.selezionato=a;
+    }
+
 }]);

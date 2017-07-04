@@ -246,9 +246,16 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
 
-        $scope.storiaDaLeggere = function(c,b) {
+        $scope.storiaDaLeggere = function(c,b, a) {
           $rootScope.S=c;
-          $rootScope.T=b
+          $rootScope.T=b;
+          console.log(a);
         };
+
+        $rootScope.selezionabile={};
+
+        $scope.setta= function() {
+            $rootScope.selezionabile=true;
+        }
 
     }]);
