@@ -28,4 +28,9 @@ angular.module("myApp.Lettura", ['ngRoute'])
 
 
 
+
+     /*$scope.setView = function(id){
+            $rootScope.currentPosition = id;
+        };*/
+
     }]);

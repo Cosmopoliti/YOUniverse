@@ -95,10 +95,6 @@ angular.module("myApp.Universi", ['ngRoute'])
     $rootScope.currentPosition = id;
     };
 
-    $scope.setView = function(id){
-        $rootScope.currentPosition = id;
-    };
-
 
     $scope.storiaDaLeggere = function(c,b) {
         $rootScope.S=b;

@@ -41,9 +41,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
             bott.style = "margin-top: 37px; display:none";
             bott2.style = "height: 50px; margin-top: 37px; display:none";
             find=false;
-            console.log($rootScope.currentPosition);
             lollo();
-            console.log($rootScope.currentPosition);
         };
 
 

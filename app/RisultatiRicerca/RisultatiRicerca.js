@@ -52,7 +52,6 @@ angular.module('myApp.risultatiRicerca', ['ngRoute'])
                    {
                        $rootScope.availableStories = [].concat($rootScope.availableStories ,lista[i]);
                    }
-                   console.log( $rootScope.availableStories );
                });
             }
 
