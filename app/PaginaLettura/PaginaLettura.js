@@ -27,8 +27,6 @@ angular.module("myApp.Lettura", ['ngRoute'])
      $scope.StoriaDaLeggere=Universes.getStoriaOfUser($scope.UniversoRef,$scope.StoriaUtente);
 
 
-
-
      /*$scope.setView = function(id){
             $rootScope.currentPosition = id;
         };*/
