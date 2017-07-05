@@ -19,13 +19,26 @@ angular.module("myApp.Lettura", ['ngRoute'])
         })
 
     }])
-    .controller("LetturaCtrl", ['$scope', '$rootScope','Universes',function($scope, $rootScope,Universes,UsersChatService,UniversesUserList,currentAuth ) {
+    .controller("LetturaCtrl", ['$scope', '$rootScope','Universes',function($scope, $rootScope,Universes) {
 
      $scope.StoriaUtente=$rootScope.S;
      $scope.UniversoRef=$rootScope.T;
 
      $scope.StoriaDaLeggere=Universes.getStoriaOfUser($scope.UniversoRef,$scope.StoriaUtente);
 
+
+     var vota=document.getElementById("Vota");
+     var NoVota=document.getElementById("NoVota");
+
+     $scope.Vota= function () {
+         vota.style="display:none";
+         NoVota.style="display";
+     };
+
+     $scope.NoVota= function () {
+         NoVota.style="display:none";
+         vota.style="display";
+        };
 
      /*$scope.setView = function(id){
             $rootScope.currentPosition = id;
