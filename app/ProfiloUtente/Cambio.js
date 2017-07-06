@@ -261,4 +261,19 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.listaPost=PostList.getPosts();
         $scope.orderProp = 'momento';
 
+        $scope.getLevel = function (tot) {
+            var elem = document.getElementById("level");
+            var width = 1;
+            var id = setInterval(frame, 10);
+            function frame() {
+                if (width >= tot) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                }
+            }
+        }
+
+        //$scope.levelTot =
     }]);
