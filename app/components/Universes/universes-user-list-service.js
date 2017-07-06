@@ -18,11 +18,8 @@ angular.module('myApp.universes.universesUserListService', [])
                 return $firebaseArray(ref);
             },
 
-            getTotalVotes: function (userId, Universo) {
-                var ref = firebase.database().ref().child("users").child(userId).child("universes").child(Universo);
-            }
-
         };
+
         return universesUserList;
 
     });
