@@ -141,7 +141,7 @@
         </div>
         <div id="div3" ng-if="currentPosition==3">
 
-            <div ng-repeat="post in listaPost  | orderBy:orderProp" ng-if="post.user=dati.user.$id" name="contenitore" class="con" style="width: 100%;background: white; display: inline-block;">
+            <div ng-repeat="post in listaPost  | orderBy:orderProp:true" ng-if="post.user===dati.user.$id" name="contenitore" class="con" style="width: 100%;background: white; display: inline-block;">
                 <div name="contenuti" style="">
                     <div name="header" style="width: 100%;display: inline-flex;">
                         <img ng-src="{{dati.user.profilo}}">
