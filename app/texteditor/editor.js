@@ -1709,6 +1709,7 @@ angular.module("myApp.Editor", ['ngRoute'])
                 min='0'+min;
             }
             PostList.createPost(giorno,month,ore,min,document.getElementById("storyID").value,story.wholeText,currentAuth.uid);
+            console.log(jq(this).data("editor").html(text));
         }
 
 	}
