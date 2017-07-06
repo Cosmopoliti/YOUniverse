@@ -27,7 +27,8 @@ angular.module("myApp", [
     'myApp.risultatiRicerca',
     'myApp.ListaUniversi',
     'myApp.Home',
-    'myApp.Lettura'
+    'myApp.Lettura',
+    'myApp.post'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');

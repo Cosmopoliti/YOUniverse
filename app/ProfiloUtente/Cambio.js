@@ -21,12 +21,11 @@ angular.module("myApp.Profilo", ['ngRoute'])
         })
 
     }])
-    .controller("ProfiloCtrl", ['$scope', 'Users','UserList', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService','UniversesUserList','$firebaseStorage', function($scope, Users,UserList, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,UniversesUserList,$firebaseStorage) {
+    .controller("ProfiloCtrl", ['$scope', 'Users','UserList', 'currentAuth', '$firebaseAuth', '$rootScope', '$compile','$location', 'UsersChatService','UniversesUserList','$firebaseStorage', 'PostList', function($scope, Users,UserList, currentAuth, $firebaseAuth, $rootScope, $compile,$location, UsersChatService,UniversesUserList,$firebaseStorage, PostList) {
 
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
         $rootScope.utenteFisso=UsersChatService.getUserInfo(currentAuth.uid).$id;
-
 
 
         //cambio Sottoviste
@@ -47,7 +46,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         $scope.changeView = function (id)
         {
-            $scope.currentPosition = id;
+            $rootScope.currentPosition = id;
         };
 
 
@@ -244,15 +243,22 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
 
+        //passa i dati sulla storia che si vuole leggere
         $scope.storiaDaLeggere = function(c,b) {
           $rootScope.S=b;
           $rootScope.T=c;
         };
 
+        //aprire il tasto crea dal proprio profilo
         $rootScope.selezionabile={};
 
         $scope.setta= function() {
             $rootScope.selezionabile=true;
-        }
+        };
+
+
+        //aggiunta del post al diario
+        $scope.listaPost=PostList.getPosts();
+        $scope.orderProp = 'momento';
 
     }]);

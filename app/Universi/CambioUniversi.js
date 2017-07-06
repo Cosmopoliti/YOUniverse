@@ -95,12 +95,13 @@ angular.module("myApp.Universi", ['ngRoute'])
     $rootScope.currentPosition = id;
     };
 
-
+   //passa i dati sulla storia che si vuole leggere
     $scope.storiaDaLeggere = function(c,b) {
         $rootScope.S=b;
         $rootScope.T=c;
     };
 
+    //aprire il tasto crea dall'universo
     $scope.setta= function(a) {
         $rootScope.selezionabile=false;
         $rootScope.selezionato=a;
