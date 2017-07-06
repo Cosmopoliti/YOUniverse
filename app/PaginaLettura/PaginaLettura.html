@@ -51,7 +51,7 @@
 
     <div nmae="vota"  style="display: flex;margin-top: 35%;height: 59px;width: 100%;margin-left: 55%;">
         <p style="margin-top: 10px;margin-left: 96px;width: 332px;">Clicca se la storia ti è piaciuta:</p>
-        <button name="vota" class="Bottone" id="Vota" ng-click="Vota();">Vota</button>
-        <button name="novota" class="Bottone" id="NoVota" ng-click="NoVota();" style="display:none">Togli Voto</button>
+        <button name="vota" class="Bottone" ng-if="!updateButton()" ng-click="Vota()">Vota</button>
+        <button name="novota" class="Bottone" ng-if="updateButton()" ng-click="NoVota()">Togli Voto</button>
     </div>
 </div>

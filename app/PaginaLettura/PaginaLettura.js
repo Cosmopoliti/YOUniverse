@@ -19,29 +19,54 @@ angular.module("myApp.Lettura", ['ngRoute'])
         })
 
     }])
-    .controller("LetturaCtrl", ['$scope', '$rootScope','Universes',function($scope, $rootScope,Universes) {
+    .controller("LetturaCtrl", ['$scope', '$rootScope','Universes','$firebaseArray', 'currentAuth', function($scope, $rootScope,Universes, $firebaseArray, currentAuth) {
 
      $scope.StoriaUtente=$rootScope.S;
      $scope.UniversoRef=$rootScope.T;
 
      $scope.StoriaDaLeggere=Universes.getStoriaOfUser($scope.UniversoRef,$scope.StoriaUtente);
 
-
-     var vota=document.getElementById("Vota");
-     var NoVota=document.getElementById("NoVota");
+     var votedRef = firebase.database().ref().child("users").child(currentAuth.uid).child("votedStories");
+     var voteList = $firebaseArray(votedRef);
 
      $scope.Vota= function () {
-         vota.style="display:none";
-         NoVota.style="display";
+         var voti = $scope.StoriaDaLeggere.voti;
+         if(voti===undefined) {
+             voti = 1;
+         }
+         else {
+             voti++;
+         }
+         $scope.StoriaDaLeggere.voti = voti;
+         $scope.StoriaDaLeggere.$save();
+         firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child($scope.UniversoRef)
+             .child($scope.StoriaDaLeggere.$id).child("voti").set(voti);
+         voteList = Universes.addVotedStory($scope.StoriaDaLeggere.$id, currentAuth.uid);
      };
 
      $scope.NoVota= function () {
-         NoVota.style="display:none";
-         vota.style="display";
-        };
+         var voti = $scope.StoriaDaLeggere.voti;
+         voti--;
+         $scope.StoriaDaLeggere.voti = voti;
+         $scope.StoriaDaLeggere.$save();
+         firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child($scope.UniversoRef)
+             .child($scope.StoriaDaLeggere.$id).child("voti").set(voti);
+         voteList = Universes.removeVotedStory($scope.StoriaDaLeggere.$id, currentAuth.uid);
+     };
 
-     /*$scope.setView = function(id){
-            $rootScope.currentPosition = id;
-        };*/
+     $scope.updateButton = function () {
+         if(voteList.length===0) {
+             return false;
+         }
+         for(var i=0; i<voteList.length; i++) {
+             if(voteList[i].$id===$scope.StoriaDaLeggere.$id) {
+                 return true;
+             }
+             else {
+                 continue;
+             }
+         }
+         return false;
+     }
 
     }]);

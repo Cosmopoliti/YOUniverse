@@ -1670,7 +1670,6 @@ angular.module("myApp.Editor", ['ngRoute'])
                 refUniv.update({
 					id: id
 				});
-                console.log("added record with id " + id);
             }).then(function (ID) {
             	ID = id;
 
