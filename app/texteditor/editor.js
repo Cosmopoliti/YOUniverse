@@ -26,7 +26,7 @@ angular.module("myApp.Editor", ['ngRoute'])
 		})
     }])
 
-	.controller("EditorCtrl", ['$scope','$rootScope' , 'currentAuth', '$firebaseArray','UniversesList', function( $scope, $rootScope, currentAuth, $firebaseArray, UniversesList ){
+	.controller("EditorCtrl", ['$scope','$rootScope' , 'currentAuth', '$firebaseArray','UniversesList', 'PostList', function( $scope, $rootScope, currentAuth, $firebaseArray, UniversesList, PostList ){
 
 
 		$scope.dati = {};
@@ -1654,6 +1654,7 @@ angular.module("myApp.Editor", ['ngRoute'])
             var id;
             var refUniv;
             var refUser;
+
             //var database = firebase.database();
             //database.ref('users/' + currentAuth.uid + '/universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
             //database.ref('universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
@@ -1687,22 +1688,28 @@ angular.module("myApp.Editor", ['ngRoute'])
                     id: id
                 })
             });
-            /*var refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value).child(ID);
-            refUser.update({
-                title: document.getElementById("storyID").value,
-                story: story.wholeText,
-				id: id
-			});*/
 
-            /*if($rootScope.selezionabile===true){
-            refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value);}
-            else{
-            	refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child($rootScope.selezionato);
-			}
-            $firebaseArray(refUser).$add({
-                title: document.getElementById("storyID").value,
-                story: story.wholeText
-            });*/
+            var today = new Date();
+            var giorno =today.getDate();
+            var ore = today.getHours();
+            var min =  today.getMinutes();
+            var month = today.getMonth()+1; //January is 0!
+
+            if(giorno<10) {
+                giorno='0'+giorno;
+            }
+
+            if(month<10) {
+                month='0'+month;
+            }
+
+            if(ore<10) {
+                ore='0'+ore;
+            }
+            if(min<10) {
+                min='0'+min;
+            }
+            PostList.createPost(giorno,month,ore,min,document.getElementById("storyID").value,story.wholeText,currentAuth.uid);
         }
 
 	}
@@ -1720,4 +1727,4 @@ angular.module("myApp.Editor", ['ngRoute'])
     jq('#txtedit').Editor();
 
 }
-])
+]);
