@@ -9,8 +9,8 @@
 
 <div style="background: white">
     <h4>Stories: </h4>
-    <p ng-repeat="user in testValue=(dati.availableUsers | filter:{name: valoreRicerca})">
-        <a href="#!/ProfiloUtente" ng-click="altri(user.$id)">{{user.name}}</a>
+    <p ng-repeat="stories in testValue=(availableStories | filter:{title: valoreRicerca})">
+        <a href="#!/lettura" ng-click="storiaDaLeggere(stories.universeID,stories.id)">{{stories.title}}</a>
     </p>
     <p ng-show="!testValue.length">No available users</p>
 </div>

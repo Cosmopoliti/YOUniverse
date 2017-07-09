@@ -36,8 +36,11 @@
       <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script> -->
   </head>
   <body ng-app="myApp.Editor" ng-controller="EditorCtrl">
-  <div>
-      <input id="universeID" type="text" placeholder="Universe name">
+  <div style="margin-top: 20px">
+      <label id="universeID2" style="background: white;border: darkgrey;height: 25px;padding-top: 3px;padding: 3px;">{{selezionato}}</label>
+      <select id="universeID" name="siti">
+          <option  ng-repeat="universes in listaUniversi">{{universes.$id}}</option>
+      </select>
       <input id="storyID" type="text" placeholder="Title or Chapter">
   </div>
    <div class="container" style="padding:50px 0;">

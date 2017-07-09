@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#!/ProfiloUtente" ng-click="setView(1);">YOUniverse</a>
+            <a href="#!/ProfiloUtente" class="navbar-brand" ng-click="dropDownChangeView(1);">YOUniverse</a>
         </div>
         <ul class="nav navbar-nav">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Copertine<span class="caret"></span></a>
@@ -32,12 +32,12 @@
                 <span class="glyphicon glyphicon-user"></span><span class="caret"></span>Profilo</a>
                 <ul class="dropdown-menu">
                     <li class="dropdown-header">Funzionalità</li>
-                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="setView(1);">Informazioni</a></li>
-                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="setView(2);">Interessi</a></li>
-                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="setView(3);">Diario</a></li>
-                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="setView(4);">Libreria Universi</a></li>
-                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="setView(5);">Storie</a></li>
-                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="setView(6);">Palmares</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(1);">Informazioni</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(2);">Interessi</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(3);">Diario</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(4);">Libreria Universi</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(5);">Storie</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(6);">Palmares</a></li>
                     <li class="divider"></li>
                     <li><a ng-click="logout();">Log Out</a></li>
                 </ul>
@@ -57,7 +57,7 @@
     </ul>
     <ul class="nav nav-pills navbar-right" style="margin-top: -41px; margin-right: 40px;">
         <li class="active">
-            <a href="" on-click="event.preventDefault();" ng-click="changeView(13)">ESPANDI</a>
+            <a href="#!/Editor"  ng-click="setta(dati.universe.$id)">ESPANDI</a>
         </li>
     </ul>
 
@@ -65,9 +65,9 @@
         <section style="height: auto;">
             <div id="divUniverso"ng-if="currentPosition==9">
                 <ul class="informazioni" style="margin-top: -8px; margin-bottom: 0px; ">
-                        <p name="espansioniTot">Espansioni Totali: 5</p>
+                        <p name="espansioniTot">Espansioni Totali: {{espansioniTotali}}</p>
                     <br>
-                        <p name="espansioniPers">Espansioni Personali: 2</p>
+                        <p name="espansioniPers">Espansioni Personali: {{espansioniPersonali}}</p>
                     <br>
                         <p name="livello" style="margin-top: 40px; margin-bottom: 0px;">Livello raggiunto:</p>
                     <br>
@@ -102,30 +102,18 @@
                 <ul class="storie" style="margin-top: -8px; margin-bottom: 0px; ">
 
                     <h2 style="font-size:36px;"> Le Tue Storie</h2>
-                    <br>
-                    <p>Storia 1</p>
-                    <br>
-                    <p>Voti:</p>
-                    <img src="../logo-voto-stelle-4-su-5.jpg" height="353" width="1829" style="height:30px; width: 150px; margin-left: 400px; margin-top: -50px;"/>
-                    <br>
-                    <p>Storia 2</p>
-                    <br>
-                    <p>Voti:</p>
-                    <img src="../logo-voto-stelle-3-su-5.jpg" height="353" width="1829" style="height:30px; width: 150px; margin-left: 400px; margin-top: -50px;"/>
-                    <br>
-                    <br>
+                    <div  style="display: inline-flex;width: 100%;">
+                    <p ng-repeat="stories in listaStorieUtente" style="margin-right: 10px;">
+                        <a href="#!/lettura" ng-click="storiaDaLeggere(dati.universe.$id,stories.id)">{{stories.title}}</a>
+                    </p>
+                    </div>
 
                     <h2 style="font-size:36px;">Le Storie Degli Altri</h2>
-                    <br>
-                    <p>Storia 1</p>
-                    <br>
-                    <p>Voti:</p>
-                    <img src="../logo-voto-stelle-2-su-5.jpg" height="353" width="1829" style="height:30px; width: 150px; margin-left: 400px; margin-top: -50px;"/>
-                    <br>
-                    <p>Storia 2</p>
-                    <br>
-                    <p>Voti:</p>
-                    <img src="../logo-voto-stelle-5-su-5.jpg" height="353" width="1829" style="height:30px; width: 150px; margin-left: 400px; margin-top: -50px;"/>
+                    <div  style="display: inline-flex;width: 100%;">
+                        <p ng-repeat="stories in listaStorieUniverso" style="margin-right: 10px;">
+                            <a href="#!/lettura" ng-click="storiaDaLeggere(dati.universe.$id,stories.id)">{{stories.title}}</a>
+                        </p>
+                    </div>
                 </ul>
             </div>
             <div id="divMappa"ng-if="currentPosition==12">
@@ -136,10 +124,7 @@
 
                 </ul>
             </div>
-            <div id="divEspandi"ng-if="currentPosition==13">
-                <ul class="espandi" style="margin-top: -8px; margin-bottom: 0px; ">
-                </ul>
-            </div>
+
 
 
 

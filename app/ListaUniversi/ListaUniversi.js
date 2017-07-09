@@ -22,6 +22,8 @@ angular.module("myApp.ListaUniversi", ['ngRoute'])
          $scope.dati={};
          $scope.dati.listUniverses=UniversesList.getListOfUniverses();
 
+
+
         $scope.sceltaUniverso= function(value){
             $rootScope.otherUniverse=value;
         }

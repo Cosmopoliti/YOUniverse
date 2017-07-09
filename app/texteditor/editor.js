@@ -26,12 +26,32 @@ angular.module("myApp.Editor", ['ngRoute'])
 		})
     }])
 
-	.controller("EditorCtrl", ['$scope', 'currentAuth', '$firebaseArray',
+	.controller("EditorCtrl", ['$scope','$rootScope' , 'currentAuth', '$firebaseArray', '$firebaseObject','UniversesList', 'PostList', 'UsersChatService', function( $scope, $rootScope, currentAuth, $firebaseArray, $firebaseObject, UniversesList, PostList, UsersChatService ){
 
-function( $scope, currentAuth, $firebaseArray ){
+
 		$scope.dati = {};
     var jq = $.noConflict();
 	var editorObj;
+
+	$scope.listaUniversi=UniversesList.getListOfUniverses();
+
+
+	var prima=document.getElementById("universeID");
+	var seconda=document.getElementById("universeID2");
+	if($rootScope.selezionabile===undefined){
+        $rootScope.selezionabile=true;
+	}
+
+
+	if($rootScope.selezionabile===true){
+		seconda.style="display:none";
+	}
+	else{
+        prima.style="display:none";
+	}
+
+
+
 	var methods = {
 		saveSelection: function() {
 			//Function to save the text selection range from the editor
@@ -1631,19 +1651,67 @@ function( $scope, currentAuth, $firebaseArray ){
 
 		Save: function () {
             var story = document.createTextNode(jq(this).data('editor').text());
+            var id;
+            var refUniv;
+            var refUser;
+
             //var database = firebase.database();
             //database.ref('users/' + currentAuth.uid + '/universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
             //database.ref('universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
-			var refUniv = firebase.database().ref().child("universes").child(document.getElementById("universeID").value).child("stories");
+			if($rootScope.selezionabile===true){
+			  refUniv = firebase.database().ref().child("universes").child(document.getElementById("universeID").value).child("stories");}
+			else {
+				refUniv=firebase.database().ref().child("universes").child($rootScope.selezionato).child("stories");}
             $firebaseArray(refUniv).$add({
 				title: document.getElementById("storyID").value,
-				story: story.wholeText
-			});
-            var refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value);
-            $firebaseArray(refUser).$add({
-                title: document.getElementById("storyID").value,
-                story: story.wholeText
+				story: story.wholeText,
+				universeID: document.getElementById("universeID").value
+			}).then(function (refUniv) {
+                id = refUniv.key;
+                refUniv.update({
+					id: id
+				});
+            }).then(function (ID) {
+            	ID = id;
+
+                if($rootScope.selezionabile===true){
+                    refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value).child(ID);}
+                else{
+                    refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child($rootScope.selezionato).child(ID);
+                }
+                //var refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value).child(ID);
+                refUser.update({
+                    title: document.getElementById("storyID").value,
+                    story: story.wholeText,
+                    universeID: document.getElementById("universeID").value,
+                    id: id
+                })
             });
+
+            var today = new Date();
+            var giorno =today.getDate();
+            var ore = today.getHours();
+            var min =  today.getMinutes();
+            var month = today.getMonth()+1; //January is 0!
+
+            if(giorno<10) {
+                giorno='0'+giorno;
+            }
+
+            if(month<10) {
+                month='0'+month;
+            }
+
+            if(ore<10) {
+                ore='0'+ore;
+            }
+            if(min<10) {
+                min='0'+min;
+            }
+            var img=UsersChatService.getUserImg(currentAuth.uid);
+
+            PostList.createPost(giorno,month,ore,min,document.getElementById("storyID").value,story.wholeText,currentAuth.uid,img.$value);
+            console.log(jq(this).data("editor").html(text));
         }
 
 	}
@@ -1661,4 +1729,4 @@ function( $scope, currentAuth, $firebaseArray ){
     jq('#txtedit').Editor();
 
 }
-])
+]);

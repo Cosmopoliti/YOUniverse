@@ -21,9 +21,8 @@ angular.module("myApp.Home", ['ngRoute'])
 
     }])
 
-    .controller("HomeCtrl", ['$scope', function($scope) {
+    .controller("HomeCtrl", ['$scope','PostList', 'UsersChatService', function($scope, PostList, UsersChatService) {
 
-        $rootScope.dati={};
-
+      $scope.tuttiIpost=PostList.getPosts();
 
     }]);

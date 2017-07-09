@@ -12,8 +12,14 @@ angular.module('myApp.universes.universesUserListService', [])
                 var ref = firebase.database().ref().child("users").child(userID).child("universes");
                 // download the data into a local object
                 return $firebaseArray(ref);
-            }
+            },
+            getStoriesOfUser: function(userId,Universo){
+                var ref = firebase.database().ref().child("users").child(userId).child("universes").child(Universo);
+                return $firebaseArray(ref);
+            },
+
         };
+
         return universesUserList;
 
     });

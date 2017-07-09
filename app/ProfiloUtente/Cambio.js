@@ -21,20 +21,20 @@ angular.module("myApp.Profilo", ['ngRoute'])
         })
 
     }])
-    .controller("ProfiloCtrl", ['$scope', 'Users','UserList', 'currentAuth', '$firebaseAuth', '$rootScope', '$location', 'UsersChatService','UniversesUserList','$firebaseStorage', function($scope, Users,UserList, currentAuth, $firebaseAuth, $rootScope, $location, UsersChatService,UniversesUserList,$firebaseStorage) {
+    .controller("ProfiloCtrl", ['$scope', 'Users','UserList', 'currentAuth', '$firebaseAuth', '$rootScope', '$compile','$location', 'UsersChatService','UniversesUserList','$firebaseStorage', 'PostList', function($scope, Users,UserList, currentAuth, $firebaseAuth, $rootScope, $compile,$location, UsersChatService,UniversesUserList,$firebaseStorage, PostList) {
 
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
-
+        $rootScope.utenteFisso=UsersChatService.getUserInfo(currentAuth.uid).$id;
 
 
         //cambio Sottoviste
         if($rootScope.currentPosition===undefined)
         {$rootScope.currentPosition = 1;}
 
-
         $rootScope.dropDownChangeView =function(id){
             $scope.dati.user = UsersChatService.getUserInfo(currentAuth.uid);
+            $rootScope.ListUniversesOfUser=UniversesUserList.getUniversesOfUser(currentAuth.uid);
             $rootScope.ricercaEffettuata=false;
             $rootScope.currentPosition = id;
             bott.style = "margin-top: 37px; display:none";
@@ -43,9 +43,10 @@ angular.module("myApp.Profilo", ['ngRoute'])
             lollo();
         };
 
+
         $scope.changeView = function (id)
         {
-            $scope.currentPosition = id;
+            $rootScope.currentPosition = id;
         };
 
 
@@ -84,6 +85,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
 
+
         // Visulizzazione tasto segui
         var bott = document.getElementById("mene");
         var bott2 = document.getElementById("tene");
@@ -103,7 +105,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
         function lollo(){
 
             $scope.dati.followers=UserList.getFollowers($scope.dati.user.$id);
-            console.log($scope.dati.followers);
             $scope.dati.followers.$loaded().then(function()
             {
                 //per stampare qualcosa ottenuto con $firebaseObject
@@ -239,6 +240,48 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
         $scope.IDcontrol = function () {
             return $scope.dati.user.$id === currentAuth.uid;
+        };
+
+
+        //passa i dati sulla storia che si vuole leggere
+        $scope.storiaDaLeggere = function(c,b) {
+          $rootScope.S=b;
+          $rootScope.T=c;
+        };
+
+        //aprire il tasto crea dal proprio profilo
+        $rootScope.selezionabile={};
+
+        $scope.setta= function() {
+            $rootScope.selezionabile=true;
+        };
+
+
+        //aggiunta del post al diario
+        $scope.listaPost=PostList.getPosts();
+        $scope.orderProp = 'momento';
+
+        $scope.getLevel = function (user, universe) {
+            var tot = 0;
+            var stories = UniversesUserList.getStoriesOfUser(user, universe);
+            stories.$loaded().then(function () {
+                for(var i = 0; i<stories.length; i++) {
+                    if(stories[i].voti!==undefined) {
+                        tot += stories[i].voti;
+                    }
+                }
+                var elem = document.getElementById("level");
+                var width = 1;
+                var id = setInterval(frame, 10);
+                function frame() {
+                    if (width >= tot) {
+                        clearInterval(id);
+                    } else {
+                        width++;
+                        elem.style.width = width + '%';
+                    }
+                }
+            });
         };
 
     }]);

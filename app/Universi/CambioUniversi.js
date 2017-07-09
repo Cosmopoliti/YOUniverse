@@ -23,13 +23,42 @@ angular.module("myApp.Universi", ['ngRoute'])
     }])
 
 
-.controller("UniversiCtrl", ['$scope', '$rootScope','Users', 'Universes', 'currentAuth','$firebaseAuth', '$location', function($scope, $rootScope, Users, Universes, currentAuth, $firebaseAuth, $location ) {
+.controller("UniversiCtrl", ['$scope', '$rootScope','Users','UniversesUserList', 'Universes', 'UniversesList', 'currentAuth','$firebaseAuth', '$location', function($scope, $rootScope, Users,UniversesUserList, Universes,UniversesList, currentAuth, $firebaseAuth, $location ) {
 
 
     $rootScope.dati={};
 
 
     $rootScope.dati.universe=Universes.getUniverseInfo($rootScope.otherUniverse);
+
+    //lista delle storie degli utenti
+    $rootScope.listaStorieUtente=UniversesUserList.getStoriesOfUser($rootScope.utenteFisso,$rootScope.otherUniverse);
+
+
+    //lista delle storie degli altri
+    $rootScope.listaStorieUniverso=UniversesList.getStories($rootScope.otherUniverse);
+
+    $rootScope.listaStorieUniverso.$loaded().then(function(){
+        for (var i=0; i<$scope.listaStorieUniverso.length; i++) {
+            controllo($scope.listaStorieUniverso[i]);
+        }
+    });
+
+    function controllo(storia) {
+
+        $rootScope.listaStorieUtente.$loaded().then(function(){
+            for (var i=0; i<$rootScope.listaStorieUtente.length; i++) {
+
+                if($rootScope.listaStorieUtente[i].title===storia.title && $rootScope.listaStorieUtente[i].story===storia.story){
+                   var index= $rootScope.listaStorieUniverso.indexOf(storia);
+                    $rootScope.listaStorieUniverso.splice(index, 1);
+                }
+            }
+        });
+
+    };
+
+
 
 
     //Funzione log out
@@ -47,6 +76,17 @@ angular.module("myApp.Universi", ['ngRoute'])
         });
     };
 
+   //recupero espansioni
+    $rootScope.listaStorieUtente.$loaded().then(function () {
+        $rootScope.espansioniPersonali=$rootScope.listaStorieUtente.length;
+
+    });
+    $rootScope.listaStorieUniverso.$loaded().then(function () {
+        $rootScope.espansioniTotali=$rootScope.listaStorieUniverso.length;
+
+    });
+
+
 
     //gestione sottoviste
     $rootScope.currentPosition = 9;
@@ -55,8 +95,16 @@ angular.module("myApp.Universi", ['ngRoute'])
     $rootScope.currentPosition = id;
     };
 
-    $scope.setView = function(id){
-        $rootScope.currentPosition = id;
+   //passa i dati sulla storia che si vuole leggere
+    $scope.storiaDaLeggere = function(c,b) {
+        $rootScope.S=b;
+        $rootScope.T=c;
     };
+
+    //aprire il tasto crea dall'universo
+    $scope.setta= function(a) {
+        $rootScope.selezionabile=false;
+        $rootScope.selezionato=a;
+    }
 
 }]);

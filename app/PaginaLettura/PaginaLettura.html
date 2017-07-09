@@ -24,6 +24,7 @@
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
 
+
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
                 <span class="glyphicon glyphicon-user"></span><span class="caret"></span>Profilo</a>
@@ -36,34 +37,21 @@
                     <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(5);">Storie</a></li>
                     <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(6);">Palmares</a></li>
                     <li class="divider"></li>
-                    <li><a ng-click="logout();">Log Out</a></li>
+                    <li><a href="#" ng-click="logout();">Log Out</a></li>
                 </ul>
         </ul>
     </div>
 </nav>
 
-<div name="principale">
-  <div class="quadrato" name="passa a Trend">
 
-  </div>
-  <div class="quadrato" name="passa a News">
+<div>
+    <center class="Testata" style="margin-top: 2%;margin-left: 36%;height: 42px;margin-right: 34%;background: whitesmoke;padding-top: 10px;"><p style="font-size: -webkit-xxx-large;">{{StoriaDaLeggere.title}}</p></center></div>
 
-  </div>
-   <div class="scorrimento">
-       <div ng-repeat="post in tuttiIpost" name="contenitore" class="con" style="width: 93%;background: white;display: inline-block;margin: 30px;">
-           <div name="contenuti" style="">
-               <div name="header" style="width: 100%;display: inline-flex;">
-                   <img ng-init="getUser(post.user)" ng-src="{{post.immagine}}">
-                   <p style="margin-top: 4%;margin-left: 2%;font-size: large;"> Hai pubblicato un elemento in data {{post.momento}}</p>
-               </div>
+    <div class="lettura" style="font-size: x-large;padding-top: 38px;padding-left: 40px;padding-right: 40px;"><p style="width: 100%;line-height: 25px;;word-wrap: break-word;">{{StoriaDaLeggere.story}}</p></div>
 
-               <div name="body" style="height: 50%;margin-left: 40px;margin-top: -30px;">
-                   <h3 style="margin-left: 15%;margin-top: 0px;margin-bottom: 0px;font-size: 28px;">{{post.title}}</h3>
-                   <p style="margin-left: 2%;margin-top: 7px;font-size: 20px;width: 94%;height: 54px;word-wrap: break-word;">{{post.storia.substr(0, 260)}} <p ng-if="post.storia.length>300">[...]</p></p>
-               </div>
-           </div>
-           <div name="opzioni" style="float: right;margin-right: 3%;margin-bottom: 1%;">...</div>
-       </div>
-   </div>
-
+    <div nmae="vota"  style="display: flex;margin-top: 35%;height: 59px;width: 100%;margin-left: 55%;">
+        <p style="margin-top: 10px;margin-left: 96px;width: 332px;">Clicca se la storia ti è piaciuta:</p>
+        <button name="vota" class="Bottone" ng-if="!updateButton()" ng-click="Vota()">Vota</button>
+        <button name="novota" class="Bottone" ng-if="updateButton()" ng-click="NoVota()">Togli Voto</button>
+    </div>
 </div>
