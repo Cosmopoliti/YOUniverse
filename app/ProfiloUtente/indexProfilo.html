@@ -150,7 +150,7 @@
 
                     <div name="body" style="height: 50%;margin-left: 40px;margin-top: -30px;">
                         <h3 style="margin-left: 15%;margin-top: 0px;margin-bottom: 0px;font-size: 28px;">{{post.title}}</h3>
-                        <p style="margin-left: 2%;margin-top: 7px;font-size: 20px;width: 94%;height: 54px;word-wrap: break-word;">{{post.storia.substr(0, 300)}} [...]</p>
+                        <p style="margin-left: 2%;margin-top: 7px;font-size: 20px;width: 94%;height: 54px;word-wrap: break-word;">{{post.storia.substr(0, 300)}} <p ng-if="post.storia.length>300">[...]</p></p>
                     </div>
                 </div>
                 <div name="opzioni" style="float: right;margin-right: 3%;margin-bottom: 1%;">...</div>
@@ -187,7 +187,7 @@
             <div name="contenitore" class="con ng-scope" style="display: inline-grid;width: 100%;background: white;">
                 <ul class="media-list">
                     <li class="media" ng-repeat="universes in ListUniversesOfUser">
-                        <center style="width: 20%;"><p style="margin-bottom: 9px;margin-top: 10px;width: 100%;">{{universes.$id}}</p></center>
+                        <center style="width: 100%;"><p style="margin-bottom: 9px;margin-top: 10px;width: 100%;">{{universes.$id}}</p></center>
                         <ul class="media-list">
                             <li class="media" ng-repeat="storie in universes">
                                 <a href="#!/lettura" ng-click="storiaDaLeggere(universes.$id,storie.id)">
@@ -197,7 +197,7 @@
                                        <h2 style="margin-left: 1%;margin-top: 35px;">{{storie.title}}</h2>
                                     </div>
                                     <div name="storia" style="margin-right: 2%;height: 50px;margin-left: 35px;;margin-top: 10px;">
-                                        <p style="margin-top: 0px;margin-bottom: 0px;word-wrap: break-word;line-height: 25px;">{{storie.story.substr(0,130)}}  [...]</p>
+                                        <p style="margin-top: 0px;margin-bottom: 0px;word-wrap: break-word">{{storie.story.substr(0,130)}}  <p ng-if="storie.story.length>130">[...]</p></p>
                                     </div>
                                     <div name="opzioni" style="margin-right: 5%;margin-bottom: 1%;float: right;">...</div>
                                 </div>

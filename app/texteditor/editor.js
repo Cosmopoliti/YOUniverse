@@ -26,7 +26,7 @@ angular.module("myApp.Editor", ['ngRoute'])
 		})
     }])
 
-	.controller("EditorCtrl", ['$scope','$rootScope' , 'currentAuth', '$firebaseArray','UniversesList', 'PostList', function( $scope, $rootScope, currentAuth, $firebaseArray, UniversesList, PostList ){
+	.controller("EditorCtrl", ['$scope','$rootScope' , 'currentAuth', '$firebaseArray', '$firebaseObject','UniversesList', 'PostList', 'UsersChatService', function( $scope, $rootScope, currentAuth, $firebaseArray, $firebaseObject, UniversesList, PostList, UsersChatService ){
 
 
 		$scope.dati = {};
@@ -1708,7 +1708,9 @@ angular.module("myApp.Editor", ['ngRoute'])
             if(min<10) {
                 min='0'+min;
             }
-            PostList.createPost(giorno,month,ore,min,document.getElementById("storyID").value,story.wholeText,currentAuth.uid);
+            var img=UsersChatService.getUserImg(currentAuth.uid);
+
+            PostList.createPost(giorno,month,ore,min,document.getElementById("storyID").value,story.wholeText,currentAuth.uid,img.$value);
             console.log(jq(this).data("editor").html(text));
         }
 

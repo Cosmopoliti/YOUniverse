@@ -356,5 +356,21 @@ a
     overflow-y: hidden;
 }
 
+.scorrimento{
+    left: 15%;
+    right: 15%;
+    top: 90px;
+    position: fixed;
+    background: #F4C430;
+    height: 86%;
+    overflow-y: scroll;
+}
+
+.quadrato{
+    background: #F4C430;
+    width: 175px;
+    height: 230px;
+    margin-top: 58px;
+}
 
 

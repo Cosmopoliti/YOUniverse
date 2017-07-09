@@ -15,6 +15,10 @@ angular.module('myApp.users.usersChatService', [])
                 var userRef = firebase.database().ref().child("users").child(userId);
                 return $firebaseObject(userRef);
             },
+            getUserImg: function(userId) {
+                var userRef = firebase.database().ref().child("users").child(userId).child("profilo");
+                return $firebaseObject(userRef);
+            },
             createMessage: function(sender, senderName, receiver, text){
                 var newMessage = {};
                 newMessage['sender'] = sender;
