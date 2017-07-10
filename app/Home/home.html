@@ -44,16 +44,19 @@
 
 <div name="principale">
   <div class="quadrato" name="passa a Trend">
-      <a href="#!/trend">
           <center> <h2>TRENDEST</h2></center>
-      <div name="mostTrend" style="background: white;margin: 6px;">
+      <a href="#!/trend">
+      <div name="mostTrend" style="background: white;margin: 6px;margin-top: -6px;height: 190px;">
           <center><p>{{storiaMostVotata.title}}</p></center>
-          <p style="margin: 10px;">{{storiaMostVotata.story.substr(0,20)}}</p></div>
+          <p style="line-height: 26px;margin: 10px;word-wrap: break-word;">{{storiaMostVotata.story.substr(0,53)}}</p></div>
       </a>
   </div>
   <div class="quadrato" name="passa a News">
+         <center> <h2>TRENDEST</h2></center>
       <a href="#!/news">
-          <button type="button" class="btn btn-primary btn-lg" style="margin-top: 50%; margin-left: 25%;">News</button>
+      <div name="mostTrend" style="background: white;margin: 6px;margin-top: -6px;height: 190px;">
+          <center><p>{{storiaMostNuova.title}}</p></center>
+          <p style="line-height: 26px;margin: 10px;word-wrap: break-word;">{{storiaMostNuova.storia.substr(0,53)}}</p></div>
       </a>
   </div>
    <div class="scorrimento">

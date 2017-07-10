@@ -24,8 +24,8 @@ angular.module("myApp.Home", ['ngRoute'])
 
     .controller("HomeCtrl", ['$scope', 'Users','UserList', 'currentAuth', '$firebaseAuth', '$rootScope', 'UniversesList', 'UsersChatService','$firebaseStorage', 'PostList', '$firebaseObject', function($scope, Users,UserList, currentAuth, $firebaseAuth, $rootScope, UniversesList, UsersChatService,$firebaseStorage, PostList) {
 
-      $scope.tuttiIpost=PostList.getPosts();
-      $scope.storiaMostVotata={};
+        $scope.tuttiIpost=PostList.getPosts();
+
 
 
         $scope.Universes = UniversesList.getListOfUniverses();
@@ -36,7 +36,6 @@ angular.module("myApp.Home", ['ngRoute'])
             {
                 $scope.storie=UniversesList.getStories($scope.Universes[i].$id);
                 richiamo($scope.storie);
-
             }
 
         });
@@ -53,7 +52,7 @@ angular.module("myApp.Home", ['ngRoute'])
                 //$scope.storiaMostVotata.voti=0;
                 for(var i=1; i<$rootScope.availableStories.length; i++) {
                     if (i > 1) {
-                        if ($rootScope.availableStories[i].voti > $rootScope.availableStories[i - 1].voti) {
+                        if ($rootScope.availableStories[i].voti > $scope.storiaMostVotata.voti) {
                             $scope.storiaMostVotata = $rootScope.availableStories[i];
                         }
                     }
@@ -65,6 +64,17 @@ angular.module("myApp.Home", ['ngRoute'])
 
         }
 
+
+        $scope.tuttiIpost.$loaded().then(function() {
+            for(var i=0; i<$scope.tuttiIpost.length; i++){
+                if(i>1){
+                    if ($scope.tuttiIpost[i].momento > $scope.storiaMostNuova.momento) {
+                        $scope.storiaMostNuova = $scope.tuttiIpost[i];
+                    }
+                }
+                else{$scope.storiaMostNuova=$scope.tuttiIpost[i]}
+                }
+        });
 
 
 
