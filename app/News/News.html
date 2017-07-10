@@ -58,7 +58,7 @@
     </div>
 
     <div class="scorrimento">
-        <div ng-repeat="post in tuttiIpost| orderBy:orderProp:true" | name="contenitore" class="con" style="width: 93%;background: white;display: inline-block;margin: 30px;">
+        <div ng-repeat="post in tuttiIpost| orderBy:orderProp:true" ng-if="momento>inizioSettimana" name="contenitore" class="con" style="width: 93%;background: white;display: inline-block;margin: 30px;">
 
             <div ng-if="post.user===utenteFisso">
             <div name="contenuti" style="">

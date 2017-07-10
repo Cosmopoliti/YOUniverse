@@ -85,14 +85,20 @@ angular.module("myApp.News", ['ngRoute'])
         };
 
         var Today = new Date();
-        var giorno = Today.getDay()-7;
+        var giorno = Today.getDate()-7;
         var mese;
         if (giorno<=0) {
             mese = Today.getMonth();
             switch (mese) {
                 case 11:
+                    giorno += 30;
+                    break;
                 case 6:
+                    giorno += 30;
+                    break;
                 case 4:
+                    giorno += 30;
+                    break;
                 case 9:
                     giorno += 30;
                     break;
@@ -105,6 +111,7 @@ angular.module("myApp.News", ['ngRoute'])
             }
         } else {
             mese = Today.getMonth()+1;
+            console.log(mese);
         }
         var ora = '00';
         var minuti = '00';
@@ -118,7 +125,7 @@ angular.module("myApp.News", ['ngRoute'])
         }
 
 
-        var inizioSettimana = (giorno+'/'+ mese+'  '+ora+':'+minuti);
+        $scope.inizioSettimana = (giorno+'/'+ mese+'  '+ora+':'+minuti);
         console.log(inizioSettimana);
 
     }]);
