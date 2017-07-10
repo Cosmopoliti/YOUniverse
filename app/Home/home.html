@@ -12,7 +12,7 @@
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Copertine<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="#!/home">Home</a></li>
-                    <li><a href="#">Trend</a></li>
+                    <li><a href="#!/trend">Trend</a></li>
                     <li><a href="#">News</a></li>
                     <li><a href="#!/ListaUniversi">Universi</a></li>
                 </ul>
@@ -44,13 +44,17 @@
 
 <div name="principale">
   <div class="quadrato" name="passa a Trend">
-     <center> <h2>TRENDEST</h2></center>
+      <a href="#!/trend">
+          <center> <h2>TRENDEST</h2></center>
       <div name="mostTrend" style="background: white;margin: 6px;">
           <center><p>{{storiaMostVotata.title}}</p></center>
           <p style="margin: 10px;">{{storiaMostVotata.story.substr(0,20)}}</p></div>
+      </a>
   </div>
   <div class="quadrato" name="passa a News">
-
+      <a href="#!/news">
+          <button type="button" class="btn btn-primary btn-lg" style="margin-top: 50%; margin-left: 25%;">News</button>
+      </a>
   </div>
    <div class="scorrimento">
        <div ng-repeat="post in tuttiIpost" name="contenitore" class="con" style="width: 93%;background: white;display: inline-block;margin: 30px;">

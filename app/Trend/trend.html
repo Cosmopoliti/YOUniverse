@@ -12,7 +12,7 @@
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Copertine<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="#!/home">Home</a></li>
-                    <li><a href="#!/trend">Trend</a></li>
+                    <li><a href="#">Trend</a></li>
                     <li><a href="#">News</a></li>
                     <li><a href="#!/ListaUniversi">Universi</a></li>
                 </ul>
@@ -23,7 +23,6 @@
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
-
 
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
@@ -37,20 +36,28 @@
                     <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(5);">Storie</a></li>
                     <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(6);">Palmares</a></li>
                     <li class="divider"></li>
-                    <li><a href="#" ng-click="logout();">Log Out</a></li>
+                    <li><a ng-click="logout();">Log Out</a></li>
                 </ul>
         </ul>
     </div>
 </nav>
 
-
-<div>
-    <center class="Testata" style="margin-top: 2%;margin-left: 36%;height: 42px;margin-right: 34%;background: whitesmoke;padding-top: 10px;"><p style="font-size: -webkit-xxx-large;">{{StoriaDaLeggere.title}}</p></center></div>
-
-    <div class="lettura" style="font-size: x-large;padding-top: 38px;padding-left: 40px;padding-right: 40px;"><p style="width: 100%;line-height: 25px;;word-wrap: break-word;">{{StoriaDaLeggere.story}}</p></div>
-
-    <div name="vota"  style="display: flex;margin-top: 35%;height: 59px;width: 100%;margin-left: 55%;">
-        <p style="margin-top: 10px;margin-left: 96px;width: 332px;">Clicca se la storia ti è piaciuta:</p>
-        <button name="vota" class="Bottone" ng-if="!updateButton()" ng-click="Vota()">Vota</button>
-        <button name="novota" class="Bottone" ng-if="updateButton()" ng-click="NoVota()">Togli Voto</button>
+<div name="principale">
+    <div class="quadrato" name="passa a Home">
+        <a href="#!/home">
+        <button  type="button" class="btn btn-primary btn-lg" style="margin-top: 50%; margin-left: 25%;">Home</button>
+        </a>
     </div>
+    <div class="quadrato" name="passa a News">
+        <a href="#!/news">
+        <button type="button" class="btn btn-primary btn-lg" style="margin-top: 50%; margin-left: 25%;">News</button>
+        </a>
+    </div>
+
+    <div class="scorrimento">
+
+
+
+    </div>
+
+</div>
