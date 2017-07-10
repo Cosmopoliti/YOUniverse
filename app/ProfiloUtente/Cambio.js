@@ -184,9 +184,8 @@ angular.module("myApp.Profilo", ['ngRoute'])
             $scope.storage = $firebaseStorage(storageRef);
             var uploadTask = $scope.storage.$put($scope.fileToUpload);
             uploadTask.$complete(function (snapshot) {
-                $scope.imgPath = snapshot.downloadURL;
-
-                Users.changeImage(currentAuth.uid, $scope.imgPath);
+                $rootScope.imgPath = snapshot.downloadURL;
+                Users.changeImage(currentAuth.uid, $rootScope.imgPath);
                 lollo();
             });
         }
@@ -199,6 +198,8 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.toUpload = function () {
             return isUploading;
         };
+
+
 
          //sotto viste
 
@@ -248,6 +249,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
           $rootScope.S=b;
           $rootScope.T=c;
         };
+
 
         //aprire il tasto crea dal proprio profilo
         $rootScope.selezionabile={};

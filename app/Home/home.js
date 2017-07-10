@@ -1,6 +1,7 @@
 /**
  * Created by edoardovr on 01/07/17.
  */
+'use strict';
 
 angular.module("myApp.Home", ['ngRoute'])
     .config(['$routeProvider', function ($routeProvider) {
@@ -21,8 +22,70 @@ angular.module("myApp.Home", ['ngRoute'])
 
     }])
 
-    .controller("HomeCtrl", ['$scope','PostList', 'UsersChatService', function($scope, PostList, UsersChatService) {
+    .controller("HomeCtrl", ['$scope', 'Users','UserList', 'currentAuth', '$firebaseAuth', '$rootScope', 'UniversesList', 'UsersChatService','$firebaseStorage', 'PostList', '$firebaseObject', function($scope, Users,UserList, currentAuth, $firebaseAuth, $rootScope, UniversesList, UsersChatService,$firebaseStorage, PostList) {
 
       $scope.tuttiIpost=PostList.getPosts();
+      $scope.storiaMostVotata={};
+
+
+        $scope.Universes = UniversesList.getListOfUniverses();
+
+        $scope.Universes.$loaded().then(function()
+        {
+            for (var i=0; i<$scope.Universes.length; i++)
+            {
+                $scope.storie=UniversesList.getStories($scope.Universes[i].$id);
+                richiamo($scope.storie);
+
+            }
+
+        });
+
+        function richiamo(lista)
+        {
+            lista.$loaded().then(function()
+            {
+                for (var i=0; i<lista.length; i++)
+                {
+                    $rootScope.availableStories = [].concat($rootScope.availableStories ,lista[i]);
+                }
+            }).then(function(){
+                //$scope.storiaMostVotata.voti=0;
+                for(var i=1; i<$rootScope.availableStories.length; i++) {
+                    if (i > 1) {
+                        if ($rootScope.availableStories[i].voti > $rootScope.availableStories[i - 1].voti) {
+                            $scope.storiaMostVotata = $rootScope.availableStories[i];
+                        }
+                    }
+                    else {
+                        $scope.storiaMostVotata = $rootScope.availableStories[i];
+                    }
+                }
+            });
+
+        }
+
+
+
+
+      $scope.getUser=function (userId, postId) {
+          var userName=UsersChatService.getUserInfo(userId);
+          userName.$loaded().then(function(){
+              PostList.setImage(postId,userName.profilo);
+              PostList.setName(postId,userName.name);
+          });
+      };
+
+        $scope.altri= function(value){
+            $rootScope.other=value;
+            $rootScope.ricercaEffettuata=true;
+            $rootScope.currentPosition= 1;
+        };
+
+        $scope.storiaDaLeggere = function(c,b) {
+            $rootScope.S=b;
+            $rootScope.T=c;
+        };
+
 
     }]);

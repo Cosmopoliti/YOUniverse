@@ -1655,13 +1655,15 @@ angular.module("myApp.Editor", ['ngRoute'])
             var refUniv;
             var refUser;
 
-            //var database = firebase.database();
-            //database.ref('users/' + currentAuth.uid + '/universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
-            //database.ref('universes/' + document.getElementById("universeID").value + '/' + document.getElementById("storyID").value + '/').set(story.wholeText);
-			if($rootScope.selezionabile===true){
-			  refUniv = firebase.database().ref().child("universes").child(document.getElementById("universeID").value).child("stories");}
-			else {
-				refUniv=firebase.database().ref().child("universes").child($rootScope.selezionato).child("stories");}
+
+
+            if($rootScope.selezionabile===true){
+                var universeId=document.getElementById("universeID").value;}
+            else {
+                var universeId=$rootScope.selezionato;}
+
+			refUniv = firebase.database().ref().child("universes").child(universeId).child("stories");
+
             $firebaseArray(refUniv).$add({
 				title: document.getElementById("storyID").value,
 				story: story.wholeText,
@@ -1669,48 +1671,49 @@ angular.module("myApp.Editor", ['ngRoute'])
 			}).then(function (refUniv) {
                 id = refUniv.key;
                 refUniv.update({
-					id: id
+					id: id,
+					voti:0
 				});
             }).then(function (ID) {
             	ID = id;
 
-                if($rootScope.selezionabile===true){
-                    refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value).child(ID);}
-                else{
-                    refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child($rootScope.selezionato).child(ID);
-                }
+				refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(universeId).child(ID);
+
                 //var refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value).child(ID);
                 refUser.update({
                     title: document.getElementById("storyID").value,
                     story: story.wholeText,
                     universeID: document.getElementById("universeID").value,
-                    id: id
+                    id: id,
+					voti:0
                 })
-            });
 
-            var today = new Date();
-            var giorno =today.getDate();
-            var ore = today.getHours();
-            var min =  today.getMinutes();
-            var month = today.getMonth()+1; //January is 0!
+            }).then(function(){
+                var today = new Date();
+                var giorno =today.getDate();
+                var ore = today.getHours();
+                var min =  today.getMinutes();
+                var month = today.getMonth()+1; //January is 0!
 
-            if(giorno<10) {
-                giorno='0'+giorno;
-            }
+                if(giorno<10) {
+                    giorno='0'+giorno;
+                }
 
-            if(month<10) {
-                month='0'+month;
-            }
+                if(month<10) {
+                    month='0'+month;
+                }
 
-            if(ore<10) {
-                ore='0'+ore;
-            }
-            if(min<10) {
-                min='0'+min;
-            }
-            var img=UsersChatService.getUserImg(currentAuth.uid);
+                if(ore<10) {
+                    ore='0'+ore;
+                }
+                if(min<10) {
+                    min='0'+min;
+                }
+                PostList.createPost(giorno,month,ore,min,document.getElementById("storyID").value,story.wholeText,currentAuth.uid,universeId,id);
+			});
 
-            PostList.createPost(giorno,month,ore,min,document.getElementById("storyID").value,story.wholeText,currentAuth.uid,img.$value);
+
+
             console.log(jq(this).data("editor").html(text));
         }
 
