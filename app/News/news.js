@@ -84,5 +84,41 @@ angular.module("myApp.News", ['ngRoute'])
             $rootScope.T=c;
         };
 
+        var Today = new Date();
+        var giorno = Today.getDay()-7;
+        var mese;
+        if (giorno<=0) {
+            mese = Today.getMonth();
+            switch (mese) {
+                case 11:
+                case 6:
+                case 4:
+                case 9:
+                    giorno += 30;
+                    break;
+                case 2:
+                    giorno += 28;
+                    break;
+                default:
+                    giorno += 31;
+                    break;
+            }
+        } else {
+            mese = Today.getMonth()+1;
+        }
+        var ora = '00';
+        var minuti = '00';
+
+        if (giorno <10){
+            giorno='0'+giorno;
+        }
+
+        if (mese <10){
+            mese='0'+mese;
+        }
+
+
+        var inizioSettimana = (giorno+'/'+ mese+'  '+ora+':'+minuti);
+        console.log(inizioSettimana);
 
     }]);
