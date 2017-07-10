@@ -30,7 +30,8 @@ angular.module("myApp", [
     'myApp.Lettura',
     'myApp.post',
     'myApp.Trend',
-    'myApp.News'
+    'myApp.News',
+    'myApp.achievements'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');

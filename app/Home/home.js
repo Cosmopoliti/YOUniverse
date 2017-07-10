@@ -27,7 +27,7 @@ angular.module("myApp.Home", ['ngRoute'])
         $scope.tuttiIpost=PostList.getPosts();
 
 
-
+        //recupero storia più votata
         $scope.Universes = UniversesList.getListOfUniverses();
 
         $scope.Universes.$loaded().then(function()
