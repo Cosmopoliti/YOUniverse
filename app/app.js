@@ -29,6 +29,8 @@ angular.module("myApp", [
     'myApp.Home',
     'myApp.Lettura',
     'myApp.post',
+    'myApp.Trend',
+    'myApp.News',
     'myApp.achievements'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
