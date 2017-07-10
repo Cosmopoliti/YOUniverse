@@ -286,4 +286,23 @@ angular.module("myApp.Profilo", ['ngRoute'])
             });
         };
 
+
+        //lista delle storie degli utenti
+        $scope.passaUniverso= function(id) {
+            var listaStorie = UniversesUserList.getStoriesOfUser($scope.dati.user.$id, id);
+            listaStorie.$loaded().then(function () {
+                settaLunghezza(id,listaStorie.length);
+            });
+        };
+
+        function settaLunghezza(id,esp) {
+            $rootScope.ListUniversesOfUser.$loaded().then(function () {
+                for(var i=0;i<$rootScope.ListUniversesOfUser.length;i++){
+                    if($rootScope.ListUniversesOfUser[i].$id===id) {
+                        $rootScope.ListUniversesOfUser[i].espansioni=esp;
+                    }
+                }
+            });
+        }
+
     }]);

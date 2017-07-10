@@ -26,6 +26,43 @@ angular.module("myApp.News", ['ngRoute'])
         $scope.tuttiIpost=PostList.getPosts();
 
 
+        //recupero storia più votata
+        $scope.Universes = UniversesList.getListOfUniverses();
+
+        $scope.Universes.$loaded().then(function()
+        {
+            for (var i=0; i<$scope.Universes.length; i++)
+            {
+                $scope.storie=UniversesList.getStories($scope.Universes[i].$id);
+                richiamo($scope.storie);
+            }
+
+        });
+
+        function richiamo(lista)
+        {
+            lista.$loaded().then(function()
+            {
+                for (var i=0; i<lista.length; i++)
+                {
+                    $rootScope.availableStories = [].concat($rootScope.availableStories ,lista[i]);
+                }
+            }).then(function(){
+                //$scope.storiaMostVotata.voti=0;
+                for(var i=1; i<$rootScope.availableStories.length; i++) {
+                    if (i > 1) {
+                        if ($rootScope.availableStories[i].voti > $scope.storiaMostVotata.voti) {
+                            $scope.storiaMostVotata = $rootScope.availableStories[i];
+                        }
+                    }
+                    else {
+                        $scope.storiaMostVotata = $rootScope.availableStories[i];
+                    }
+                }
+            });
+
+        }
+
 
 
         $scope.getUser=function (userId, postId) {

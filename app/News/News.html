@@ -48,9 +48,12 @@
             <button  type="button" class="btn btn-primary btn-lg" style="margin-top: 50%; margin-left: 25%;">Home</button>
         </a>
     </div>
-    <div class="quadrato" name="passa a News">
+    <div class="quadrato" name="passa a Trend">
+        <center> <h2>TRENDEST</h2></center>
         <a href="#!/trend">
-            <button type="button" class="btn btn-primary btn-lg" style="margin-top: 50%; margin-left: 25%;">Trend</button>
+            <div name="mostTrend" style="background: white;margin: 6px;margin-top: -6px;height: 190px;">
+                <center><p>{{storiaMostVotata.title}}</p></center>
+                <p style="line-height: 26px;margin: 10px;word-wrap: break-word;">{{storiaMostVotata.story.substr(0,53)}}</p></div>
         </a>
     </div>
 
