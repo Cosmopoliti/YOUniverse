@@ -20,5 +20,9 @@ angular.module("myApp.Trend", ['ngRoute'])
             }
         })
 
-    }]);
+    }])
+
+.controller("TrendCtrl",[ '$scope', function ($scope) {
+
+}]);
 
