@@ -160,7 +160,7 @@
         <div id="div4"ng-if="currentPosition==4">
             <div name="contenitore" style="width: 100%;" class="ng-scope">
                 <ul class="media-list">
-                    <li class="media" ng-repeat="universes in ListUniversesOfUser">
+                    <li class="media" ng-repeat="universes in ListUniversesOfUser" ng-init="passaUniverso(universes.$id)">
                 <a href="#!/universi" ng-click="sceltaUniverso(universes.$id)"> <div name="contenuti" style=" width: 100%; display: inline-flex;">
                     <div name="ImmagineUniverso" style="height: 80px;border-radius: 71px;width: 90px;background-color: darkred;">
                         <div class="universo"></div>
@@ -168,7 +168,7 @@
                     <div name="info" style="margin-top: 1.5%;width: 100%;">
                         <h1 style=" margin-bottom: 0px; margin-top: 0px; margin-left: 30%;">{{universes.$id}}</h1>
                         <div name="subInfo&quot;" style="display: inline-flex; width: 80%; margin-left: 17%; margin-top: 2%;">
-                            <p name="espansioni" style="margin-right: 29%; margin-bottom: 0px; margin-top: 0px;">Espansioni: 5</p>
+                            <p name="espansioni" style="margin-right: 29%; margin-bottom: 0px; margin-top: 0px;">Espansioni: {{universes.espansioni}}</p>
                             <p name="livello" style="margin-top: 0px; margin-bottom: 0px;">Livello: </p>
                             <div class="progress-bar">
                                 <span style="display: none">{{getLevel(dati.user.$id, universes.$id)}}</span>
@@ -186,7 +186,7 @@
             <a href="#!/Editor"><button class="Bottone" ng-click="setta()" ng-if="IDcontrol()">Crea</button></a>
 
             <div name="contenitore" class="con ng-scope" style="display: inline-grid;width: 100%;background: white;">
-                <ul class="media-list" style="width: 71%">
+                <ul class="media-list" style="width: 100%">
                     <li class="media" style="width: 100%" ng-repeat="universes in ListUniversesOfUser">
                         <center style="width: 100%;"><p style="margin-bottom: 9px;margin-top: 10px;width: 100%;">{{universes.$id}}</p></center>
                         <ul class="media-list" style="width: 100%">
@@ -198,7 +198,9 @@
                                        <h2 style="margin-left: 1%;margin-top: 35px;">{{storie.title}}</h2>
                                     </div>
                                     <div name="storia" style="margin-right: 2%;margin-left: 35px;;margin-top: 10px;">
-                                        <p style="margin-top: 0px;margin-bottom: 0px;word-wrap: break-word;">{{storie.story.substr(0,130)}}  <p ng-if="storie.story.length>130" style="margin-top: -22px;margin-left: 435px;">[...]</p></p>
+                                        <p style="margin-top: 0px;margin-bottom: 0px;width: 100%;word-break: break-all">{{storie.story.substr(0,80)}}
+                                           <p ng-if="storie.story.length>80">[...]</p>
+                                        </p>
                                     </div>
                                     <div name="opzioni" style="margin-right: 5%;margin-bottom: 1%;float: right;">...</div>
                                 </div>
