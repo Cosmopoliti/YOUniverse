@@ -26,7 +26,7 @@ angular.module("myApp.Editor", ['ngRoute'])
 		})
     }])
 
-	.controller("EditorCtrl", ['$scope','$rootScope' , 'currentAuth', '$firebaseArray', '$firebaseObject','UniversesList', 'PostList', 'UsersChatService', function( $scope, $rootScope, currentAuth, $firebaseArray, $firebaseObject, UniversesList, PostList, UsersChatService ){
+	.controller("EditorCtrl", ['$scope','$rootScope' , 'currentAuth', '$firebaseArray', '$firebaseObject','UniversesList', 'PostList', 'UsersChatService', 'Achievements', function( $scope, $rootScope, currentAuth, $firebaseArray, $firebaseObject, UniversesList, PostList, UsersChatService, Achievements ){
 
 
 		$scope.dati = {};
@@ -1687,6 +1687,8 @@ angular.module("myApp.Editor", ['ngRoute'])
                     id: id
                 })
             });
+
+            //Achievements.checkForPrizes(currentAuth.uid, 6);
 
             var today = new Date();
             var giorno =today.getDate();

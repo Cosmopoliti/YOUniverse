@@ -21,7 +21,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
         })
 
     }])
-    .controller("ProfiloCtrl", ['$scope', 'Users','UserList', 'currentAuth', '$firebaseAuth', '$rootScope', '$compile','$location', 'UsersChatService','UniversesUserList','$firebaseStorage', 'PostList', function($scope, Users,UserList, currentAuth, $firebaseAuth, $rootScope, $compile,$location, UsersChatService,UniversesUserList,$firebaseStorage, PostList) {
+    .controller("ProfiloCtrl", ['$scope', 'Users','UserList', 'currentAuth', '$firebaseAuth', '$rootScope', '$compile','$location', 'UsersChatService','UniversesUserList','$firebaseStorage', 'PostList', '$firebaseArray', function($scope, Users,UserList, currentAuth, $firebaseAuth, $rootScope, $compile,$location, UsersChatService,UniversesUserList,$firebaseStorage, PostList, $firebaseArray) {
 
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
@@ -274,7 +274,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
                 var width = 1;
                 var id = setInterval(frame, 10);
                 function frame() {
-                    if (width >= tot) {
+                    if (width >= 100) {
                         clearInterval(id);
                     } else {
                         width++;
@@ -282,6 +282,16 @@ angular.module("myApp.Profilo", ['ngRoute'])
                     }
                 }
             });
+            /*var ref = firebase.database().ref().child("users").child(user).child("universes");
+            var list = $firebaseArray(ref);
+            list.$loaded(function () {
+                console.log(list[0]);
+                var subref = firebase.database().ref().child("users").child(user).child("universes").child(list[0].$id);
+                var sublist = $firebaseArray(subref);
+                sublist.$loaded(function () {
+                    console.log(sublist);
+                })
+            })*/
         };
 
     }]);
