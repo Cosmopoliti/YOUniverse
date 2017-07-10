@@ -55,27 +55,43 @@
     </div>
 
     <div class="scorrimento">
-    <div ng-repeat="post in listaPost  | orderBy:orderProp:true" name="contenitore" class="scorrimento">
+        <div ng-repeat="post in tuttiIpost| orderBy:orderProp:true" name="contenitore" class="con" style="width: 93%;background: white;display: inline-block;margin: 30px;">
 
-        <div ng-if="post.user===dati.user.$id">
-            <div name="header" style="width: 100%;display: inline-flex;">
-                <img ng-src="{{dati.user.profilo}}">
-                <p style="margin-top: 4%;margin-left: 2%;font-size: large;"> Hai pubblicato un elemento in data {{post.momento}}</p>
+            <div ng-if="post.user===utenteFisso">
+            <div name="contenuti" style="">
+                <div name="header" style="width: 100%;display: inline-flex;">
+                    <a href="#!/ProfiloUtente" ng-click="altri(post.user)"><img ng-init="getUser(post.user,post.$id)" ng-src="{{post.image}}"></a>
+                    <p style="margin-top: 4%;margin-left: 2%;font-size: large;">Hai pubblicato un elemento in data {{post.momento}}</p>
+                </div>
+                <a href="#!/lettura" ng-click="storiaDaLeggere(post.universe,post.StoryId)">
+                    <div name="body" style="height: 50%;margin-left: 40px;margin-top: -30px;">
+                        <h3 style="margin-left: 15%;margin-top: 0px;margin-bottom: 0px;font-size: 28px;">{{post.title}}</h3>
+                        <p style="margin-left: 2%;margin-top: 7px;font-size: 20px;width: 94%;height: 54px;word-wrap: break-word;">{{post.storia.substr(0, 260)}} <p ng-if="post.storia.length>300">[...]</p></p>
+                    </div>
+                </a>
             </div>
+            <div name="opzioni" style="float: right;margin-right: 3%;margin-bottom: 1%;">...</div>
+            </div>
+
+            <div ng-if="post.user!==utenteFisso">
+                <div name="contenuti" style="">
+                    <div name="header" style="width: 100%;display: inline-flex;">
+                        <a href="#!/ProfiloUtente" ng-click="altri(post.user)"><img ng-init="getUser(post.user,post.$id)" ng-src="{{post.image}}"></a>
+                        <p style="margin-top: 4%;margin-left: 2%;font-size: large;">{{post.userName}} ha pubblicato un elemento in data {{post.momento}}</p>
+                    </div>
+                    <a href="#!/lettura" ng-click="storiaDaLeggere(post.universe,post.StoryId)">
+                        <div name="body" style="height: 50%;margin-left: 40px;margin-top: -30px;">
+                            <h3 style="margin-left: 15%;margin-top: 0px;margin-bottom: 0px;font-size: 28px;">{{post.title}}</h3>
+                            <p style="margin-left: 2%;margin-top: 7px;font-size: 20px;width: 94%;height: 54px;word-wrap: break-word;">{{post.storia.substr(0, 260)}} <p ng-if="post.storia.length>300">[...]</p></p>
+                        </div>
+                    </a>
+                </div>
+                <div name="opzioni" style="float: right;margin-right: 3%;margin-bottom: 1%;">...</div>
+            </div>
+
         </div>
 
-        <div ng-if="post.user!==dati.user.$id">
-            <div name="header" style="width: 100%;display: inline-flex;">
-                <img ng-src="{{dati.user.profilo}}">
-                <p style="margin-top: 4%;margin-left: 2%;font-size: large;"> {{post.userName}} ha pubblicato un elemento in data {{post.momento}}</p>
-            </div>
-        </div>
-        <div name="body" style="height: 50%;margin-left: 40px;margin-top: -30px;">
-            <h3 style="margin-left: 15%;margin-top: 0px;margin-bottom: 0px;font-size: 28px;">{{post.title}}</h3>
-            <p style="margin-left: 2%;margin-top: 7px;font-size: 20px;width: 94%;height: 54px;word-wrap: break-word;">{{post.storia.substr(0, 300)}} <p ng-if="post.storia.length>300">[...]</p></p>
-        </div>
+
     </div>
 
-    </div>
 </div>
-

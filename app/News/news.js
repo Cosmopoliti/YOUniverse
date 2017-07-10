@@ -27,6 +27,7 @@ angular.module("myApp.News", ['ngRoute'])
 
 
 
+
         $scope.getUser=function (userId, postId) {
             var userName=UsersChatService.getUserInfo(userId);
             userName.$loaded().then(function(){
