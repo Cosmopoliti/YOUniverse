@@ -5,42 +5,14 @@
 angular.module('myApp.achievements.achievementsService', [])
 
     .factory('Achievements', ['$firebaseArray', function ($firebaseArray) {
+
         return {
 
-            /*checkPrize1: function(userId) {
-                var userRef = this.checkForPrizes(userId);
-                var voted = $firebaseArray(firebase.database().ref().child("users").child(userId).child("votedStories"));
-                if(voted.length>=3) {
-                    userRef.update({
-                        prize1: true
-                    });
-                }
-            },
-
-            checkPrize2: function (userId) {
-                var userRef = this.checkForPrizes(userId);
-                var ref = firebase.database().ref().child("users").child(userId).child("universes");
-                if(ref!==undefined) {
-                    userRef.update({
-                        prize2: true
-                    })
-                }
-            },
-
-            checkPrize3: function (userId) {
-                var userRef = this.checkForPrizes(userId);
-                var votes = this.getGlobalVotes(userId);
-                if(votes>=3) {
-                    userRef.update({
-                        prize3: true
-                    });
-                }
-            },*/
-
             checkPrize: function (userId, prizeNumber) {
-                var userRef = this.checkForPrizes(userId);
-                var votes = this.getGlobalVotes(userId);
+                checkForPrizes(userId);
+                var userRef = firebase.database().ref().child("users").child(userId).child("achievements");
                 var ref;
+
                 switch (prizeNumber) {
                     case 1:
                         ref = firebase.database().ref().child("users").child(userId).child("votedStories");
@@ -56,19 +28,38 @@ angular.module('myApp.achievements.achievementsService', [])
 
                     case 2:
                         ref = firebase.database().ref().child("users").child(userId).child("universes");
-                        if(ref!==undefined) {
-                            userRef.update({
-                                prize2: true
-                            })
-                        }
+                        ref.once('value')
+                            .then(function(snapshot) {
+                                if (snapshot.exists()) {
+                                    userRef.update({
+                                        prize2: true
+                                    })
+                                }
+                            });
                         break;
 
                     case 3:
-                        if(votes>=3) {
-                            userRef.update({
-                                prize3: true
-                            });
-                        }
+                        var votes = 0;
+                        ref = firebase.database().ref().child("users").child(userId).child("universes");
+                        var suplist = $firebaseArray(ref);
+                        suplist.$loaded(function () {
+                            for(var i = 0; i<suplist.length; i++) {
+                                var ref = firebase.database().ref().child("users").child(userId).child("universes").child(suplist[i].$id);
+                                var sublist = $firebaseArray(ref);
+                                sublist.$loaded(function () {
+                                    for(var j = 0; j<sublist.length; j++) {
+                                        votes += sublist[j].voti;
+                                        if(votes>=3) {
+                                            userRef.update({
+                                                prize3: true
+                                            });
+                                            break;
+                                        }
+                                    }
+
+                                });
+                            }
+                        });
                         break;
 
                     case 4:
@@ -105,46 +96,23 @@ angular.module('myApp.achievements.achievementsService', [])
                     default:
                         console.log("Invalid prizeNumber");
                 }
-            },
 
-            getGlobalVotes: function (userId) {
-                var tot = 0;
-                var userRef = firebase.database().ref().child("users").child(userId).child("universes");
-                var list = $firebaseArray(userRef);
-                list.$loaded(function () {
-                    for(var i = 0; i<list.length; i++) {
-                        var ref = firebase.database().ref().child("users").child(userId).child("universes").child(list[i].$id);
-                        var sublist = $firebaseArray(ref);
-                        sublist.$loaded(function () {
-                            for(var j = 0; j<sublist.length; j++) {
-                                if(sublist[j].voti!==undefined) {
-                                    tot += sublist[j].voti;
-                                }
+                function checkForPrizes(userId) {
+                    var userRef = firebase.database().ref().child("users").child(userId).child("achievements");
+                    userRef.once('value')
+                        .then(function(snapshot) {
+                            if(!snapshot.exists()) {
+                                userRef.set({
+                                    prize1: false,
+                                    prize2: false,
+                                    prize3: false,
+                                    prize4: false,
+                                    prize5: false,
+                                    prize6: false
+                                });
                             }
                         });
-                    }
-                });
-                return tot;
-            },
-
-            checkForPrizes: function (userId) {
-                var userRef = firebase.database().ref().child("users").child(userId).child("achievements");
-                if(userRef===undefined) {
-                    this.createPrizes(userId);
                 }
-                return userRef;
-            },
-
-            createPrizes: function (userId) {
-                var userRef = firebase.database().ref().child("users").child(userId).child("achievements");
-                userRef.set({
-                    prize1: false,
-                    prize2: false,
-                    prize3: false,
-                    prize4: false,
-                    prize5: false,
-                    prize6: false
-                });
             }
         }
     }]);

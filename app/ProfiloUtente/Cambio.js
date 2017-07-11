@@ -21,7 +21,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
         })
 
     }])
-    .controller("ProfiloCtrl", ['$scope', 'Users','UserList', 'currentAuth', '$firebaseAuth', '$rootScope', '$compile','$location', 'UsersChatService','UniversesUserList','$firebaseStorage', 'PostList', '$firebaseArray', function($scope, Users,UserList, currentAuth, $firebaseAuth, $rootScope, $compile,$location, UsersChatService,UniversesUserList,$firebaseStorage, PostList, $firebaseArray) {
+    .controller("ProfiloCtrl", ['$scope', 'Users','UserList', 'currentAuth', '$firebaseAuth', '$rootScope', '$compile','$location', 'UsersChatService','UniversesUserList','$firebaseStorage', 'PostList', '$firebaseArray', 'Achievements', function($scope, Users,UserList, currentAuth, $firebaseAuth, $rootScope, $compile,$location, UsersChatService,UniversesUserList,$firebaseStorage, PostList, $firebaseArray, Achievements) {
 
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
@@ -313,6 +313,29 @@ angular.module("myApp.Profilo", ['ngRoute'])
                     }
                 }
             });
+        }
+
+        $scope.checkForPrize = function (id, n) {
+            var elem = document.getElementById("prize" + n);
+            var ref = firebase.database().ref().child("users").child(id).child("achievements");
+            ref.once('value')
+                .then(function(snapshot) {
+                    if (snapshot.exists()) {
+                        var list = $firebaseArray(ref);
+                        list.$loaded(function () {
+                            if(list[n-1].$value) {
+                                elem.style.filter = "brightness(100%)";
+                            }
+                            else {
+                                elem.style.filter = "brightness(0%)";
+                            }
+                        })
+                    }
+                });
+        };
+
+        for(var i = 1; i<=5; i++) {
+            Achievements.checkPrize(currentAuth.uid, i);
         }
 
     }]);

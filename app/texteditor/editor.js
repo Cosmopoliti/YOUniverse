@@ -1712,9 +1712,7 @@ angular.module("myApp.Editor", ['ngRoute'])
                 PostList.createPost(giorno,month,ore,min,document.getElementById("storyID").value,story.wholeText,currentAuth.uid,universeId,id);
 			});
 
-
-
-            console.log(jq(this).data("editor").html(text));
+            //console.log(jq(this).data("editor").html(text));
         }
 
 	}
