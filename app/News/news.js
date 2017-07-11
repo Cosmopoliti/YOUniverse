@@ -91,24 +91,17 @@ angular.module("myApp.News", ['ngRoute'])
         if (giorno<=0) {
             mese = Today.getMonth();
             switch (mese) {
-                case 11:
-                    giorno += 30;
-                    break;
-                case 6:
-                    giorno += 30;
-                    break;
-                case 4:
-                    giorno += 30;
-                    break;
-                case 9:
-                    giorno += 30;
-                    break;
                 case 2:
                     giorno += 28;
                     break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    giorno += 30;
+                    break;
                 default:
                     giorno += 31;
-                    break;
             }
         } else {
             mese = Today.getMonth()+1;
