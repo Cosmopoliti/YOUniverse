@@ -26,6 +26,7 @@ angular.module("myApp.News", ['ngRoute'])
         $scope.tuttiIpost=PostList.getPosts();
 
 
+
         //recupero storia più votata
         $scope.Universes = UniversesList.getListOfUniverses();
 
@@ -126,6 +127,6 @@ angular.module("myApp.News", ['ngRoute'])
 
 
         $scope.inizioSettimana = (giorno+'/'+ mese+'  '+ora+':'+minuti);
-        console.log(inizioSettimana);
+        console.log($scope.inizioSettimana);
 
     }]);

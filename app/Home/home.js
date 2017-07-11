@@ -24,7 +24,31 @@ angular.module("myApp.Home", ['ngRoute'])
 
     .controller("HomeCtrl", ['$scope', 'Users','UserList', 'currentAuth', '$firebaseAuth', '$rootScope', 'UniversesList', 'UsersChatService','$firebaseStorage', 'PostList', '$firebaseObject', function($scope, Users,UserList, currentAuth, $firebaseAuth, $rootScope, UniversesList, UsersChatService,$firebaseStorage, PostList) {
 
+        $rootScope.utenteFisso=UsersChatService.getUserInfo(currentAuth.uid).$id;
         $scope.tuttiIpost=PostList.getPosts();
+        aCaso($scope.tuttiIpost);
+
+
+        function aCaso(array) {
+                array.$loaded().then(function(){
+                    for(var i=0;i<array.length;i++){
+                        array[i].giorno=array[i].momento.substr(0,2);
+                        array[i].rank= 0.5 - Math.random();
+                    }
+                });
+            }
+
+
+
+
+
+        //funzione che passa il valore i ricerca
+        $rootScope.ricerca= function(value){
+            $rootScope.valoreRicerca=value;
+
+            location.href = '#!/risultati';
+
+        };
 
 
         //recupero storia più votata

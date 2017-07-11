@@ -9,15 +9,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" ng-click="dropDownChangeView(1);">YOUniverse</a>
+            <a href="#!/home" class="navbar-brand" ng-click="dropDownChangeView(1);">YOUniverse</a>
         </div>
         <ul class="nav navbar-nav">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Copertine<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="#!/home">Home</a></li>
-                    <li><a href="#!/trend">Trend</a></li>
-                    <li><a href="#!/news">News</a></li>
-                    <li><a href="#!/ListaUniversi">Universi</a></li>
+                    <li><a href="#!/trend" ng-click="dropDownChangeView(1);">Trend</a></li>
+                    <li><a href="#!/news" ng-click="dropDownChangeView(1);">News</a></li>
+                    <li><a href="#!/ListaUniversi" ng-click="dropDownChangeView(1);">Universi</a></li>
                 </ul>
         </ul>
         <form ng-submit="ricerca(dati.user.ricerca)" class="navbar-form navbar-left ng-pristine ng-valid">
@@ -33,12 +33,12 @@
                 <span class="glyphicon glyphicon-user"></span><span class="caret"></span>Profilo</a>
                 <ul class="dropdown-menu">
                     <li class="dropdown-header">Funzionalità</li>
-                    <li><a href="" on-click="event.preventDefault();" ng-click="dropDownChangeView(1);">Informazioni</a></li>
-                    <li><a href="" on-click="event.preventDefault();" ng-click="dropDownChangeView(2);">Interessi</a></li>
-                    <li><a href="" on-click="event.preventDefault();" ng-click="dropDownChangeView(3);">Diario</a></li>
-                    <li><a href="" on-click="event.preventDefault();" ng-click="dropDownChangeView(4);">Libreria Universi</a></li>
-                    <li><a href="" on-click="event.preventDefault();" ng-click="dropDownChangeView(5);">Storie</a></li>
-                    <li><a href="" on-click="event.preventDefault();" ng-click="dropDownChangeView(6);">Palmares</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(1);">Informazioni</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(2);">Interessi</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(3);">Diario</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(4);">Libreria Universi</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(5);">Storie</a></li>
+                    <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(6);">Palmares</a></li>
                     <li class="divider"></li>
                     <li><a href="#" ng-click="logout();">Log Out</a></li>
                 </ul>
@@ -98,7 +98,7 @@
                 </button></a>
             </li>
             <li class="tag-h2">
-                <a href="" on-click="event.preventDefault();" ng-click="changeView(4);"><button class="pannelli">
+                <a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="changeView(4);"><button class="pannelli">
                     Libreria Universi
                 </button></a>
             </li>

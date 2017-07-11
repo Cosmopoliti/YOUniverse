@@ -25,7 +25,7 @@ angular.module("myApp.appSignIn", ['ngRoute', 'firebase'])
             $scope.auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
                 var userId = firebaseUser.uid;
                 Users.registerLogin(userId, $scope.user.email);
-                $location.path("/ProfiloUtente");
+                $location.path("/home");
             }).catch(function(error) {
                 $scope.error = error;
                 $log.error(error.message);

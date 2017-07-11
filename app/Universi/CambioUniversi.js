@@ -83,7 +83,6 @@ angular.module("myApp.Universi", ['ngRoute'])
     });
     $rootScope.listaStorieUniverso.$loaded().then(function () {
         $rootScope.espansioniTotali=$rootScope.listaStorieUniverso.length;
-
     });
 
 
