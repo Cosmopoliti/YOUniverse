@@ -35,7 +35,40 @@ angular.module('myApp.universes.universeService', [])
                 var ref = firebase.database().ref().child("users").child(user).child("votedStories");
                 ref.child(story).remove();
                 return $firebaseArray(ref);
+            },
+
+            addComment: function (universo,storia,commento,utente) {
+                var today = new Date();
+                var giorno =today.getDate();
+                var ore = today.getHours();
+                var min =  today.getMinutes();
+                var month = today.getMonth()+1; //January is 0!
+
+                if(giorno<10) {
+                    giorno='0'+giorno;
+                }
+
+                if(month<10) {
+                    month='0'+month;
+                }
+
+                if(ore<10) {
+                    ore='0'+ore;
+                }
+                if(min<10) {
+                    min='0'+min;
+                }
+
+                var data=(giorno+"/"+month+"  "+ore+":"+min);
+                var storiaRef = firebase.database().ref().child("universes").child(universo).child("stories").child(storia).child("commenti");
+                $firebaseArray(storiaRef).$add({
+                    testo: commento,
+                    scrittore: utente,
+                    data: data,
+                });
             }
+
+
         }
     });
 /**
