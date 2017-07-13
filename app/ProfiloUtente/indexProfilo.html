@@ -158,7 +158,7 @@
 
         </div>
         <div id="div4"ng-if="currentPosition==4">
-            <a href="#!/creazioneUniverso"><button class="Bottone" ng-if="IDcontrol() && PrizesControl()">Crea Universo</button></a>
+            <a href="#!/creazioneUniverso"><button class="Bottone" ng-init="PrizesControl()" ng-if="IDcontrol() && getPrizesControl()">Crea Universo</button></a>
             <div name="contenitore" style="width: 100%;" class="ng-scope">
                 <ul class="media-list">
                     <li class="media" ng-repeat="universes in ListUniversesOfUser" ng-init="passaUniverso(universes.$id)">

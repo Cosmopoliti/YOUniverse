@@ -42,9 +42,10 @@
     </div>
 </nav>
 
+<div class="alert alert-danger alert-dismissible" role="alert" ng-if="insert_error">{{insert_error}}</div>
 
-  </head>
-  <body ng-app="myApp.Editor">
+<body ng-app="myApp.Editor">
+
   <div style="margin-top: 20px">
       <label id="universeID2" style="background: white;border: darkgrey;height: 25px;padding-top: 3px;padding: 3px;">{{selezionato}}</label>
       <select id="universeID" name="siti">
@@ -55,9 +56,4 @@
    <div class="container" style="padding:50px 0;">
       <textarea id="txtedit"></textarea>
    </div>
-
-
-
-
-  </body>
-</html>
+</body>

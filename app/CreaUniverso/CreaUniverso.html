@@ -43,14 +43,14 @@
     </div>
 </nav>
 
-
-<div>
-    <center class="Testata" style="margin-top: 2%;margin-left: 36%;height: 42px;margin-right: 34%;background: whitesmoke;padding-top: 10px;"><p style="font-size: -webkit-xxx-large;">{{StoriaDaLeggere.title}}</p></center></div>
-
-<div class="lettura" style="font-size: x-large;padding-top: 38px;padding-left: 40px;padding-right: 40px;"><p style="width: 100%;line-height: 25px;;word-break: break-all;">{{StoriaDaLeggere.story}}</p></div>
-
-<div name="vota"  style="display: flex;margin-top: 35%;height: 59px;width: 100%;margin-left: 55%;">
-    <p style="margin-top: 10px;margin-left: 96px;width: 332px;">Clicca se la storia ti è piaciuta:</p>
-    <button name="vota" class="Bottone" ng-if="!updateButton()" ng-click="Vota()">Vota</button>
-    <button name="novota" class="Bottone" ng-if="updateButton()" ng-click="NoVota()">Togli Voto</button>
-</div>
+<form id="form_creazione" ng-submit="submitUniverse()" ng-controller="CUCtrl">
+    <div class="alert alert-danger alert-dismissible" role="alert" ng-if="insert_error">{{insert_error}}</div>
+    <input id="nome_universo" type="text" placeholder="Nome Universo" ng-model="name"><br>
+    <h1 class="titolo_creazione">Ambientazione</h1><br>
+    <textarea class="text_creazione" placeholder="" ng-model="setting"></textarea><br>
+    <h1 class="titolo_creazione">Personaggi</h1><br>
+    <textarea class="text_creazione" placeholder="" ng-model="characters"></textarea><br>
+    <h1 class="titolo_creazione">Regolamento</h1><br>
+    <textarea class="text_creazione" placeholder="" ng-model="rules"></textarea><br>
+    <input class="Bottone" type="submit" value="Submit">
+</form>

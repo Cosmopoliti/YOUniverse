@@ -26,7 +26,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
         $rootScope.utenteFisso=UsersChatService.getUserInfo(currentAuth.uid).$id;
-
+        $rootScope.insert_error = "";
 
         //cambio Sottoviste
         if($rootScope.currentPosition===undefined)
@@ -234,9 +234,10 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
         $scope.IDcontrol = function () {
-            console.log($scope.dati.user.$id === currentAuth.uid);
             return $scope.dati.user.$id === currentAuth.uid;
         };
+
+        $scope.prizesControl = true;
 
         $scope.PrizesControl = function () {
             var ref = firebase.database().ref().child("users").child(currentAuth.uid).child("achievements");
@@ -245,17 +246,19 @@ angular.module("myApp.Profilo", ['ngRoute'])
                     if (snapshot.exists()) {
                         var list = $firebaseArray(ref);
                         list.$loaded(function () {
-                            if (list[0].$value) {
-                                console.log(list[0].$value);
-                                return true;
+                            if (list[0].$value && list[1].$value && list[2].$value && !list[3].$value && list[4].$value) {
+                                $scope.prizesControl = true;
                             }
                             else {
-                                console.log("false");
-                                return false;
+                                $scope.prizesControl = false;
                             }
                         });
                     }
                 });
+        };
+
+        $scope.getPrizesControl = function () {
+            return $scope.prizesControl;
         }
 
 

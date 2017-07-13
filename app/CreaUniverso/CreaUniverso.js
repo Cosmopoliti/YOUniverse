@@ -19,4 +19,24 @@ angular.module("myApp.CreaUniverso", ['ngRoute'])
             }
         })
 
+    }])
+
+    .controller("CUCtrl", ['$scope', '$rootScope', 'Achievements', '$location', function ($scope, $rootScope, Achievements, $location) {
+
+        $scope.submitUniverse = function () {
+            if($scope.name!==undefined && $scope.name!=="" && $scope.setting!==undefined && $scope.setting!=="" && $scope.characters!==undefined && $scope.characters!=="" && $scope.rules!==undefined && $scope.rules!=="") {
+                firebase.database().ref().child("universes").child($scope.name).child("info").set({
+                    Ambientazione: $scope.setting,
+                    Personaggi: $scope.characters,
+                    Regolamento: $scope.rules
+                });
+                $rootScope.insert_error = "";
+                Achievements.checkPrize($rootScope.utenteFisso, 6);
+                $rootScope.otherUniverse=$scope.name;
+                $location.path('/universi');
+            }
+            else {
+                $rootScope.insert_error = "Non hai inserito uno dei campi richiesti!";
+            }
+        }
     }]);

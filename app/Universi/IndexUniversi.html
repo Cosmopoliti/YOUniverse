@@ -72,10 +72,11 @@
                         <p name="livello" style="margin-top: 40px; margin-bottom: 0px;">Livello raggiunto:</p>
                     <br>
                     <br>
-                        <div class="progress-bar" style="margin-top: -60px; margin-left: 320px">
-                            <span></span>
+                        <div class="progress-bar" style="margin-top: -60px; margin-left: 320px" ng-init="getLevel(utenteFisso, dati.universe.$id)">
+                            <!-- <span style="display: none">{{getLevel(utenteFisso, dati.universe.$id)}}</span> -->
+                            <span id="level"></span>
                         </div>
-                    <p name="livelloraggiunto" style="margin-top: -60px; margin-left: 800px">Liv. 3</p>
+                    <p name="livelloraggiunto" style="margin-top: -60px; margin-left: 800px"></p>
 
                 </ul>
             </div>
