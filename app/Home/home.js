@@ -83,7 +83,6 @@ angular.module("myApp.Home", ['ngRoute'])
                     }
                     else {
                         $scope.storiaMostVotata = $rootScope.availableStories[i];
-
                     }
 
                 }

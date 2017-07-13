@@ -27,13 +27,13 @@ angular.module("myApp.News", ['ngRoute'])
 
 
         //recupero storia più votata tua
-        $scope.Universes = UniversesList.getListOfUniverses();
+        $scope.Universes2 = UniversesUserList.getUniversesOfUser($rootScope.utenteFisso);
 
-        $scope.Universes.$loaded().then(function()
+        $scope.Universes2.$loaded().then(function()
         {
-            for (var i=0; i<$scope.Universes.length; i++)
+            for (var i=0; i<$scope.Universes2.length; i++)
             {
-                $scope.storie2=UniversesUserList.getStoriesOfUser($rootScope.utenteFisso,$scope.Universes[i].$id);
+                $scope.storie2=UniversesUserList.getStoriesOfUser($rootScope.utenteFisso,$scope.Universes2[i].$id);
                 richiamo2($scope.storie2);
             }
 
@@ -65,7 +65,7 @@ angular.module("myApp.News", ['ngRoute'])
 
         //recupero storia più votata
 
-
+        $scope.Universes = UniversesList.getListOfUniverses();
         $scope.Universes.$loaded().then(function()
         {
             for (var i=0; i<$scope.Universes.length; i++)
