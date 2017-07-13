@@ -1656,63 +1656,84 @@ angular.module("myApp.Editor", ['ngRoute'])
             var refUser;
 
 
-
-            if($rootScope.selezionabile===true){
-                var universeId=document.getElementById("universeID").value;}
+            if ($rootScope.selezionabile === true) {
+                var universeId = document.getElementById("universeID").value;
+            }
             else {
-                var universeId=$rootScope.selezionato;}
+                var universeId = $rootScope.selezionato;
+            }
 
-			refUniv = firebase.database().ref().child("universes").child(universeId).child("stories");
+            if (document.getElementById("storyID").value!==undefined && document.getElementById("storyID").value!=="" && story.wholeText!=="") {
 
-            $firebaseArray(refUniv).$add({
-				title: document.getElementById("storyID").value,
-				story: story.wholeText,
-				universeID: document.getElementById("universeID").value
-			}).then(function (refUniv) {
-                id = refUniv.key;
-                refUniv.update({
-					id: id,
-					voti:0
-				});
-            }).then(function (ID) {
-            	ID = id;
+                refUniv = firebase.database().ref().child("universes").child(universeId).child("stories");
 
-				refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(universeId).child(ID);
-
-                //var refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value).child(ID);
-                refUser.update({
+                $firebaseArray(refUniv).$add({
                     title: document.getElementById("storyID").value,
                     story: story.wholeText,
-                    universeID: document.getElementById("universeID").value,
-                    id: id,
-					voti:0
-                })
+                    universeID: document.getElementById("universeID").value
+                }).then(function (refUniv) {
+                    id = refUniv.key;
+                    refUniv.update({
+                        id: id,
+                        voti: 0
+                    });
+                }).then(function (ID) {
+                    ID = id;
 
-            }).then(function(){
-                var today = new Date();
-                var giorno =today.getDate();
-                var ore = today.getHours();
-                var min =  today.getMinutes();
-                var month = today.getMonth()+1; //January is 0!
+                    refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(universeId).child(ID);
 
-                if(giorno<10) {
-                    giorno='0'+giorno;
-                }
+                    //var refUser = firebase.database().ref().child("users").child(currentAuth.uid).child("universes").child(document.getElementById("universeID").value).child(ID);
+                    refUser.update({
+                        title: document.getElementById("storyID").value,
+                        story: story.wholeText,
+                        universeID: document.getElementById("universeID").value,
+                        id: id,
+                        voti: 0
+                    })
 
-                if(month<10) {
-                    month='0'+month;
-                }
+                }).then(function () {
+                    var today = new Date();
+                    var giorno = today.getDate();
+                    var ore = today.getHours();
+                    var min = today.getMinutes();
+                    var month = today.getMonth() + 1; //January is 0!
 
-                if(ore<10) {
-                    ore='0'+ore;
-                }
-                if(min<10) {
-                    min='0'+min;
-                }
-                PostList.createPost(giorno,month,ore,min,document.getElementById("storyID").value,story.wholeText,currentAuth.uid,universeId,id);
-			});
+                    if (giorno < 10) {
+                        giorno = '0' + giorno;
+                    }
 
-            //console.log(jq(this).data("editor").html(text));
+                    if (month < 10) {
+                        month = '0' + month;
+                    }
+
+                    if (ore < 10) {
+                        ore = '0' + ore;
+                    }
+                    if (min < 10) {
+                        min = '0' + min;
+                    }
+                    PostList.createPost(giorno, month, ore, min, document.getElementById("storyID").value, story.wholeText, currentAuth.uid, universeId, id);
+                });
+
+                //console.log(jq(this).data("editor").html(text));
+                $rootScope.$apply(function(){
+                    $rootScope.insert_error = "";
+                });
+            }
+            else {
+            	if(document.getElementById("storyID").value===undefined || document.getElementById("storyID").value==="") {
+                    if(story.wholeText==="") {
+                        $rootScope.$apply(function(){
+                            $rootScope.insert_error = "Non hai scritto alcuna storia!";
+						});
+                    }
+                    else {
+                        $scope.$apply(function(){
+                            $rootScope.insert_error = "Non hai inserito un titolo o un capitolo!";
+                        });
+                    }
+				}
+			}
         }
 
 	}

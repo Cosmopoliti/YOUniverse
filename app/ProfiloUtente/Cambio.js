@@ -26,7 +26,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.dati={};
         //set the variable that is used in the main template to show the active button
         $rootScope.utenteFisso=UsersChatService.getUserInfo(currentAuth.uid).$id;
-
+        $rootScope.insert_error = "";
 
         //cambio Sottoviste
         if($rootScope.currentPosition===undefined)
@@ -237,6 +237,30 @@ angular.module("myApp.Profilo", ['ngRoute'])
             return $scope.dati.user.$id === currentAuth.uid;
         };
 
+        $scope.prizesControl = true;
+
+        $scope.PrizesControl = function () {
+            var ref = firebase.database().ref().child("users").child(currentAuth.uid).child("achievements");
+            ref.once('value')
+                .then(function(snapshot) {
+                    if (snapshot.exists()) {
+                        var list = $firebaseArray(ref);
+                        list.$loaded(function () {
+                            if (list[0].$value && list[1].$value && list[2].$value && !list[3].$value && list[4].$value) {
+                                $scope.prizesControl = true;
+                            }
+                            else {
+                                $scope.prizesControl = false;
+                            }
+                        });
+                    }
+                });
+        };
+
+        $scope.getPrizesControl = function () {
+            return $scope.prizesControl;
+        }
+
 
         //passa i dati sulla storia che si vuole leggere
         $scope.storiaDaLeggere = function(c,b) {
@@ -317,11 +341,22 @@ angular.module("myApp.Profilo", ['ngRoute'])
                         list.$loaded(function () {
                             if(list[n-1].$value) {
                                 elem.style.filter = "brightness(100%)";
+                                document.getElementById("lock" + n).innerHTML = "UNLOCKED";
                             }
                             else {
                                 elem.style.filter = "brightness(0%)";
+                                document.getElementById("lock" + n).innerHTML = "LOCKED";
                             }
-                        })
+                        }).then(function () {
+                            if(n===6) {
+                                if(list[5]) {
+                                    document.getElementById("secret_achievement").innerHTML = "Crea il tuo primo Universo";
+                                }
+                                else {
+                                    document.getElementById("secret_achievement").innerHTML = "Obiettivo segreto";
+                                }
+                            }
+                        });
                     }
                 });
         };

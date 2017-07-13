@@ -104,6 +104,29 @@ angular.module("myApp.Universi", ['ngRoute'])
     $scope.setta= function(a) {
         $rootScope.selezionabile=false;
         $rootScope.selezionato=a;
+    };
+
+    $scope.getLevel = function (user, universe) {
+        var tot = 0;
+        var stories = UniversesUserList.getStoriesOfUser(user, universe);
+        stories.$loaded().then(function () {
+            for(var i = 0; i<stories.length; i++) {
+                if(stories[i].voti!==undefined) {
+                    tot += stories[i].voti;
+                }
+            }
+            var elem = document.getElementById("level");
+            var width = 1;
+            var id = setInterval(frame, 10);
+            function frame() {
+                if (width >= tot*5) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                }
+            }
+        });
     }
 
 }]);

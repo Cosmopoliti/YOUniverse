@@ -13,7 +13,7 @@
                 <p name="espansioni" style="margin-right: 29%; margin-bottom: 0px; margin-top: 0px;">Espansioni: {{universes.espansioni}}</p>
                 <p name="livello" style="margin-top: 0px; margin-bottom: 0px;">Livello:</p>
                 <div class="progress-bar">
-                    <span></span>
+                    <span class="level" ng-init="getLevel(utenteFisso, universes.$id, dati.listUniverses.$indexFor(universes.$id))"></span>
                 </div>
             </div>
         </div>

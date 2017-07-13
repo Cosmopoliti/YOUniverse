@@ -6,14 +6,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#!/home" class="navbar-brand" ng-click="dropDownChangeView(1);">YOUniverse</a>
+            <a href="#!/ProfiloUtente" class="navbar-brand" ng-click="dropDownChangeView(1);">YOUniverse</a>
         </div>
         <ul class="nav navbar-nav">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Copertine<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="#!/home">Home</a></li>
                     <li><a href="#!/trend">Trend</a></li>
-                    <li><a href="#!/news">News</a></li>
+                    <li><a href="#">News</a></li>
                     <li><a href="#!/ListaUniversi">Universi</a></li>
                 </ul>
         </ul>
@@ -23,6 +23,7 @@
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
+
 
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
@@ -36,24 +37,20 @@
                     <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(5);">Storie</a></li>
                     <li><a href="#!/ProfiloUtente" on-click="event.preventDefault();" ng-click="dropDownChangeView(6);">Palmares</a></li>
                     <li class="divider"></li>
-                    <li><a ng-click="logout();">Log Out</a></li>
+                    <li><a href="#" ng-click="logout();">Log Out</a></li>
                 </ul>
         </ul>
     </div>
 </nav>
 
-<div class="alert alert-danger alert-dismissible" role="alert" ng-if="insert_error">{{insert_error}}</div>
-
-<body ng-app="myApp.Editor">
-
-  <div style="margin-top: 20px">
-      <label id="universeID2" style="background: white;border: darkgrey;height: 25px;padding-top: 3px;padding: 3px;">{{selezionato}}</label>
-      <select id="universeID" name="siti">
-          <option  ng-repeat="universes in listaUniversi">{{universes.$id}}</option>
-      </select>
-      <input id="storyID" type="text" placeholder="Title or Chapter">
-  </div>
-   <div class="container" style="padding:50px 0;">
-      <textarea id="txtedit"></textarea>
-   </div>
-</body>
+<form id="form_creazione" ng-submit="submitUniverse()" ng-controller="CUCtrl">
+    <div class="alert alert-danger alert-dismissible" role="alert" ng-if="insert_error">{{insert_error}}</div>
+    <input id="nome_universo" type="text" placeholder="Nome Universo" ng-model="name"><br>
+    <h1 class="titolo_creazione">Ambientazione</h1><br>
+    <textarea class="text_creazione" placeholder="" ng-model="setting"></textarea><br>
+    <h1 class="titolo_creazione">Personaggi</h1><br>
+    <textarea class="text_creazione" placeholder="" ng-model="characters"></textarea><br>
+    <h1 class="titolo_creazione">Regolamento</h1><br>
+    <textarea class="text_creazione" placeholder="" ng-model="rules"></textarea><br>
+    <input class="Bottone" type="submit" value="Submit">
+</form>

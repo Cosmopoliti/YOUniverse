@@ -93,6 +93,12 @@ angular.module('myApp.achievements.achievementsService', [])
                         });
                         break;
 
+                    case 6:
+                        userRef.update({
+                            prize6: true
+                        });
+                        break;
+
                     default:
                         console.log("Invalid prizeNumber");
                 }

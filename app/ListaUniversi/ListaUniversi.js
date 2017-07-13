@@ -46,5 +46,26 @@ angular.module("myApp.ListaUniversi", ['ngRoute'])
             });
         }
 
+        $scope.getLevel = function (user, universe, n) {
+            var tot = 0;
+            var stories = UniversesUserList.getStoriesOfUser(user, universe);
+            stories.$loaded().then(function () {
+                for(var i = 0; i<stories.length; i++) {
+                    tot =tot+stories[i].voti;
+                }
+                var elem = document.getElementsByClassName("level");
+                var width = 1;
+                var id = setInterval(frame, 10);
+                function frame() {
+                    if (width >= tot*5) {
+                        clearInterval(id);
+                    } else {
+                        width++;
+                        elem[n].style.width = width + '%';
+                    }
+                }
+            });
+        };
+
     }]);
 
