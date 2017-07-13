@@ -84,7 +84,6 @@ angular.module("myApp.Home", ['ngRoute'])
                     }
                     else {
                         $scope.storiaMostVotata = $rootScope.availableStories[i];
-
                     }
 
                 }
@@ -157,6 +156,7 @@ angular.module("myApp.Home", ['ngRoute'])
             }
         } else {
             mese = Today.getMonth()+1;
+            console.log(mese);
         }
         var ora = '00';
         var minuti = '00';
