@@ -347,7 +347,16 @@ angular.module("myApp.Profilo", ['ngRoute'])
                                 elem.style.filter = "brightness(0%)";
                                 document.getElementById("lock" + n).innerHTML = "LOCKED";
                             }
-                        })
+                        }).then(function () {
+                            if(n===6) {
+                                if(list[5]) {
+                                    document.getElementById("secret_achievement").innerHTML = "Crea il tuo primo Universo";
+                                }
+                                else {
+                                    document.getElementById("secret_achievement").innerHTML = "Obiettivo segreto";
+                                }
+                            }
+                        });
                     }
                 });
         };
