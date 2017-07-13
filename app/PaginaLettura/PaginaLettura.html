@@ -43,18 +43,19 @@
     </div>
 </nav>
 
-<div style="height: 600px;overflow-y: auto;margin-right: -32px;overflow-x: hidden;">
+<div style="height: 700px;overflow-y: auto;margin-right: -32px;overflow-x: hidden;">
 <div><center class="Testata" style="margin-top: 2%;margin-left: 36%;height: 42px;margin-right: 34%;background: whitesmoke;padding-top: 10px;"><p style="font-size: -webkit-xxx-large;">{{StoriaDaLeggere.title}}</p></center></div>
 
     <div class="lettura" style="font-size: x-large;padding-top: 38px;padding-left: 40px;padding-right: 40px;"><p style="width: 100%;line-height: 25px;;word-break: break-all;">{{StoriaDaLeggere.story}}</p></div>
 
     <div name="vota"  style="display: flex;margin-top: 2%;width: 100%;height: 43px;margin-left: 55%;">
-        <p style="margin-top: 10px;margin-left: 96px;width: 332px;">Clicca se la storia ti è piaciuta:</p>
+
+        <p style="margin-top: 10px;margin-left: 96px;width: 332px; color: cornsilk;">Clicca se la storia ti è piaciuta:</p>
         <button name="vota" class="Bottone" ng-if="!updateButton()" ng-click="Vota()">Vota</button>
         <button name="novota" class="Bottone" ng-if="updateButton()" ng-click="NoVota()">Togli Voto</button>
     </div>
 
-    <div name="commenta"><textarea id="commento" placeholder="Scrivi un commento" style="width: 60%;resize: vertical;" required></textarea></div>
+    <div name="commenta"><textarea id="commento" placeholder="Scrivi un commento" style="width: 60%;resize: vertical; margin-left: 300px; margin-top: 20px;" required></textarea></div>
 
     <div name="commenti" ng-repeat="commenti in listaCommenti| orderBy:'-data'">
         <p>{{commenti.scrittore}} ha commentato </p>
