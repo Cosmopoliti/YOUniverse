@@ -122,11 +122,11 @@
             <a href="" on-click="event.preventDefault();" ng-click="changeView(7);"><button class="edit" ng-if="IDcontrol()">Edit</button></a>
             <ul class="informazioni" style="margin-top: -8px; margin-bottom: 0px; ">
                 <li>Username: {{dati.user.name}}</li>
-                <li>Gender: {{dati.user.gender}}</li>
-                <li>Date of Birth: {{dati.user.date}}</li>
-                <li>City: {{dati.user.city}}</li>
+                <li>Sesso: {{dati.user.gender}}</li>
+                <li>Data di nascita: {{dati.user.date}}</li>
+                <li>Città: {{dati.user.city}}</li>
                 <li>E-Mail: {{dati.user.email}}</li>
-                <li>About Me: {{dati.user.about}}</li>
+                <li>Su di Me: {{dati.user.about}}</li>
             </ul>
         </div>
 
@@ -171,8 +171,7 @@
                             <p name="espansioni" style="margin-right: 29%; margin-bottom: 0px; margin-top: 0px;">Espansioni: {{universes.espansioni}}</p>
                             <p name="livello" style="margin-top: 0px; margin-bottom: 0px;">Livello: </p>
                             <div class="progress-bar">
-                               <!-- <span style="display: none">{{getLevel(dati.user.$id, universes.$id)}}</span>-->
-                                <span id="level"></span>
+                                <span class="level" ng-init="getLevel(dati.user.$id, universes.$id, ListUniversesOfUser.$indexFor(universes.$id))"></span>
                             </div>
                         </div>
                     </div>
@@ -269,11 +268,11 @@
             <a href="" on-click="event.preventDefault();" ng-click="changeView(1);"><button class="edit">Save</button></a>
             <ul class="informazioni" style="margin-top: -8px; margin-bottom: 0px; ">
                 <li>Username: <input type="text" class="form-control"  placeholder="Enter Username" name="name" ng-model="dati.user.name" ng-change="updateInfo('name', dati.user.name)"/> </li>
-                <li>Gender: <input type="radio" name="gender" value="male" ng-model="dati.user.gender" ng-change="updateInfo('gender', 'M')"/> Male <input type="radio" name="gender" value="female" ng-model="dati.user.gender" ng-change="updateInfo('gender', 'F')"/> Female </li>
-                <li>Date of Birth: <input type="date" ng-model="dati.user.date" ng-change="updateInfo('date', dati.user.date.toDateString())"></li>
-                <li>City: <input type="text" class="form-control"  placeholder="Enter City" name="city" ng-model="dati.user.city" ng-change="updateInfo('city', dati.user.city)"/> </li>
+                <li>Sesso: <input type="radio" name="gender" value="male" ng-model="dati.user.gender" ng-change="updateInfo('gender', 'M')"/> Male <input type="radio" name="gender" value="female" ng-model="dati.user.gender" ng-change="updateInfo('gender', 'F')"/> Female </li>
+                <li>Data di Nascita: <input type="date" ng-model="dati.user.date" ng-change="updateInfo('date', dati.user.date.toDateString())"></li>
+                <li>Città: <input type="text" class="form-control"  placeholder="Enter City" name="city" ng-model="dati.user.city" ng-change="updateInfo('city', dati.user.city)"/> </li>
                 <li>E-Mail: <input type="text" class="form-control" placeholder="Enter e-mail" name="name" ng-model="dati.user.email" ng-change="updateInfo('email', dati.user.email)"/></li>
-                <li>About Me:<input type="text" class="form-control"  placeholder="Write about yourself" name="about" ng-model="dati.user.about" ng-change="updateInfo('about', dati.user.about)"/></li>
+                <li>Su di me:<input type="text" class="form-control"  placeholder="Write about yourself" name="about" ng-model="dati.user.about" ng-change="updateInfo('about', dati.user.about)"/></li>
             </ul>
 
 
@@ -283,13 +282,13 @@
             <a href="" on-click="event.preventDefault();" ng-click="changeView(2);">
                 <button class="edit">Save</button></a>
             <ul class="interessi" style="margin-top: -8px; margin-bottom: 0px;">
-                <li><form ng-submit="listOf('film', dati.user.film)">FILM: <input type="text" class="form-control"  placeholder="Use , to separate movies" name="Film" ng-model="dati.user.film" />
+                <li><form ng-submit="listOf('film', dati.user.film)">FILM: <input type="text" class="form-control"  placeholder="Separa i Film con la virgola" name="Film" ng-model="dati.user.film" />
                     <button type="submit" class="invio">Submit</button></form> </li>
-                <li><form ng-submit="listOf('libri', dati.user.libri)">LIBRI:<input type="text" class="form-control"  placeholder="Use , to separate books" name="Libri" ng-model="dati.user.libri"/>
+                <li><form ng-submit="listOf('libri', dati.user.libri)">LIBRI:<input type="text" class="form-control"  placeholder="Separa i Libri con la virgola" name="Libri" ng-model="dati.user.libri"/>
                     <button type="submit" class="invio">Submit</button></form></li>
-                <li><form ng-submit="listOf('comic', dati.user.comic)">FUMETTI:<input type="text" class="form-control"  placeholder="Use , to separate comics" name="Fumetti" ng-model="dati.user.comic"/>
+                <li><form ng-submit="listOf('comic', dati.user.comic)">FUMETTI:<input type="text" class="form-control"  placeholder="Separa i Fumetti con la virgola" name="Fumetti" ng-model="dati.user.comic"/>
                     <button type="submit" class="invio">Submit</button></form></li>
-                <li><form ng-submit="listOf('videogame', dati.user.videogame)">VIDEOGIOCHI:<input type="text" class="form-control"  placeholder="Use , to separate videogames" name="Videogiochi" ng-model="dati.user.videogame"/>
+                <li><form ng-submit="listOf('videogame', dati.user.videogame)">VIDEOGIOCHI:<input type="text" class="form-control"  placeholder="Separa i Videogiochi con la virgola" name="Videogiochi" ng-model="dati.user.videogame"/>
                     <button type="submit" class="invio">Submit</button></form></li>
             </ul>
         </div>
