@@ -343,15 +343,11 @@ a
 }
 
 .lettura{
-    left: 0%;
-    margin-left: 3%;
-    right: 5%;
-    margin-right: -3%;
-    top: 150px;
-    position: fixed;
+    margin-right: 14px;
+    margin-top: 15px;
     background: #F4C430;
     height: 66%;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 .scorrimento{

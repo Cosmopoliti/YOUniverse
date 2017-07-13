@@ -72,13 +72,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
             });
         }*/
 
-          //funzione che passa il valore i ricerca
-        $rootScope.ricerca= function(value){
-            $rootScope.valoreRicerca=value;
 
-            location.href = '#!/risultati';
-
-        };
 
         $scope.sceltaUniverso= function(value){
             $rootScope.otherUniverse=value;

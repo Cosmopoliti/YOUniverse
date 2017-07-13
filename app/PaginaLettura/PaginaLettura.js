@@ -19,12 +19,13 @@ angular.module("myApp.Lettura", ['ngRoute'])
         })
 
     }])
-    .controller("LetturaCtrl", ['$scope', '$rootScope','Universes','$firebaseArray', 'currentAuth', function($scope, $rootScope,Universes, $firebaseArray, currentAuth) {
+    .controller("LetturaCtrl", ['$scope', '$rootScope','Universes','UniversesList','UsersChatService','$firebaseArray','$firebaseObject','$firebaseStorage', 'currentAuth', function($scope, $rootScope,Universes,UniversesList,UsersChatService, $firebaseArray,$firebaseObject,$firebaseStorage, currentAuth) {
 
      $scope.StoriaUtente=$rootScope.S;
      $scope.UniversoRef=$rootScope.T;
 
      $scope.StoriaDaLeggere=Universes.getStoriaOfUser($scope.UniversoRef,$scope.StoriaUtente);
+     $scope.listaCommenti=UniversesList.getCommenti($scope.UniversoRef,$scope.StoriaUtente);
 
      var votedRef = firebase.database().ref().child("users").child(currentAuth.uid).child("votedStories");
      var voteList = $firebaseArray(votedRef);
@@ -67,6 +68,23 @@ angular.module("myApp.Lettura", ['ngRoute'])
              }
          }
          return false;
-     }
+     };
+
+     //recupero utente che posta commento
+        $scope.utente=UsersChatService.getUserInfo($rootScope.utenteFisso);
+        $scope.utente.$loaded().then(function() {
+            $rootScope.scrittore = $scope.utente.name;
+            console.log($rootScope.scrittore);
+        });
+
+        //postaCommento
+        var testo=document.getElementById("commento");
+        testo.addEventListener("keydown",function (e) {
+            if (e.keyCode === 13) {
+
+                Universes.addComment($scope.UniversoRef,$scope.StoriaUtente,testo.value,$rootScope.scrittore);
+                testo.value="";
+            }
+        });
 
     }]);
