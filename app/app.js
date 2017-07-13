@@ -31,7 +31,8 @@ angular.module("myApp", [
     'myApp.post',
     'myApp.Trend',
     'myApp.News',
-    'myApp.achievements'
+    'myApp.achievements',
+    'myApp.CreaUniverso'
 ])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');

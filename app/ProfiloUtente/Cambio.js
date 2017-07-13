@@ -240,8 +240,29 @@ angular.module("myApp.Profilo", ['ngRoute'])
         };
 
         $scope.IDcontrol = function () {
+            console.log($scope.dati.user.$id === currentAuth.uid);
             return $scope.dati.user.$id === currentAuth.uid;
         };
+
+        $scope.PrizesControl = function () {
+            var ref = firebase.database().ref().child("users").child(currentAuth.uid).child("achievements");
+            ref.once('value')
+                .then(function(snapshot) {
+                    if (snapshot.exists()) {
+                        var list = $firebaseArray(ref);
+                        list.$loaded(function () {
+                            if (list[0].$value) {
+                                console.log(list[0].$value);
+                                return true;
+                            }
+                            else {
+                                console.log("false");
+                                return false;
+                            }
+                        });
+                    }
+                });
+        }
 
 
         //passa i dati sulla storia che si vuole leggere
@@ -276,7 +297,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
                 var width = 1;
                 var id = setInterval(frame, 10);
                 function frame() {
-                    if (width >= 100) {
+                    if (width >= tot*5) {
                         clearInterval(id);
                     } else {
                         width++;
@@ -325,9 +346,11 @@ angular.module("myApp.Profilo", ['ngRoute'])
                         list.$loaded(function () {
                             if(list[n-1].$value) {
                                 elem.style.filter = "brightness(100%)";
+                                document.getElementById("lock" + n).innerHTML = "UNLOCKED";
                             }
                             else {
                                 elem.style.filter = "brightness(0%)";
+                                document.getElementById("lock" + n).innerHTML = "LOCKED";
                             }
                         })
                     }
