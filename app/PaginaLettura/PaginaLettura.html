@@ -57,9 +57,15 @@
 
     <div name="commenta"><textarea id="commento" placeholder="Scrivi un commento" style="width: 60%;resize: vertical; margin-left: 300px; margin-top: 20px;" required></textarea></div>
 
-    <div name="commenti" ng-repeat="commenti in listaCommenti| orderBy:'-data'">
-        <p>{{commenti.scrittore}} ha commentato </p>
-        <p style="word-break: break-all;">{{commenti.testo}}</p>
+    <div name="commenti" ng-repeat="commenti in listaCommenti| orderBy:'-data'" style="background-color: #cccccc">
+        <div name="listacommenti" style="margin-right: -32px; overflow-x:hidden; overflow-y: auto; margin-left: 50px">
+        <div style="color:#000000; display:inline-block;">
+            <br>
+            <p style="color: rgb(151, 38, 200);">{{commenti.scrittore}}</p> </div>
+        <p style="word-break: break-all; color: #000000;">{{commenti.testo}}</p>
+            <br>
+
+        </div>
     </div>
 
     </div>
