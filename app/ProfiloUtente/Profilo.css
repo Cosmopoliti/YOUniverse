@@ -24,7 +24,7 @@ p{
 
 .Bottone{
     color: rgb(0, 0, 0);
-    height: 34px;
+    height: 55px;
     width: 96px;
     background-color: rgb(151, 38, 200);
     border-radius: 6px;
@@ -34,7 +34,6 @@ p{
     transition-duration: 0.4s;
     margin: 3%;
     margin-top: 3px;
-    float: right;
 }
 
  .Bottone:hover {

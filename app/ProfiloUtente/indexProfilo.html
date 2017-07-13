@@ -158,6 +158,7 @@
 
         </div>
         <div id="div4"ng-if="currentPosition==4">
+            <a href="#!/creazioneUniverso"><button class="Bottone" ng-if="IDcontrol() && PrizesControl()">Crea Universo</button></a>
             <div name="contenitore" style="width: 100%;" class="ng-scope">
                 <ul class="media-list">
                     <li class="media" ng-repeat="universes in ListUniversesOfUser" ng-init="passaUniverso(universes.$id)">
@@ -217,22 +218,22 @@
                         <td>
                             <div name="elemento" style="width: 30%;height: 30%;display: table-cell;">
                                 <center><img id="prize1" src="../premio.png" style="width: 80%;" ng-init="checkForPrize(dati.user.$id, 1)"></center>
-                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">obbiettivo per sbloccare</p></center>
-                                <center><h2>UNLOCKED</h2></center>
+                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">Vota 3 storie</p></center>
+                                <center><h2 id="lock1"></h2></center>
                             </div>
                         </td>
                         <td>
                             <div name="elemento" style="width: 30%;height: 30%;display: table-cell;">
                                 <center><img id="prize2" src="../premio.png" style="width: 80%;" ng-init="checkForPrize(dati.user.$id, 2)"></center>
-                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">obbiettivo per sbloccare</p></center>
-                                <center><h2>UNLOCKED</h2></center>
+                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">Scrivi la tua prima storia</p></center>
+                                <center><h2 id="lock2"></h2></center>
                             </div>
                         </td>
                         <td>
                             <div name="elemento" style="width: 30%;height: 30%;display: table-cell;">
                                 <center><img id="prize3" src="../premio.png" style="width: 80%;" ng-init="checkForPrize(dati.user.$id, 3)"></center>
-                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">obbiettivo per sbloccare</p></center>
-                                <center><h2>UNLOCKED</h2></center>
+                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">Ricevi 3 voti</p></center>
+                                <center><h2 id="lock3"></h2></center>
                             </div>
                         </td>
                     </tr>
@@ -240,22 +241,22 @@
                         <td>
                             <div name="elemento" style="width: 30%;height: 30%;display: table-cell;">
                                 <center><img id="prize4" src="../premio.png" style="width: 80%;" ng-init="checkForPrize(dati.user.$id, 4)"></center>
-                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">obbiettivo per sbloccare</p></center>
-                                <center><h2>UNLOCKED</h2></center>
+                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">Scrivi in 3 universi diversi</p></center>
+                                <center><h2 id="lock4"></h2></center>
                             </div>
                         </td>
                         <td>
                             <div name="elemento" style="width: 30%;height: 30%;display: table-cell;">
                                 <center><img id="prize5" src="../premio.png" style="width: 80%;" ng-init="checkForPrize(dati.user.$id, 5)"></center>
-                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">obbiettivo per sbloccare</p></center>
-                                <center><h2>UNLOCKED</h2></center>
+                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">Scrivi 3 storie in un universo</p></center>
+                                <center><h2 id="lock5"></h2></center>
                             </div>
                         </td>
                         <td>
                             <div name="elemento" style="width: 30%;height: 30%;display: table-cell;">
                                 <center><img id="prize6" src="../premio.png" style="width: 80%;" ng-init="checkForPrize(dati.user.$id, 6)"></center>
-                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">obbiettivo per sbloccare</p></center>
-                                <center><h2>UNLOCKED</h2></center>
+                                <center><p style="margin-top: 7px;margin-bottom: -17px;font-size: large;">Obiettivo da sbloccare</p></center>
+                                <center><h2 id="lock6"></h2></center>
                             </div>
                         </td>
                     </tr>
