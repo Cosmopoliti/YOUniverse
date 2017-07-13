@@ -47,6 +47,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.changeView = function (id)
         {
             $rootScope.currentPosition = id;
+
         };
 
 
@@ -227,7 +228,6 @@ angular.module("myApp.Profilo", ['ngRoute'])
 
                     for (var i = 0; i < res.length; i++) {
 
-                        console.log(res[i]);
                         Users.updatelistOf(currentAuth.uid, infoName, i, res[i]);
 
                 }
@@ -278,16 +278,14 @@ angular.module("myApp.Profilo", ['ngRoute'])
         $scope.listaPost=PostList.getPosts();
         $scope.orderProp = 'momento';
 
-        $scope.getLevel = function (user, universe) {
+        $scope.getLevel = function (user, universe, n) {
             var tot = 0;
             var stories = UniversesUserList.getStoriesOfUser(user, universe);
             stories.$loaded().then(function () {
                 for(var i = 0; i<stories.length; i++) {
-                    if(stories[i].voti!==undefined) {
-                        tot += stories[i].voti;
-                    }
+                        tot =tot+stories[i].voti;
                 }
-                var elem = document.getElementById("level");
+                var elem = document.getElementsByClassName("level");
                 var width = 1;
                 var id = setInterval(frame, 10);
                 function frame() {
@@ -295,7 +293,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
                         clearInterval(id);
                     } else {
                         width++;
-                        elem.style.width = width + '%';
+                        elem[n].style.width = width + '%';
                     }
                 }
             });
