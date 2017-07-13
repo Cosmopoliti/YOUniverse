@@ -246,7 +246,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
                     if (snapshot.exists()) {
                         var list = $firebaseArray(ref);
                         list.$loaded(function () {
-                            if (list[0].$value && list[1].$value && list[2].$value && !list[3].$value && list[4].$value) {
+                            if (list[0].$value && list[1].$value && list[2].$value && list[3].$value && list[4].$value) {
                                 $scope.prizesControl = true;
                             }
                             else {

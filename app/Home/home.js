@@ -28,6 +28,8 @@ angular.module("myApp.Home", ['ngRoute'])
         $scope.tuttiIpost=PostList.getPosts();
         aCaso($scope.tuttiIpost);
 
+        $scope.UserFollowings = UserList.getFollowings($rootScope.utenteFisso);
+        $scope.isFollowing = false;
 
         function aCaso(array) {
                 array.$loaded().then(function(){
@@ -75,7 +77,6 @@ angular.module("myApp.Home", ['ngRoute'])
             }).then(function(){
                 //$scope.storiaMostVotata.voti=0;
                 for(var i=1; i<$rootScope.availableStories.length; i++) {
-
                     if (i > 1) {
                         if ($rootScope.availableStories[i].voti > $scope.storiaMostVotata.voti) {
                             $scope.storiaMostVotata = $rootScope.availableStories[i];
@@ -122,6 +123,18 @@ angular.module("myApp.Home", ['ngRoute'])
         $scope.storiaDaLeggere = function(c,b) {
             $rootScope.S=b;
             $rootScope.T=c;
+        };
+
+        $scope.matchUser = function (user) {
+            $scope.isFollowing = false;
+            var list = $scope.UserFollowings;
+            list.$loaded(function () {
+                for(var i=0; i<list.length; i++) {
+                    if(user === list[i].$id) {
+                        $scope.isFollowing = true;
+                    }
+                }
+            });
         };
 
         var Today = new Date();
