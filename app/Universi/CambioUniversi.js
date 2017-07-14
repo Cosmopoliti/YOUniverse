@@ -30,6 +30,7 @@ angular.module("myApp.Universi", ['ngRoute'])
 
 
     $rootScope.dati.universe=Universes.getUniverseInfo($rootScope.otherUniverse);
+    console.log($rootScope.dati.universe.$id);
 
     //lista delle storie degli utenti
     $rootScope.listaStorieUtente=UniversesUserList.getStoriesOfUser($rootScope.utenteFisso,$rootScope.otherUniverse);
@@ -56,9 +57,17 @@ angular.module("myApp.Universi", ['ngRoute'])
             }
         });
 
+    }
+
+
+    $scope.nascondi=function (value) {
+        if(value==='OSI'){
+            return true;
+        }
+        else{
+            return false;
+        }
     };
-
-
 
 
     //Funzione log out
