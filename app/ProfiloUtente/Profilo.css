@@ -368,8 +368,9 @@ a
 .quadrato{
     background: #F4C430;
     width: 175px;
-    height: 230px;
-    margin-top: 58px;
+    margin-top: 60px;
+    padding-bottom: 1px;
+    border-style: double;
 }
 
 
