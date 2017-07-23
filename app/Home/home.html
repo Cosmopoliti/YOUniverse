@@ -47,9 +47,9 @@
           <center> <h2 style="margin-top: 5px;">TREND</h2></center>
       <a href="#!/trend">
       <div name="mostTrend" style="background: white;border: black;border-radius: 20px;margin: 6px;margin-top: -6px;padding-top: 5px;padding-bottom: 2px;">
-          <center><p>{{storiaMostVotata.title}}</p></center>
+          <center><p style="font-family: monospace; color: rgb(139,0,0);">{{storiaMostVotata.title}}</p></center>
           <hr style="margin-bottom: 0px;margin-top: 10px;border-color: #f4c430;border-width: 1px;">
-          <center><p style="line-height: 26px;margin: 10px;word-wrap: break-word;">{{storiaMostVotata.story.substr(0,53)}}</p></center>
+          <center><p style="line-height: 26px;margin: 10px;word-wrap: break-word; font-family: cursive;">{{storiaMostVotata.story.substr(0,53)}}</p></center>
       </div>
       </a>
   </div>
@@ -58,14 +58,16 @@
          <center> <h2 style="margin-top: 5px;">NEWS</h2></center>
       <a href="#!/news">
       <div name="mostTrend" style="background: white;border: black;border-radius: 20px;margin: 6px;margin-top: -6px;padding-top: 5px;padding-bottom: 2px;">
-          <center><p>{{storiaMostNuova.title}}</p></center>
+          <center><p style="font-family: monospace; color: rgb(139,0,0);">{{storiaMostNuova.title}}</p></center>
           <hr style="margin-bottom: 0px;margin-top: 10px;border-color: #f4c430;border-width: 1px;">
-          <center><p style="line-height: 26px;margin: 10px;word-wrap: break-word;">{{storiaMostNuova.storia.substr(0,53)}}</p></center>
+          <center><p style="line-height: 26px;margin: 10px;word-wrap: break-word; font-family: cursive;">{{storiaMostNuova.storia.substr(0,53)}}</p></center>
       </div>
       </a>
   </div>
    <div class="scorrimento">
-       <div ng-repeat="post in tuttiIpost|orderBy:['-giorno','rank']" ng-if="post.momento>inizioSettimana" name="contenitore" class="con" style="width: 93%;background: white;display: inline-block;margin: 30px;">
+       <div class="fotosfondo"></div>
+       <div ng-repeat="
+       tuttiIpost|orderBy:['-giorno','rank']" ng-if="post.momento>inizioSettimana" name="contenitore" class="con" style="width: 93%;background: white;display: inline-block;margin: 30px;">
 
            <div ng-if="post.user===utenteFisso">
                <div name="contenuti" style="border-style: solid;border-color: darkgoldenrod;border-width: 2px;">
@@ -100,5 +102,4 @@
            </div>
        </div>
    </div>
-
 </div>
