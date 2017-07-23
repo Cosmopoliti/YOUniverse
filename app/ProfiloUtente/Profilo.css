@@ -107,7 +107,8 @@ p{
 }
 
 .contenitoreUniversi{
-    background: White;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.5);
     width: 100%;
     display: inline-grid;
     height: 610px;
@@ -179,6 +180,7 @@ p{
 
 
 .wrapper{
+    border-radius: 4px;
     left: 10%;
     margin-left: 6%;
     right: 5%;
@@ -327,6 +329,7 @@ a
 }
 
 .edit{
+    border-radius: 4px;
     float: right;
     margin-top: -40px;
     background: rgb(52, 162, 246);
@@ -336,6 +339,7 @@ a
     color: black;
 }
 .invio{
+    border-radius: 4px;
     margin-top: -40px;
     background: rgba(6, 6, 6, 0);
     border-color: rgb(52, 162, 246);
@@ -348,6 +352,7 @@ a
 }
 
 .lettura{
+    border-radius: 4px;
     margin-right: 14px;
     margin-top: 15px;
     background: #F4C430;
@@ -356,8 +361,9 @@ a
 }
 
 .scorrimento{
+    border-radius: 4px;
     left: 15%;
-    right: 15%;
+    right: 3%;
     top: 90px;
     position: fixed;
     background: #F4C430;
@@ -366,6 +372,7 @@ a
 }
 
 .quadrato{
+    border-radius: 4px;
     background: #F4C430;
     width: 175px;
     margin-top: 60px;

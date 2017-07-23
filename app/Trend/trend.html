@@ -66,14 +66,14 @@
     </div>
 
     <div class="scorrimento">
-        <div ng-repeat="post in tuttiIpost|orderBy:'-voto'"   ng-if="post.momento>inizioSettimana"  name="contenitore" class="con" style="width: 93%;background: white;display: inline-block;margin: 30px;">
+        <div ng-repeat="post in tuttiIpost|orderBy:'-voto'"   ng-if="post.momento>inizioSettimana"  name="contenitore" class="con" style="width: 93%;background: white;display: inline-block;margin: 30px; border-radius: 4px">
 
             <div ng-if="post.user===utenteFisso">
-                <div name="contenuti" style="border-style: solid;border-color: darkgoldenrod;border-width: 2px;">
+                <div name="contenuti" style="border-style: solid;border-color: darkgoldenrod;border-width: 2px; border-radius: 4px">
                     <div name="header" style="width: 100%;display: inline-flex;">
-                        <a href="#!/ProfiloUtente" ng-click="altri(post.user)" style="border-style: solid;border-width: 1px;border-color: black;border-top-style: hidden;border-left-style: hidden;">
+                        <a href="#!/ProfiloUtente" ng-click="altri(post.user)" style="border-style: solid;border-width: 4px;border-color: #f4c430; border-top-style: hidden; border-left-style: hidden; border-radius: 60px">
                             <img ng-init="getUser(post.user,post.$id)" ng-src="{{post.image}}"></a>
-                        <p style="margin-top: 3%;padding-left: 2%;font-size: large;height: 43px;width: 100%;border-bottom-color: black;border-bottom-width: 1px;border-bottom-style: solid;">Hai pubblicato un elemento in data {{post.momento}}</p>
+                        <p style="margin-top: 3%;padding-left: 2%;font-size: large;height: 43px;width: 100%;border-bottom-color: #f4c430;border-bottom-width: 2px;border-bottom-style: solid;">Hai pubblicato un elemento in data {{post.momento}}</p>
                     </div>
                     <a href="#!/lettura" ng-click="storiaDaLeggere(post.universe,post.StoryId)">
                         <div name="body" style="height: 50%;margin-left: 40px;margin-top: -44px;">
@@ -85,11 +85,11 @@
             </div>
 
             <div ng-if="post.user!==utenteFisso">
-                <div name="contenuti" style="border-style: solid;border-color: darkgoldenrod;border-width: 2px;">
+                <div name="contenuti" style="border-style: solid;border-color: darkgoldenrod;border-width: 2px; border-radius: 4px">
                     <div name="header" style="width: 100%;display: inline-flex;">
-                        <a href="#!/ProfiloUtente" ng-click="altri(post.user)" style="border-style: solid;border-width: 1px;border-color: black;border-top-style: hidden;border-left-style: hidden;">
+                        <a href="#!/ProfiloUtente" ng-click="altri(post.user)" style="border-style: solid;border-width: 4px;border-color: #f4c430;border-top-style: hidden;border-left-style: hidden; border-radius: 60px">
                             <img ng-init="getUser(post.user,post.$id)" ng-src="{{post.image}}"></a>
-                        <p style="margin-top: 3%;padding-left: 2%;font-size: large;height: 43px;width: 100%;border-bottom-color: black;border-bottom-width: 1px;border-bottom-style: solid;">Ha pubblicato un elemento in data {{post.momento}}</p>
+                        <p style="margin-top: 3%;padding-left: 2%;font-size: large;height: 43px;width: 100%;border-bottom-color: #f4c430;border-bottom-width: 2px;border-bottom-style: solid;">Ha pubblicato un elemento in data {{post.momento}}</p>
                     </div>
                     <a href="#!/lettura" ng-click="storiaDaLeggere(post.universe,post.StoryId)">
                         <div name="body" style="height: 50%;margin-left: 40px;margin-top: -44px;">

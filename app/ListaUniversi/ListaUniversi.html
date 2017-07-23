@@ -51,10 +51,10 @@
             <div class="universo"></div>
         </div>
         <div name="info" style="margin-top: 1.5%;width: 100%;">
-            <h1 style=" margin-bottom: 0px; margin-top: 0px; margin-left: 30%;">{{universes.$id}}</h1>
+            <h1 style="margin-bottom: 0px; margin-top: 0px; margin-left: 16%; color: #f4c430; background: linear-gradient(to left, rgba(255,0,0,0), #337ab7); padding-left: 5px; border-radius: 14px;">{{universes.$id}}</h1>
             <div name="subInfo&quot;" style="display: inline-flex; width: 80%; margin-left: 17%; margin-top: 2%;">
-                <p name="espansioni" style="margin-right: 29%; margin-bottom: 0px; margin-top: 0px;">Espansioni: {{universes.espansioni}}</p>
-                <p name="livello" style="margin-top: 0px; margin-bottom: 0px;">Livello:</p>
+                <p name="espansioni" style="margin-right: 29%; margin-bottom: 0px; margin-top: 0px; color: #662827;">Espansioni: {{universes.espansioni}}</p>
+                <p name="livello" style="margin-top: 0px; margin-bottom: 0px;color: #662827;">Livello:</p>
                 <div class="progress-bar">
                     <span class="level" ng-init="getLevel(utenteFisso, universes.$id, dati.listUniverses.$indexFor(universes.$id))"></span>
                 </div>

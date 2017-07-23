@@ -141,7 +141,7 @@
         </div>
         <div id="div3" ng-if="currentPosition==3">
 
-            <div ng-repeat="post in listaPost  | orderBy:orderProp:true" ng-if="post.user===dati.user.$id" name="contenitore" class="con" style="width: 100%;background: white; display: inline-block;margin-bottom: 4px;">
+            <div ng-repeat="post in listaPost  | orderBy:orderProp:true" ng-if="post.user===dati.user.$id" name="contenitore" class="con" style="border-radius: 4px; width: 100%;background: white; display: inline-block;margin-bottom: 4px;">
                 <div name="contenuti" style="border-style: solid;border-color: darkgoldenrod;border-width: 2px;">
                     <div name="header" style="width: 100%;display: inline-flex;">
                         <div style="border-style: solid;border-width: 1px;border-color: black;border-top-style: hidden;border-left-style: hidden;">
@@ -159,7 +159,7 @@
         </div>
         <div id="div4"ng-if="currentPosition==4">
             <a href="#!/creazioneUniverso"><button class="Bottone" ng-init="PrizesControl()" ng-if="IDcontrol() && getPrizesControl()">Crea Universo</button></a>
-            <div name="contenitore" style="width: 100%;" class="ng-scope">
+            <div name="contenitore" style="border-radius: 4px; width: 100%;" class="ng-scope">
                 <ul class="media-list">
                     <li class="media" ng-repeat="universes in ListUniversesOfUser" ng-init="passaUniverso(universes.$id)">
                 <a href="#!/universi" ng-click="sceltaUniverso(universes.$id)"> <div name="contenuti" style=" width: 100%; display: inline-flex;">
@@ -185,7 +185,7 @@
         <div id="div5"ng-if="currentPosition==5">
             <a href="#!/Editor"><button class="Bottone" ng-click="setta()" ng-if="IDcontrol()">Crea</button></a>
 
-            <div name="contenitore" class="con ng-scope" style="display: inline-grid;width: 100%;background: white;">
+            <div name="contenitore" class="con ng-scope" style="border-radius: 4px; display: inline-grid;width: 100%;background: white;">
                 <ul class="media-list" style="width: 100%">
                     <li class="media" style="width: 100%" ng-repeat="universes in ListUniversesOfUser">
                         <center style="width: 100%;"><p style="margin-bottom: 9px;margin-top: 10px;width: 100%;">{{universes.$id}}</p></center>
