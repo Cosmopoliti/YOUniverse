@@ -47,9 +47,9 @@
         <center> <h2 style="margin-top: 5px;">HOME</h2></center>
         <a href="#!/home">
             <div name="returnHome" style="background: white;border: black;border-radius: 20px;margin: 6px;margin-top: -6px;padding-top: 5px;padding-bottom: 2px;">
-                <center><p>{{storiaMostVotataTua.title}}</p></center>
+                <center><p style="font-family: monospace; color: rgb(139,0,0);">{{storiaMostVotataTua.title}}</p></center>
                 <hr style="margin-bottom: 0px;margin-top: 10px;border-color: #f4c430;border-width: 1px;">
-                <center><p style="line-height: 26px;margin: 10px;word-wrap: break-word;">{{storiaMostVotataTua.story.substr(0,53)}}</p></center>
+                <center><p style="line-height: 26px;margin: 10px;word-wrap: break-word; font-family: cursive;">{{storiaMostVotataTua.story.substr(0,53)}}</p></center>
             </div>
         </a>
     </div>
@@ -58,14 +58,15 @@
         <center> <h2 style="margin-top: 5px;">NEWS</h2></center>
         <a href="#!/news">
             <div name="mostTrend" style="background: white;border: black;border-radius: 20px;margin: 6px;margin-top: -6px;padding-top: 5px;padding-bottom: 2px;">
-                <center><p>{{storiaMostNuova.title}}</p></center>
+                <center><p style="font-family: monospace; color: rgb(139,0,0);">{{storiaMostNuova.title}}</p></center>
                 <hr style="margin-bottom: 0px;margin-top: 10px;border-color: #f4c430;border-width: 1px;">
-                <center><p style="line-height: 26px;margin: 10px;word-wrap: break-word;">{{storiaMostNuova.storia.substr(0,53)}}</p></center>
+                <center><p style="line-height: 26px;margin: 10px;word-wrap: break-word; font-family: cursive;">{{storiaMostNuova.storia.substr(0,53)}}</p></center>
             </div>
         </a>
     </div>
 
     <div class="scorrimento">
+        <div class="fotosfondo"></div>
         <div ng-repeat="post in tuttiIpost|orderBy:'-voto'"   ng-if="post.momento>inizioSettimana"  name="contenitore" class="con" style="width: 93%;background: white;display: inline-block;margin: 30px; border-radius: 4px">
 
             <div ng-if="post.user===utenteFisso">
