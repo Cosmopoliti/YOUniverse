@@ -349,7 +349,7 @@ angular.module("myApp.Profilo", ['ngRoute'])
                             }
                         }).then(function () {
                             if(n===6) {
-                                if(list[5]) {
+                                if(list[5].$value) {
                                     document.getElementById("secret_achievement").innerHTML = "Crea il tuo primo Universo";
                                 }
                                 else {
