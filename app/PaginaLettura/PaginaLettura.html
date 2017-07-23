@@ -44,20 +44,20 @@
 </nav>
 
 <div style="height: 587px;overflow-y: auto;margin-right: -32px;overflow-x: hidden;">
-<div><center class="Testata" style="margin-top: 2%;margin-left: 36%;height: 42px;margin-right: 34%;background: whitesmoke;padding-top: 10px;"><p style="font-size: -webkit-xxx-large;">{{StoriaDaLeggere.title}}</p></center></div>
+<div><center class="Testata" ><p style="background: white;padding-bottom: 5px;padding-top: 4px;font-size: 45px;margin-top: 1%;margin-left: 36%;margin-right: 34%;margin-bottom: 9px;border-style: ridge;line-height: 35px;">{{StoriaDaLeggere.title}}</p></center></div>
 
     <div class="lettura" style="font-size: x-large;padding-top: 38px;padding-left: 40px;padding-right: 40px;"><p style="width: 100%;line-height: 25px;;word-break: break-all;">{{StoriaDaLeggere.story}}</p></div>
 
     <div name="vota"  style="display: flex;margin-top: 1%;width: 100%;height: 43px;margin-left: 55%;">
 
-        <p style="margin-top: 10px;margin-left: 96px;width: 332px; color: cornsilk;">Clicca se la storia ti è piaciuta:</p>
+        <p style="margin-top: 18px;margin-left: 96px;width: 332px; color: cornsilk;">Clicca se la storia ti è piaciuta:</p>
         <button name="vota" class="Bottone" ng-if="!updateButton()" ng-click="Vota()">Vota</button>
         <button name="novota" class="Bottone" ng-if="updateButton()" ng-click="NoVota()">Togli Voto</button>
     </div>
 
     <div name="commenta"><textarea id="commento" placeholder="Scrivi un commento" style="width: 60%;resize: vertical; margin-left: 300px; margin-top: 20px;" required></textarea></div>
 
-    <div name="commenti" ng-repeat="commenti in listaCommenti| orderBy:'-data'" style="background-color: #cccccc">
+    <div name="commenti" ng-repeat="commenti in listaCommenti| orderBy:'-data'" style="width: 99%;background-color: #cccccc;">
         <div name="listacommenti" style="margin-right: -32px; overflow-x:hidden; overflow-y: auto; margin-left: 50px">
         <div style="color:#000000; display:inline-block;">
             <br>

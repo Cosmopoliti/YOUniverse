@@ -82,19 +82,89 @@
             </div>
             <div id="divInfoUni"ng-if="currentPosition==10">
                 <ul class="info" style="margin-top: -8px; margin-bottom: 0px; ">
-                <div name="contenitore"  style="width: 90%;margin-left: 4%;argin-top: -3%;">
+                <div name="contenitore"  style="width: 100%;margin-left: -2%;margin-top: -3%;">
 
                     <h2>Ambientazione</h2>
-                    <p>{{dati.universe.info.Ambientazione}}</p>
+                    <p ng-hide="nascondi(dati.universe.$id)">{{dati.universe.info.Ambientazione}}</p>
+                    <p ng-show="nascondi(dati.universe.$id)" style="line-height: 26px">Anno 2640, a seguito dell’inquinamento terreste la vita sulla terra per gli umani diventa insostenibile. Negli ultimi secoli gli scienziati di tutto il mondo si sono concentrati sul progetto “New World”, questo si basa sulla ricerca di nuovi pianeti che potessero ospitare l’organismo terreste e il loro raggiungimento. Nonostante tutti gli sforzi però sembra impossibile poter raggiungere un nuovo pianeta e la razza umana è destinata all’estinzione.
+                        Fu all’inizio del XXIX secolo che le cose cambiarono.</br>
+                        Una schiera di giovani scienziati avevano trovato il modo per trasferire la mente umana all’interno della rete internet. Tuttavia questo sistema intimoriva le persone in quanto neanche gli scienziati sapevano cosa avrebbero trovato dall’altra parte.</br>
+                        I primi a sperimentare la vita furono gli scienziati che idearono il progetto e qualche volontario.</br>
+                        5 anni dopo un messaggio dalla rete mise fine al martirio umano, non solo i primi abitanti del mondo digitale erano sopravvissuti ma avevano passato gli ultimi anni a creare un mondo nel quale gli esseri umani avrebbero potuto vivere in una società ben strutturata. Inizio così la migrazione del genere umano all’interno della rete internet.
+                        Arrivati nel nuovo mondo ogni umano risiedeva in un avatar che corrispondeva perfettamente alle proprie caratteristiche fisiche. Ogni umano lì poteva mangiare, bere e riprodursi come se niente fosse cambiato.</br>
+                        La popolazione fu distribuita su 4 grandi zone di reti separate dal mare di dati ed ognuna identificata da un indirizzo IP di rete, a cui sono assegnati dei colori identificativi. Ogni zona possiede una serie di arcipelaghi dette LAN identificate da una sottorete dell’indirizzo IP, ogni arcipelago a sua volta possiede una serie di isole più o meno grandi (di cui una è la capitale) che sono identificate da altri sotto indirizzi ed in ogni isola ci sono diverse casa, dette Host, in base alla dimensione dell’isola, anche queste identificate da un numero preciso.
+                        Ognuna delle quattro zone principali possiede una torre di controllo detta Router, ve ne è uno più piccola nella capitale di ogni arcipelago, ogni isola possiede una zona di smistamento chiamata Switch.</br>
+                        Le quattro zone sono così suddivise:</br>
+                        La zona Nera (Colore associato al suo indirizzo IP): Possiede 6 arcipelaghi le cui capitali sono: “LAMARINA”, “OSSIDIO”, “BRITTANIA”, “SCIUMA”, “PARCU” e “GOLO”.</br>
+                        La zona Bianca (Colore associato al suo indirizzo IP): Possiede 5 arcipelaghi le cui capitali sono: “BELUT”, “SARIT”, “UBOL”, “USA” e “ARGE”.</br>
+                        La zona Rossa (Colore associato al suo indirizzo IP): Possiede 4 arcipelaghi le cui capitali sono: “NIPPO”, “POLI”, “WALT” e “TREVEST”.</br>
+                        La zona Blu (Colore associato al suo indirizzo IP): Possiede 4 arcipelaghi le cui capitali sono: “LUMANIGA”, “LEPRESST”, “BOBILIA” e “CAPOSTUR”.</br>
+                        Ogni arcipelago può possedere fino a 256 isole identificate da un numero che va da 0 a 253 (Le isole possono essere aggiunte dinamicamente in base all’aumento della popolazione), le capitali sono identificate dal numero 0 mentre la numero 254 e 255 identificano due isole che sono le porte di ingresso e uscita per gli arcipelaghi. Le case per ogni isola sono invece indentificate da un numero univoco.</br>
+                        Es.  L’indirizzo dell’arcipelago di LAMARINA sarà “NERA.LAMARINA” mentre se si vuole raggiungere un determinato Host sarà “NERA.LAMARINA.128.68” in cui il primo numero identifica la 128esima isola di LAMARINA e il secondo la casa di quell’isola.</br>
+                        Per muoversi tra le isole bisogna attraversare il mare di dati. Entrando in contatto con il mare però i dati dell’essere umano si disperdono facendolo morire. Per attraversare il mare sono state create delle navi speciali capaci di galleggiare sui dati, queste navi sono chiamate TRAME.
+                        Per poter navigare sulle TRAME bisogna possedere un brevetto speciale, ottenibile superando un esame. Chi supera questo esame ottiene il titolo di “DATAGRAM”.</br>
+                        I DATAGRAM sono visti come eroi dalla popolazione poiché rischiano la loro vita nei mari dei dati per consegnare i prodotti di sostentamento e i messaggi destinati ad amici e familiari.</br>
+                        Esistono due tipi di DATAGRAM: Ufficiali e Mercenari.</br>
+                        I primi lavorano per ditte specializzate, sono dipendenti e si occupano di trasportare principalmente viveri e prodotti industriali e precise quantità di messaggi in base alle aziende che hanno commissionato il trasporto.</br>
+                        I mercenari sono DATAGRAM liberi che agiscono secondo loro regole e sanciscono i prezzi in base alle persone che hanno davanti. Accettano solo lavori che trovano interessanti senza fare distinzioni tra ricchi e poveri. I mercenari sono particolarmente richiesti soprattutto se famosi poiché sono gli unici a compiere anche le consegne più pericolose.</br>
+                        A gestire l’instradamento delle TRAME tra le isole vi sono gli agenti del Protocollo TCP, creato dai primi scienziati entrati nel mondo digitale. Il Protocollo TCP è un ente di sicurezza, si occupa di controllare se ci sia un sovraccaricamento all’interno della rete, che le regole siano rispettate e combattere chi naviga senza patente da DATAGRAM. Lavorano principalmente nei Router, negli Switch e nelle isole 255/256, qui controllano gli indirizzi di destinazione cercando di mandare le TRAME per le vie più corte e sicure, senza il permesso del Protocollo TCP i DATAGRAM non possono salpare.</br>
+                        I grandi capi del protocollo TCP si occupano anche della giustizia, in base al crimine alle persone può essere impedito di navigare per un determinato periodo, possono essere rinchiuse o nel peggiore dei casi vi è l’eliminazione dei dati.</br>
+                        Oltre ai Datagram anche i comuni abitanti possono spostarsi per isola ed isola, per fare ciò si affidano a compagnie di viaggio marittima (i membri dell’equipaggio sono DATAGRAM specializzati), più è lontana l’isola che si vuole raggiungere più costa il prezzo.</br>
+                        Gli abitanti che navigano senza patente DATAGRAM e non rispettando le regole sono detti Pirati Informatici. Questi navigano alla ricerca di isole disabitate o quelle abitate solo da criminali. In queste isole gli Switch tendono a mandare i naviganti in direzioni sbagliate e spesso li fanno girare in tondo formando dei veri e propri triangoli delle Bermuda in cui le navi spariscono.</br>
+                        Tutte le cose che viaggiano all’interno delle navi vengono raggruppate sotto il nome di dati (informazioni, oggetti, viveri)</br>
+                        I viaggiatori si fermano a dormire in degli hotel in cui vengono salvati i dati che trasportano, questi Hotel speciali vengono chiamati Cache e si occupano di tenere memorizzati i dati per breve periodo in modo da facilitare l’instradamento delle TRAME.</br>
+                    </p>
 
 
                     <h2>Personaggi Chiave</h2>
-                    <p>{{dati.universe.info.Personaggi}}</p>
-
+                    <p ng-hide="nascondi(dati.universe.$id)">{{dati.universe.info.Personaggi}}</p>
+                    <p ng-show="nascondi(dati.universe.$id)" style="line-height: 26px">
+                        <b>DATAGRAM</b></br>
+                        Sono gli eroi principali dell’universo. Si può provare l’esame per diventare Datagram superati i 16 anni. Essere un Datagram permette di viaggiare in continuazione per il mondo e ottenere permessi speciali per determinate zone. Esistono diversi ruoli all’interno di un equipaggio Datagram</br></br>
+                        Capitano: Il capitano della nave, spesso il più esperto e forte membro della nave. Si occupa di tenere al sicuro la nave e assicurarsi che il viaggio continui senza intoppi.</br>
+                        Due dei Capitani più famosi sono :</br>
+                        Leon Beckland ormai in pensione ma ancora rispettato e venerato da suoi colleghi più giovani che sognano di ripetere le sue gesta. Vive nella zona Blu.</br>
+                        Lucien Lookflowers, giovane capitano caparbio e senza paura. Molto forte in combattimento è attualmente il capitano più temuto e rispettato, pochi pirati lo sfidano e il salario per le sue imprese e molto alto. Vive nella zona Nera.</br>
+                        Navigatore: Esperti di Indirizzi IP e conoscitori del Protocollo TCP, si occupano di tenere la TRAMA sulla giusta rotta e sono quelli che interagiscono con gli agenti TCP.</br>
+                        Cuoco: Classico cuoco delle navi, si occupa di sfamare l’equipaggio. Spesso sono molto amici dei capitani e sono considerati loro pari.</br>
+                        Manipolatori: Esperti nel manipolare i dati con i quali creano armi da combattimento. In caso di pericolo sono sempre in prima linea nel combattere</br>
+                        Difensori: Meno abili nel manipolare dati, sono esperti nel recupero dei dati in caso di furto. I più bravi possono impedire il furto di dati.</br>
+                        Mozzo: DATAGRAM alle prime armi.</br></br>
+                        <b>PROTOCOLLO TCP</b></br>
+                        Ente che si occupa della sicurezza all’interno del mondo. Gestiscono anche la navigazioni delle TRAME tra le varie isole. Ci sono vari gradi e ruoli.</br></br>
+                        Alti Controllori: Vint Cerf e Bob Kahn sono i grandi capi che gestiscono tutta l’agenzia, sono due degli scienziati originali che entrarono nel mondo virtuale per la prima volta. Hanno accesso alle informazioni e i dati di tutte le isole sotto la giurisdizione TCP, sanciscono anche le regole del mondo e sono giudici massimi di tutte le scelte. Sono i padroni principali del mondo. Vivono nella zona Nera</br>
+                        Orientatori: Sono degli agenti TCP specializzati nei viaggi, girano per il mondo cercando di stabilire rotte sicure e brevi. Quando c’è il malfunzionamento di uno Switch sono mandati a cercare e risolvere il problema.</br>
+                        Trasmettitori: Sono agenti presenti in ogni Router e Switch, inseriscono nelle TRAMA che passano da loro dei dati con la richiesta di ritrasmissione, arrivati nello Switch successivo i Trasmettitori ricevono quei dati, memorizzano una nuova ritrasmissione per la prossima isola e quando ricevono una TRAMA diretta nella direzione da cui e venuta la prima assegnano dei dati che confermano la ricezione.</br>
+                        Controllori: Si occupano di controllare se i dati all’interno di una TRAMA non siano danneggiati, in quel caso la eliminano e informano i Trasmettitori di inviare un messaggio che avverta della perdita.</br>
+                        Flows: I Flows si occupano di controllare se nella direzione in cui devono andare le TRAME non vi sia un sovraccarico di TRAME, se ritengono che in quella rotta non si possa navigare bloccano il passaggio delle TRAME reindirizzandoli verso altri Switch o aspettando che la situazione diventi più tranquilla.</br></br>
+                        <b>Pirati Informatici</b></br>
+                        Pericolosi criminali. Rubano ed entrano in possesso di TRAME o ne acquistano al mercato nero. Attaccano le navi Datagram e più raramente le navi da viaggio. Cercando di rubare la maggior parte dei dati possibili.</br></br>
+                        Capitani: Uomini dal carattere forte e spesso impavido, alcuni di essi sono malvagi fino al midollo e non esitano ad uccidere loro compagni e nemici. Altri hanno un codice morale più ferreo e cercano di vivere in completa libertà.</br>
+                        Vi sono 4 grandi pirati:</br>
+                        Barbadata: Pirata spietato, attacca le navi per il semplice gusto di uccidere, molto forte in combattimento, chi lo ha sfidato non è mai tornato indietro per raccontarlo. Il suo covo è sconosciuto</br>
+                        Yonte Boder: Pirata dotato di grande intuizione e abile nel combattimento. Nemico giurato di Lucien Lookflowers, si sono sfidati più volte in battaglia perdendo e vincendo in egual modo. Vuole conquistare il mondo per riscriverlo secondo un suo Protocollo personale. Il suo covo è sconosciuto</br>
+                        Sephora Lemùs: Piratessa molto sveglia, dotata di un incredibile Fascino. Molti uomini sono caduti in battaglia per il suo amore, altri sono caduti per mano sua. Ama essere libera di fare ciò che le piace. Odia i Maschilisti e le Femministe, molto crudele nei confronti del suo stesso sesso. Vive nella zona Rossa.</br>
+                        Sghembo: Misterioso pirata, nessuno sa il suo vero nome. È in affari con il protocollo TCP e possiede un immensa fortuna. Vive nella zona Bianca ma spesso è in viaggio</br>
+                        Navigatori: Come i navigatori Datagram con la differenza che questi entrano in possesso degli indirizzi IP illegalmente</br>
+                        Hacker: Esperti nel manipolare e trafugare dati. Si occupano principalmente del furto durante gli assalti</br>
+                        Assasini: Esperti manipolatori di dati per creare armi capaci di ferire nei peggior modo possibile i nemici. Sono tra i pirati più crudeli e stupidi e sono in prima linea durante gli assalti.</br></br>
+                        <b>Albergatori</b></br>
+                        Gestiscono le varie Cache all’interno del mondo OSI, esistono 5 grandi alberghi</br></br>
+                        Alberghi Maximum: Di proprietà di Donald Maximum, possiede solo alberghi di lusso in cui alloggiano ricchi e le cariche massime del Protocollo TCP. Spesso Donald riesce a mettere naso negli affari del Protocollo TCP. Ogni Albergo può memorizzare dati per 30 giorni. Costi alti</br>
+                        Alberghi Dratini: Di proprietà di Silvio Dratini, alberghi specializzati nell’ospitare i  DATAGRAMMER. I capitani delle navi più famoso sono solite andare nei suoi alberghi. I capitani più in gamba hanno il piacere di trattare affari personali con Silvio e spesso cenano con lui. Ogni albergo può memorizzare i dati per 20 giorni. Costo medio-alti</br>
+                        Ristorazioni Gulen: Pier Gulen è un uomo semplice, con una gran passione per le donne che lo ha portato ad avere circa 50 eredi. Ognuno di loro gestisce un Ristorante che funge anche da alloggio come le vecchie taverne. Accettano persone di ogni genere ad eccezione dei criminali. I figli di Gulen amano ubriacarsi con i propri ospiti la sera. Possono memorizzare dati per 10 giorni. Costi medi (alti se si esagera con il bere).</br>
+                        Centri Sociali: Sono gestisti dal Pirata di nome Sghembo. Appassionato di arte e di Rhum. Uomo dotato di gran intelligenza e una buona parlantina, Hacker di alto livello. Entrato in possesso di segreti sulle alte sfere TCP è riuscito ad ottenere permessi speciali. Nei suoi centri si trovano pirati della peggior specie ma anche Datagrammer a corto di soldi. Può memorizzare dati per 5 giorni (7 per i pirati). Costi bassi.</br>
+                    </p>
 
                     <h2>Regolamento</h2>
-                    <p>{{dati.universe.info.Regolamento}}</p>
-
+                    <p ng-hide="nascondi(dati.universe.$id)">{{dati.universe.info.Regolamento}}</p>
+                    <p ng-show="nascondi(dati.universe.$id)" style="line-height: 26px">Si possono ambientare le storie in qualsiasi situazione e in qualsiasi tempo.</br>
+                        I protagonisti possono essere qualsiasi personaggio creato da voi. Un Datagrammer, Un pirata, Un agente TCP, un albergatore o un cittadino qualunque.</br>
+                        Si possono narrare gesta eroiche di un personaggio o raccontare una tipica giornata di vita all’interno del mondo OSI.
+                        Se avete conoscenze sul sistema OSI potete arricchire con vari dettagli.</br>
+                        Potete creare una narrazione su più capitoli per un viaggio lungo o con uno solo se volete narrare solo un avvenimento.</br>
+                        Potete interagire con i personaggi  citati ma non scrivere storie su di loro.</br>
+                    </p>
 
                 </div>
                 </ul>

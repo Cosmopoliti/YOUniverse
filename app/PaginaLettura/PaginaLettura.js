@@ -74,7 +74,6 @@ angular.module("myApp.Lettura", ['ngRoute'])
         $scope.utente=UsersChatService.getUserInfo($rootScope.utenteFisso);
         $scope.utente.$loaded().then(function() {
             $rootScope.scrittore = $scope.utente.name;
-            console.log($rootScope.scrittore);
         });
 
         //postaCommento
